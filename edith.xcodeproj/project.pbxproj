@@ -14,6 +14,16 @@
 		EEA1FA2B2A42AB320041270B /* edithTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA2A2A42AB320041270B /* edithTests.swift */; };
 		EEA1FA352A42AB320041270B /* edithUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA342A42AB320041270B /* edithUITests.swift */; };
 		EEA1FA372A42AB320041270B /* edithUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA362A42AB320041270B /* edithUITestsLaunchTests.swift */; };
+		EEA1FA482A43DC1D0041270B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA472A43DC1D0041270B /* Color.swift */; };
+		EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */; };
+		EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA522A43E6F90041270B /* StageButton.swift */; };
+		EEA1FA552A43EDCB0041270B /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA542A43EDCB0041270B /* Star.swift */; };
+		EEA1FA572A43F4160041270B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA562A43F4160041270B /* Font.swift */; };
+		EEA1FA832A43F5CB0041270B /* Baloo2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA7E2A43F5CB0041270B /* Baloo2-SemiBold.ttf */; };
+		EEA1FA842A43F5CB0041270B /* Baloo2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA7F2A43F5CB0041270B /* Baloo2-Medium.ttf */; };
+		EEA1FA852A43F5CB0041270B /* Baloo2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA802A43F5CB0041270B /* Baloo2-ExtraBold.ttf */; };
+		EEA1FA862A43F5CB0041270B /* Baloo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */; };
+		EEA1FA872A43F5CB0041270B /* Baloo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +54,17 @@
 		EEA1FA302A42AB320041270B /* edithUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = edithUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA1FA342A42AB320041270B /* edithUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithUITests.swift; sourceTree = "<group>"; };
 		EEA1FA362A42AB320041270B /* edithUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EEA1FA472A43DC1D0041270B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDButton.swift; sourceTree = "<group>"; };
+		EEA1FA522A43E6F90041270B /* StageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageButton.swift; sourceTree = "<group>"; };
+		EEA1FA542A43EDCB0041270B /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		EEA1FA562A43F4160041270B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		EEA1FA7E2A43F5CB0041270B /* Baloo2-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-SemiBold.ttf"; sourceTree = "<group>"; };
+		EEA1FA7F2A43F5CB0041270B /* Baloo2-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Medium.ttf"; sourceTree = "<group>"; };
+		EEA1FA802A43F5CB0041270B /* Baloo2-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-ExtraBold.ttf"; sourceTree = "<group>"; };
+		EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Regular.ttf"; sourceTree = "<group>"; };
+		EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Bold.ttf"; sourceTree = "<group>"; };
+		EEA1FA882A43F65F0041270B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +115,13 @@
 		EEA1FA182A42AB300041270B /* edith */ = {
 			isa = PBXGroup;
 			children = (
+				EEA1FA882A43F65F0041270B /* Info.plist */,
+				EEA1FA732A43F58F0041270B /* Fonts */,
+				EEA1FA4B2A43DE0F0041270B /* Component */,
+				EEA1FA462A42AB6C0041270B /* View */,
+				EEA1FA452A42AB640041270B /* Model */,
+				EEA1FA442A42AB590041270B /* ViewModel */,
+				EEA1FA432A42AB500041270B /* Utils */,
 				EEA1FA192A42AB300041270B /* edithApp.swift */,
 				EEA1FA1B2A42AB300041270B /* ContentView.swift */,
 				EEA1FA1D2A42AB320041270B /* Assets.xcassets */,
@@ -125,6 +153,58 @@
 				EEA1FA362A42AB320041270B /* edithUITestsLaunchTests.swift */,
 			);
 			path = edithUITests;
+			sourceTree = "<group>";
+		};
+		EEA1FA432A42AB500041270B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA472A43DC1D0041270B /* Color.swift */,
+				EEA1FA562A43F4160041270B /* Font.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EEA1FA442A42AB590041270B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EEA1FA452A42AB640041270B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EEA1FA462A42AB6C0041270B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEA1FA4B2A43DE0F0041270B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */,
+				EEA1FA522A43E6F90041270B /* StageButton.swift */,
+				EEA1FA542A43EDCB0041270B /* Star.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		EEA1FA732A43F58F0041270B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */,
+				EEA1FA802A43F5CB0041270B /* Baloo2-ExtraBold.ttf */,
+				EEA1FA7F2A43F5CB0041270B /* Baloo2-Medium.ttf */,
+				EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */,
+				EEA1FA7E2A43F5CB0041270B /* Baloo2-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +311,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEA1FA862A43F5CB0041270B /* Baloo2-Regular.ttf in Resources */,
 				EEA1FA212A42AB320041270B /* Preview Assets.xcassets in Resources */,
+				EEA1FA832A43F5CB0041270B /* Baloo2-SemiBold.ttf in Resources */,
+				EEA1FA872A43F5CB0041270B /* Baloo2-Bold.ttf in Resources */,
+				EEA1FA842A43F5CB0041270B /* Baloo2-Medium.ttf in Resources */,
 				EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */,
+				EEA1FA852A43F5CB0041270B /* Baloo2-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
+				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
+				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
 				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
+				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
+				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
+				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +510,8 @@
 				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = edith/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +541,8 @@
 				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = edith/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
