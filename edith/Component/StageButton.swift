@@ -12,7 +12,7 @@ struct StageButton: ButtonStyle {
     var shadowColor:Color
     func makeBody(configuration: Configuration) -> some View {
         ZStack{
-            let offset=CGFloat(5)
+            let offset=CGFloat(8)
             
             //shadowColor
             Circle()
@@ -20,7 +20,7 @@ struct StageButton: ButtonStyle {
             
             //foregroundColor
             Circle()
-                .strokeBorder(Color.white,lineWidth: 4)
+                .strokeBorder(Color.white,lineWidth: 10)
                 .background(Circle().foregroundColor(foregroundColor)).offset(y : configuration.isPressed ? offset : 0)
             
             configuration.label.offset(y : configuration.isPressed ? offset : 0)

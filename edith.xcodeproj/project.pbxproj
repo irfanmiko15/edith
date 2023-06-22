@@ -24,6 +24,9 @@
 		EEA1FA852A43F5CB0041270B /* Baloo2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA802A43F5CB0041270B /* Baloo2-ExtraBold.ttf */; };
 		EEA1FA862A43F5CB0041270B /* Baloo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */; };
 		EEA1FA872A43F5CB0041270B /* Baloo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */; };
+		EEA1FA8A2A440A7C0041270B /* Map1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA892A440A7C0041270B /* Map1View.swift */; };
+		EEA1FA8C2A440B460041270B /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA8B2A440B460041270B /* CloudView.swift */; };
+		EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE690DD2A44816500B7394C /* RoadmapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Regular.ttf"; sourceTree = "<group>"; };
 		EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Bold.ttf"; sourceTree = "<group>"; };
 		EEA1FA882A43F65F0041270B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EEA1FA892A440A7C0041270B /* Map1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map1View.swift; sourceTree = "<group>"; };
+		EEA1FA8B2A440B460041270B /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
+		EEE690DD2A44816500B7394C /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +187,7 @@
 		EEA1FA462A42AB6C0041270B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EEA1FA8E2A444C940041270B /* CityMap */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +198,8 @@
 				EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */,
 				EEA1FA522A43E6F90041270B /* StageButton.swift */,
 				EEA1FA542A43EDCB0041270B /* Star.swift */,
+				EEA1FA8B2A440B460041270B /* CloudView.swift */,
+				EEE690DD2A44816500B7394C /* RoadmapView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -205,6 +214,14 @@
 				EEA1FA7E2A43F5CB0041270B /* Baloo2-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EEA1FA8E2A444C940041270B /* CityMap */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA892A440A7C0041270B /* Map1View.swift */,
+			);
+			path = CityMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,8 +362,11 @@
 				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
 				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
 				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
+				EEA1FA8C2A440B460041270B /* CloudView.swift in Sources */,
+				EEA1FA8A2A440A7C0041270B /* Map1View.swift in Sources */,
 				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
 				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
+				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
 				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
 			);
@@ -515,8 +535,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,8 +565,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

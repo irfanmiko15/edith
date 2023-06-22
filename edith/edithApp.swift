@@ -11,7 +11,7 @@ import SwiftUI
 struct edithApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Map1View()
         }
     }
 }
