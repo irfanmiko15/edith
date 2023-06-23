@@ -54,7 +54,7 @@ extension Color{
     static var greenHill50: Color  {
         return Color("GreenHill50")
     }
-
+    
     static var greenHill60: Color  {
         return Color("GreenHill60")
     }
@@ -69,6 +69,12 @@ extension Color{
     
     static var neutral80:Color{
         return Color("Neutral80")
+    }
+    static var neutral50:Color{
+        return Color("Neutral50")
+    }
+    static var neutral40:Color{
+        return Color("Neutral40")
     }
 
     
