@@ -11,7 +11,7 @@ import SwiftUI
 struct edithApp: App {
     var body: some Scene {
         WindowGroup {
-            Map1View()
+            ChooseAvatarView()
         }
     }
 }

@@ -26,6 +26,10 @@
 		EEA1FA872A43F5CB0041270B /* Baloo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */; };
 		EEA1FA8A2A440A7C0041270B /* Map1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA892A440A7C0041270B /* Map1View.swift */; };
 		EEA1FA8C2A440B460041270B /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA8B2A440B460041270B /* CloudView.swift */; };
+		EECF3CF32A49366D00470917 /* CircleAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF22A49366D00470917 /* CircleAvatar.swift */; };
+		EECF3CF52A4936D600470917 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF42A4936D600470917 /* Checklist.swift */; };
+		EECF3CF72A49370200470917 /* ChildAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF62A49370200470917 /* ChildAvatarModel.swift */; };
+		EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF82A49394100470917 /* ChooseAvatarView.swift */; };
 		EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE690DD2A44816500B7394C /* RoadmapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +74,10 @@
 		EEA1FA882A43F65F0041270B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		EEA1FA892A440A7C0041270B /* Map1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map1View.swift; sourceTree = "<group>"; };
 		EEA1FA8B2A440B460041270B /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
+		EECF3CF22A49366D00470917 /* CircleAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAvatar.swift; sourceTree = "<group>"; };
+		EECF3CF42A4936D600470917 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		EECF3CF62A49370200470917 /* ChildAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChildAvatarModel.swift; path = edith/Component/ChildAvatarModel.swift; sourceTree = SOURCE_ROOT; };
+		EECF3CF82A49394100470917 /* ChooseAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarView.swift; sourceTree = "<group>"; };
 		EEE690DD2A44816500B7394C /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +188,7 @@
 		EEA1FA452A42AB640041270B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EECF3CF62A49370200470917 /* ChildAvatarModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				EEA1FA8E2A444C940041270B /* CityMap */,
+				EECF3CF82A49394100470917 /* ChooseAvatarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,6 +210,8 @@
 				EEA1FA542A43EDCB0041270B /* Star.swift */,
 				EEA1FA8B2A440B460041270B /* CloudView.swift */,
 				EEE690DD2A44816500B7394C /* RoadmapView.swift */,
+				EECF3CF22A49366D00470917 /* CircleAvatar.swift */,
+				EECF3CF42A4936D600470917 /* Checklist.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -362,12 +374,16 @@
 				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
 				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
 				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
+				EECF3CF32A49366D00470917 /* CircleAvatar.swift in Sources */,
 				EEA1FA8C2A440B460041270B /* CloudView.swift in Sources */,
 				EEA1FA8A2A440A7C0041270B /* Map1View.swift in Sources */,
 				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
 				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
+				EECF3CF52A4936D600470917 /* Checklist.swift in Sources */,
 				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
+				EECF3CF72A49370200470917 /* ChildAvatarModel.swift in Sources */,
+				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
 				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

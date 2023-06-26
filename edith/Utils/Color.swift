@@ -30,6 +30,9 @@ extension Color{
     static var orangeFox70: Color  {
         return Color("OrangeFox70")
     }
+    static var orangeFox50: Color  {
+        return Color("OrangeFox50")
+    }
     
     static var blueTang70: Color  {
         return Color("BlueTang70")
