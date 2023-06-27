@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897402A4A8661005B1A36 /* WorldMapView.swift */; };
+		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
+		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
+		27355B592A4BD964006C495A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27355B582A4BD964006C495A /* ContainerView.swift */; };
 		EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA192A42AB300041270B /* edithApp.swift */; };
 		EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA1B2A42AB300041270B /* ContentView.swift */; };
 		EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA1D2A42AB320041270B /* Assets.xcassets */; };
@@ -30,6 +34,8 @@
 		EECF3CF52A4936D600470917 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF42A4936D600470917 /* Checklist.swift */; };
 		EECF3CF72A49370200470917 /* ChildAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF62A49370200470917 /* ChildAvatarModel.swift */; };
 		EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF82A49394100470917 /* ChooseAvatarView.swift */; };
+		EECF3CFD2A4A7B6C00470917 /* ParentAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CFC2A4A7B6C00470917 /* ParentAvatarModel.swift */; };
+		EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CFE2A4A805000470917 /* BackButton.swift */; };
 		EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE690DD2A44816500B7394C /* RoadmapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		272897402A4A8661005B1A36 /* WorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
+		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
+		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
+		27355B582A4BD964006C495A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		EEA1FA162A42AB300041270B /* edith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = edith.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA1FA192A42AB300041270B /* edithApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithApp.swift; sourceTree = "<group>"; };
 		EEA1FA1B2A42AB300041270B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +88,8 @@
 		EECF3CF42A4936D600470917 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		EECF3CF62A49370200470917 /* ChildAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChildAvatarModel.swift; path = edith/Component/ChildAvatarModel.swift; sourceTree = SOURCE_ROOT; };
 		EECF3CF82A49394100470917 /* ChooseAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarView.swift; sourceTree = "<group>"; };
+		EECF3CFC2A4A7B6C00470917 /* ParentAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParentAvatarModel.swift; path = edith/View/ParentAvatarModel.swift; sourceTree = SOURCE_ROOT; };
+		EECF3CFE2A4A805000470917 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		EEE690DD2A44816500B7394C /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2728973F2A4A8656005B1A36 /* WorldMap */ = {
+			isa = PBXGroup;
+			children = (
+				272897402A4A8661005B1A36 /* WorldMapView.swift */,
+			);
+			path = WorldMap;
+			sourceTree = "<group>";
+		};
 		EEA1FA0D2A42AB300041270B = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				EECF3CF62A49370200470917 /* ChildAvatarModel.swift */,
+				EECF3CFC2A4A7B6C00470917 /* ParentAvatarModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +217,7 @@
 		EEA1FA462A42AB6C0041270B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2728973F2A4A8656005B1A36 /* WorldMap */,
 				EEA1FA8E2A444C940041270B /* CityMap */,
 				EECF3CF82A49394100470917 /* ChooseAvatarView.swift */,
 			);
@@ -212,6 +234,10 @@
 				EEE690DD2A44816500B7394C /* RoadmapView.swift */,
 				EECF3CF22A49366D00470917 /* CircleAvatar.swift */,
 				EECF3CF42A4936D600470917 /* Checklist.swift */,
+				EECF3CFE2A4A805000470917 /* BackButton.swift */,
+				272897422A4A9201005B1A36 /* MapButton.swift */,
+				272897442A4A944C005B1A36 /* MapStageButton.swift */,
+				27355B582A4BD964006C495A /* ContainerView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -371,17 +397,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27355B592A4BD964006C495A /* ContainerView.swift in Sources */,
 				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
 				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
 				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
 				EECF3CF32A49366D00470917 /* CircleAvatar.swift in Sources */,
+				272897432A4A9201005B1A36 /* MapButton.swift in Sources */,
+				272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */,
 				EEA1FA8C2A440B460041270B /* CloudView.swift in Sources */,
 				EEA1FA8A2A440A7C0041270B /* Map1View.swift in Sources */,
 				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
+				272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */,
 				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
+				EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */,
 				EECF3CF52A4936D600470917 /* Checklist.swift in Sources */,
 				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
+				EECF3CFD2A4A7B6C00470917 /* ParentAvatarModel.swift in Sources */,
 				EECF3CF72A49370200470917 /* ChildAvatarModel.swift in Sources */,
 				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
 				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
