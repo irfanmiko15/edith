@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 struct ParentAvatarModel:Hashable{
     let id=UUID()
+    let name:String
     let image:String
     var isSelected:Bool
 }
