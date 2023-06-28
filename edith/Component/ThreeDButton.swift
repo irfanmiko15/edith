@@ -24,6 +24,22 @@ struct ThreeD: ButtonStyle {
         }.compositingGroup()
     }
 }
+struct ThreeDDisabled: ButtonStyle {
+
+    func makeBody(configuration: Configuration) -> some View {
+        ZStack{
+            let offset=CGFloat(7)
+            
+            //shadowColor
+            RoundedRectangle(cornerRadius: 20).foregroundColor(Color.neutral50).offset(y : offset)
+            
+            //foregroundColor
+            RoundedRectangle(cornerRadius: 20).foregroundColor(Color.neutral40).offset(y :  0)
+            
+            configuration.label.offset(y  : 0)
+        }.compositingGroup()
+    }
+}
 
 struct ThreeDButton_Previews: PreviewProvider {
     static var previews: some View {
@@ -34,8 +50,6 @@ struct ThreeDButton_Previews: PreviewProvider {
         }
         .foregroundColor(Color.white)
         .frame(width:100,height: 50)
-        .buttonStyle(ThreeD(
-            foregroundColor: Color.greenHill40, shadowColor: Color.greenHill30
-        ))
+        .buttonStyle(ThreeDDisabled())
     }
 }
