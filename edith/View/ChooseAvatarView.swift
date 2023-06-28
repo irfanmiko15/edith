@@ -25,8 +25,8 @@ struct ChooseAvatarView: View {
         ChildAvatarModel(fullImage: "girl2", cropImage: "girlCrop2", isSelected: false)
     ]
     @State var avatarParentList:[ParentAvatarModel]=[
-        ParentAvatarModel(image: "mom", isSelected: true),
-        ParentAvatarModel(image: "dad", isSelected: false)
+        ParentAvatarModel(name:"mom",image: "mom", isSelected: true),
+        ParentAvatarModel(name:"dad",image: "dad", isSelected: false)
     ]
     
     func updateAvatarState(idx:Int){
