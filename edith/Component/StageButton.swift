@@ -27,6 +27,25 @@ struct StageButton: ButtonStyle {
         }.compositingGroup()
     }
 }
+struct StageButtonDisable: ButtonStyle {
+
+    func makeBody(configuration: Configuration) -> some View {
+        ZStack{
+            let offset=CGFloat(8)
+            
+            //shadowColor
+            Circle()
+                .fill(Color.neutral50).offset(y : offset)
+            
+            //foregroundColor
+            Circle()
+                .strokeBorder(Color.white,lineWidth: 10)
+                .background(Circle().foregroundColor(Color.neutral40)).offset(y : 0)
+            
+            configuration.label.offset(y : 0)
+        }.compositingGroup()
+    }
+}
 
 struct StageButton_Previews: PreviewProvider {
     static var previews: some View {
@@ -37,8 +56,6 @@ struct StageButton_Previews: PreviewProvider {
         }
         .foregroundColor(.white)
         .frame(width: 50,height: 50)
-        .buttonStyle(StageButton(
-            foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40
-        ))
+        .buttonStyle(StageButtonDisable())
     }
 }
