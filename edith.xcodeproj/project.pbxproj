@@ -1,0 +1,748 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897402A4A8661005B1A36 /* WorldMapView.swift */; };
+		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
+		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
+		27355B592A4BD964006C495A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27355B582A4BD964006C495A /* ContainerView.swift */; };
+		EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA192A42AB300041270B /* edithApp.swift */; };
+		EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA1B2A42AB300041270B /* ContentView.swift */; };
+		EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA1D2A42AB320041270B /* Assets.xcassets */; };
+		EEA1FA212A42AB320041270B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA202A42AB320041270B /* Preview Assets.xcassets */; };
+		EEA1FA2B2A42AB320041270B /* edithTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA2A2A42AB320041270B /* edithTests.swift */; };
+		EEA1FA352A42AB320041270B /* edithUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA342A42AB320041270B /* edithUITests.swift */; };
+		EEA1FA372A42AB320041270B /* edithUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA362A42AB320041270B /* edithUITestsLaunchTests.swift */; };
+		EEA1FA482A43DC1D0041270B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA472A43DC1D0041270B /* Color.swift */; };
+		EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */; };
+		EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA522A43E6F90041270B /* StageButton.swift */; };
+		EEA1FA552A43EDCB0041270B /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA542A43EDCB0041270B /* Star.swift */; };
+		EEA1FA572A43F4160041270B /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA562A43F4160041270B /* Font.swift */; };
+		EEA1FA832A43F5CB0041270B /* Baloo2-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA7E2A43F5CB0041270B /* Baloo2-SemiBold.ttf */; };
+		EEA1FA842A43F5CB0041270B /* Baloo2-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA7F2A43F5CB0041270B /* Baloo2-Medium.ttf */; };
+		EEA1FA852A43F5CB0041270B /* Baloo2-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA802A43F5CB0041270B /* Baloo2-ExtraBold.ttf */; };
+		EEA1FA862A43F5CB0041270B /* Baloo2-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */; };
+		EEA1FA872A43F5CB0041270B /* Baloo2-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */; };
+		EEA1FA8A2A440A7C0041270B /* Map1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA892A440A7C0041270B /* Map1View.swift */; };
+		EEA1FA8C2A440B460041270B /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA8B2A440B460041270B /* CloudView.swift */; };
+		EECF3CF32A49366D00470917 /* CircleAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF22A49366D00470917 /* CircleAvatar.swift */; };
+		EECF3CF52A4936D600470917 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF42A4936D600470917 /* Checklist.swift */; };
+		EECF3CF72A49370200470917 /* ChildAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF62A49370200470917 /* ChildAvatarModel.swift */; };
+		EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF82A49394100470917 /* ChooseAvatarView.swift */; };
+		EECF3CFD2A4A7B6C00470917 /* ParentAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CFC2A4A7B6C00470917 /* ParentAvatarModel.swift */; };
+		EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CFE2A4A805000470917 /* BackButton.swift */; };
+		EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE690DD2A44816500B7394C /* RoadmapView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEA1FA272A42AB320041270B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEA1FA0E2A42AB300041270B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEA1FA152A42AB300041270B;
+			remoteInfo = edith;
+		};
+		EEA1FA312A42AB320041270B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEA1FA0E2A42AB300041270B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEA1FA152A42AB300041270B;
+			remoteInfo = edith;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		272897402A4A8661005B1A36 /* WorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
+		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
+		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
+		27355B582A4BD964006C495A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		EEA1FA162A42AB300041270B /* edith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = edith.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA1FA192A42AB300041270B /* edithApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithApp.swift; sourceTree = "<group>"; };
+		EEA1FA1B2A42AB300041270B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EEA1FA1D2A42AB320041270B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEA1FA202A42AB320041270B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EEA1FA262A42AB320041270B /* edithTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = edithTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA1FA2A2A42AB320041270B /* edithTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithTests.swift; sourceTree = "<group>"; };
+		EEA1FA302A42AB320041270B /* edithUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = edithUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEA1FA342A42AB320041270B /* edithUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithUITests.swift; sourceTree = "<group>"; };
+		EEA1FA362A42AB320041270B /* edithUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EEA1FA472A43DC1D0041270B /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDButton.swift; sourceTree = "<group>"; };
+		EEA1FA522A43E6F90041270B /* StageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageButton.swift; sourceTree = "<group>"; };
+		EEA1FA542A43EDCB0041270B /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		EEA1FA562A43F4160041270B /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		EEA1FA7E2A43F5CB0041270B /* Baloo2-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-SemiBold.ttf"; sourceTree = "<group>"; };
+		EEA1FA7F2A43F5CB0041270B /* Baloo2-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Medium.ttf"; sourceTree = "<group>"; };
+		EEA1FA802A43F5CB0041270B /* Baloo2-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-ExtraBold.ttf"; sourceTree = "<group>"; };
+		EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Regular.ttf"; sourceTree = "<group>"; };
+		EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baloo2-Bold.ttf"; sourceTree = "<group>"; };
+		EEA1FA882A43F65F0041270B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EEA1FA892A440A7C0041270B /* Map1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map1View.swift; sourceTree = "<group>"; };
+		EEA1FA8B2A440B460041270B /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
+		EECF3CF22A49366D00470917 /* CircleAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAvatar.swift; sourceTree = "<group>"; };
+		EECF3CF42A4936D600470917 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		EECF3CF62A49370200470917 /* ChildAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChildAvatarModel.swift; path = edith/Component/ChildAvatarModel.swift; sourceTree = SOURCE_ROOT; };
+		EECF3CF82A49394100470917 /* ChooseAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarView.swift; sourceTree = "<group>"; };
+		EECF3CFC2A4A7B6C00470917 /* ParentAvatarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ParentAvatarModel.swift; path = edith/View/ParentAvatarModel.swift; sourceTree = SOURCE_ROOT; };
+		EECF3CFE2A4A805000470917 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		EEE690DD2A44816500B7394C /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEA1FA132A42AB300041270B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA1FA232A42AB320041270B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA1FA2D2A42AB320041270B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2728973F2A4A8656005B1A36 /* WorldMap */ = {
+			isa = PBXGroup;
+			children = (
+				272897402A4A8661005B1A36 /* WorldMapView.swift */,
+			);
+			path = WorldMap;
+			sourceTree = "<group>";
+		};
+		EEA1FA0D2A42AB300041270B = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA182A42AB300041270B /* edith */,
+				EEA1FA292A42AB320041270B /* edithTests */,
+				EEA1FA332A42AB320041270B /* edithUITests */,
+				EEA1FA172A42AB300041270B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EEA1FA172A42AB300041270B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA162A42AB300041270B /* edith.app */,
+				EEA1FA262A42AB320041270B /* edithTests.xctest */,
+				EEA1FA302A42AB320041270B /* edithUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEA1FA182A42AB300041270B /* edith */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA882A43F65F0041270B /* Info.plist */,
+				EEA1FA732A43F58F0041270B /* Fonts */,
+				EEA1FA4B2A43DE0F0041270B /* Component */,
+				EEA1FA462A42AB6C0041270B /* View */,
+				EEA1FA452A42AB640041270B /* Model */,
+				EEA1FA442A42AB590041270B /* ViewModel */,
+				EEA1FA432A42AB500041270B /* Utils */,
+				EEA1FA192A42AB300041270B /* edithApp.swift */,
+				EEA1FA1B2A42AB300041270B /* ContentView.swift */,
+				EEA1FA1D2A42AB320041270B /* Assets.xcassets */,
+				EEA1FA1F2A42AB320041270B /* Preview Content */,
+			);
+			path = edith;
+			sourceTree = "<group>";
+		};
+		EEA1FA1F2A42AB320041270B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA202A42AB320041270B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EEA1FA292A42AB320041270B /* edithTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA2A2A42AB320041270B /* edithTests.swift */,
+			);
+			path = edithTests;
+			sourceTree = "<group>";
+		};
+		EEA1FA332A42AB320041270B /* edithUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA342A42AB320041270B /* edithUITests.swift */,
+				EEA1FA362A42AB320041270B /* edithUITestsLaunchTests.swift */,
+			);
+			path = edithUITests;
+			sourceTree = "<group>";
+		};
+		EEA1FA432A42AB500041270B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA472A43DC1D0041270B /* Color.swift */,
+				EEA1FA562A43F4160041270B /* Font.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EEA1FA442A42AB590041270B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EEA1FA452A42AB640041270B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EECF3CF62A49370200470917 /* ChildAvatarModel.swift */,
+				EECF3CFC2A4A7B6C00470917 /* ParentAvatarModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EEA1FA462A42AB6C0041270B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2728973F2A4A8656005B1A36 /* WorldMap */,
+				EEA1FA8E2A444C940041270B /* CityMap */,
+				EECF3CF82A49394100470917 /* ChooseAvatarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEA1FA4B2A43DE0F0041270B /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */,
+				EEA1FA522A43E6F90041270B /* StageButton.swift */,
+				EEA1FA542A43EDCB0041270B /* Star.swift */,
+				EEA1FA8B2A440B460041270B /* CloudView.swift */,
+				EEE690DD2A44816500B7394C /* RoadmapView.swift */,
+				EECF3CF22A49366D00470917 /* CircleAvatar.swift */,
+				EECF3CF42A4936D600470917 /* Checklist.swift */,
+				EECF3CFE2A4A805000470917 /* BackButton.swift */,
+				272897422A4A9201005B1A36 /* MapButton.swift */,
+				272897442A4A944C005B1A36 /* MapStageButton.swift */,
+				27355B582A4BD964006C495A /* ContainerView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		EEA1FA732A43F58F0041270B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA822A43F5CB0041270B /* Baloo2-Bold.ttf */,
+				EEA1FA802A43F5CB0041270B /* Baloo2-ExtraBold.ttf */,
+				EEA1FA7F2A43F5CB0041270B /* Baloo2-Medium.ttf */,
+				EEA1FA812A43F5CB0041270B /* Baloo2-Regular.ttf */,
+				EEA1FA7E2A43F5CB0041270B /* Baloo2-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EEA1FA8E2A444C940041270B /* CityMap */ = {
+			isa = PBXGroup;
+			children = (
+				EEA1FA892A440A7C0041270B /* Map1View.swift */,
+			);
+			path = CityMap;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEA1FA152A42AB300041270B /* edith */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEA1FA3A2A42AB320041270B /* Build configuration list for PBXNativeTarget "edith" */;
+			buildPhases = (
+				EEA1FA122A42AB300041270B /* Sources */,
+				EEA1FA132A42AB300041270B /* Frameworks */,
+				EEA1FA142A42AB300041270B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = edith;
+			productName = edith;
+			productReference = EEA1FA162A42AB300041270B /* edith.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EEA1FA252A42AB320041270B /* edithTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEA1FA3D2A42AB320041270B /* Build configuration list for PBXNativeTarget "edithTests" */;
+			buildPhases = (
+				EEA1FA222A42AB320041270B /* Sources */,
+				EEA1FA232A42AB320041270B /* Frameworks */,
+				EEA1FA242A42AB320041270B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEA1FA282A42AB320041270B /* PBXTargetDependency */,
+			);
+			name = edithTests;
+			productName = edithTests;
+			productReference = EEA1FA262A42AB320041270B /* edithTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EEA1FA2F2A42AB320041270B /* edithUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEA1FA402A42AB320041270B /* Build configuration list for PBXNativeTarget "edithUITests" */;
+			buildPhases = (
+				EEA1FA2C2A42AB320041270B /* Sources */,
+				EEA1FA2D2A42AB320041270B /* Frameworks */,
+				EEA1FA2E2A42AB320041270B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEA1FA322A42AB320041270B /* PBXTargetDependency */,
+			);
+			name = edithUITests;
+			productName = edithUITests;
+			productReference = EEA1FA302A42AB320041270B /* edithUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEA1FA0E2A42AB300041270B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					EEA1FA152A42AB300041270B = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					EEA1FA252A42AB320041270B = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = EEA1FA152A42AB300041270B;
+					};
+					EEA1FA2F2A42AB320041270B = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = EEA1FA152A42AB300041270B;
+					};
+				};
+			};
+			buildConfigurationList = EEA1FA112A42AB300041270B /* Build configuration list for PBXProject "edith" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEA1FA0D2A42AB300041270B;
+			productRefGroup = EEA1FA172A42AB300041270B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEA1FA152A42AB300041270B /* edith */,
+				EEA1FA252A42AB320041270B /* edithTests */,
+				EEA1FA2F2A42AB320041270B /* edithUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEA1FA142A42AB300041270B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA1FA862A43F5CB0041270B /* Baloo2-Regular.ttf in Resources */,
+				EEA1FA212A42AB320041270B /* Preview Assets.xcassets in Resources */,
+				EEA1FA832A43F5CB0041270B /* Baloo2-SemiBold.ttf in Resources */,
+				EEA1FA872A43F5CB0041270B /* Baloo2-Bold.ttf in Resources */,
+				EEA1FA842A43F5CB0041270B /* Baloo2-Medium.ttf in Resources */,
+				EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */,
+				EEA1FA852A43F5CB0041270B /* Baloo2-ExtraBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA1FA242A42AB320041270B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA1FA2E2A42AB320041270B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEA1FA122A42AB300041270B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27355B592A4BD964006C495A /* ContainerView.swift in Sources */,
+				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
+				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
+				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
+				EECF3CF32A49366D00470917 /* CircleAvatar.swift in Sources */,
+				272897432A4A9201005B1A36 /* MapButton.swift in Sources */,
+				272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */,
+				EEA1FA8C2A440B460041270B /* CloudView.swift in Sources */,
+				EEA1FA8A2A440A7C0041270B /* Map1View.swift in Sources */,
+				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
+				272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */,
+				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
+				EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */,
+				EECF3CF52A4936D600470917 /* Checklist.swift in Sources */,
+				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
+				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
+				EECF3CFD2A4A7B6C00470917 /* ParentAvatarModel.swift in Sources */,
+				EECF3CF72A49370200470917 /* ChildAvatarModel.swift in Sources */,
+				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
+				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA1FA222A42AB320041270B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA1FA2B2A42AB320041270B /* edithTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEA1FA2C2A42AB320041270B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEA1FA352A42AB320041270B /* edithUITests.swift in Sources */,
+				EEA1FA372A42AB320041270B /* edithUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEA1FA282A42AB320041270B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEA1FA152A42AB300041270B /* edith */;
+			targetProxy = EEA1FA272A42AB320041270B /* PBXContainerItemProxy */;
+		};
+		EEA1FA322A42AB320041270B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEA1FA152A42AB300041270B /* edith */;
+			targetProxy = EEA1FA312A42AB320041270B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		EEA1FA382A42AB320041270B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EEA1FA392A42AB320041270B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEA1FA3B2A42AB320041270B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"edith/Preview Content\"";
+				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = edith/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edith;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEA1FA3C2A42AB320041270B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"edith/Preview Content\"";
+				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = edith/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edith;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EEA1FA3E2A42AB320041270B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edithTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/edith.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/edith";
+			};
+			name = Debug;
+		};
+		EEA1FA3F2A42AB320041270B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edithTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/edith.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/edith";
+			};
+			name = Release;
+		};
+		EEA1FA412A42AB320041270B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edithUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = edith;
+			};
+			name = Debug;
+		};
+		EEA1FA422A42AB320041270B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edithUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = edith;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEA1FA112A42AB300041270B /* Build configuration list for PBXProject "edith" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA1FA382A42AB320041270B /* Debug */,
+				EEA1FA392A42AB320041270B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEA1FA3A2A42AB320041270B /* Build configuration list for PBXNativeTarget "edith" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA1FA3B2A42AB320041270B /* Debug */,
+				EEA1FA3C2A42AB320041270B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEA1FA3D2A42AB320041270B /* Build configuration list for PBXNativeTarget "edithTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA1FA3E2A42AB320041270B /* Debug */,
+				EEA1FA3F2A42AB320041270B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEA1FA402A42AB320041270B /* Build configuration list for PBXNativeTarget "edithUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEA1FA412A42AB320041270B /* Debug */,
+				EEA1FA422A42AB320041270B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEA1FA0E2A42AB300041270B /* Project object */;
+}
