@@ -12,6 +12,8 @@
 		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
 		27355B592A4BD964006C495A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27355B582A4BD964006C495A /* ContainerView.swift */; };
 		27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */; };
+		27B59A142A4E71DE00C13D14 /* StageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A132A4E71DE00C13D14 /* StageViewModel.swift */; };
+		27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A152A4E7EDF00C13D14 /* Stage2View.swift */; };
 		27C66EA82A4BF0A0007BB465 /* InteractiveImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA22A4BF0A0007BB465 /* InteractiveImageModel.swift */; };
 		27C66EA92A4BF0A0007BB465 /* ParentAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA32A4BF0A0007BB465 /* ParentAvatarModel.swift */; };
 		27C66EAA2A4BF0A0007BB465 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA42A4BF0A0007BB465 /* UserModel.swift */; };
@@ -68,6 +70,8 @@
 		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
 		27355B582A4BD964006C495A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 		27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1View.swift; sourceTree = "<group>"; };
+		27B59A132A4E71DE00C13D14 /* StageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModel.swift; sourceTree = "<group>"; };
+		27B59A152A4E7EDF00C13D14 /* Stage2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2View.swift; sourceTree = "<group>"; };
 		27C66EA22A4BF0A0007BB465 /* InteractiveImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveImageModel.swift; sourceTree = "<group>"; };
 		27C66EA32A4BF0A0007BB465 /* ParentAvatarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentAvatarModel.swift; sourceTree = "<group>"; };
 		27C66EA42A4BF0A0007BB465 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */,
+				27B59A152A4E7EDF00C13D14 /* Stage2View.swift */,
 			);
 			path = Stages;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				EECF3D1E2A4BFD5800470917 /* UserViewModel.swift */,
+				27B59A132A4E71DE00C13D14 /* StageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
 				27C66EAB2A4BF0A0007BB465 /* ChildAvatarModel.swift in Sources */,
 				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
+				27B59A142A4E71DE00C13D14 /* StageViewModel.swift in Sources */,
 				EECF3CF32A49366D00470917 /* CircleAvatar.swift in Sources */,
 				27C66EAC2A4BF0A0007BB465 /* StageModel.swift in Sources */,
 				272897432A4A9201005B1A36 /* MapButton.swift in Sources */,
@@ -446,6 +453,7 @@
 				EECF3CF52A4936D600470917 /* Checklist.swift in Sources */,
 				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
+				27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */,
 				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
 				EECF3D1F2A4BFD5800470917 /* UserViewModel.swift in Sources */,
 				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,

@@ -14,7 +14,7 @@ struct edithApp: App {
    
     var body: some Scene {
         WindowGroup {
-            Stage1View(stage1: StageModel(prompt: "", listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel))
+            WorldMapView()
         }
     }
 }

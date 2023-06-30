@@ -9,9 +9,11 @@ import Foundation
 import SwiftUI
 class UserViewModel:ObservableObject{
     static let user=UserViewModel()
+    
     @AppStorage("user")
     var users:Data=Data()
     @Published var dataUser:UserModel=UserModel(name: "", child: ChildAvatarModel(fullImage: "", cropImage: "", isSelected: false), parent: ParentAvatarModel(name: "", image: "", isSelected: false))
+    
     func save(user: UserModel){
         let jsonEncoder = JSONEncoder()
         do{
@@ -28,6 +30,7 @@ class UserViewModel:ObservableObject{
             print("error save to appstorage")
         }
     }
+    
     func load(){
         let jsonDecode=JSONDecoder()
         do{
