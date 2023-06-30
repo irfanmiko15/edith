@@ -11,10 +11,10 @@ import SwiftUI
 struct edithApp: App {
     
     var emptyImageModel:[InteractiveImageModel] = []
-   
+    @StateObject var userModel=UserViewModel()
     var body: some Scene {
         WindowGroup {
-            Stage1View(stage1: StageModel(prompt: "", listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel))
+            ContentView(userModel: UserViewModel())
         }
     }
 }

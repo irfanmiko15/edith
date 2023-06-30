@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorldMapView: View {
-    
+    @ObservedObject var userModel: UserViewModel
     var body: some View {
         NavigationStack{
             GeometryReader { geo in
@@ -16,6 +16,10 @@ struct WorldMapView: View {
                     Image("maps")
                         .resizable()
                         .scaledToFill()
+                    ZStack{
+                        CircleAvatar(imageName:userModel.dataUser.child.cropImage).frame(height: geo.size.width*0.13)
+                        CircleBlueAvatar(imageName:userModel.dataUser.parent.image).frame(height: geo.size.width*0.10).offset(x:-80,y:80)
+                    }.position(x:geo.size.width*0.9,y:geo.size.height*0.15)
                     ZStack{
                         Path { path in
                             path.move(to: CGPoint(x: CGFloat(geo.size.width/4+(geo.size.width/6)+60), y: CGFloat(geo.size.height/3+geo.size.height/11)))
@@ -58,12 +62,14 @@ struct WorldMapView: View {
                 }
                 .ignoresSafeArea()
             }
+        }.onAppear{
+            userModel.load()
         }
     }
 }
 
 struct WorldMapView_Previews: PreviewProvider {
     static var previews: some View {
-        WorldMapView()
+        WorldMapView(userModel: UserViewModel())
     }
 }
