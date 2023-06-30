@@ -11,6 +11,7 @@
 		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
 		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
 		27355B592A4BD964006C495A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27355B582A4BD964006C495A /* ContainerView.swift */; };
+		27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */; };
 		27C66EA82A4BF0A0007BB465 /* InteractiveImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA22A4BF0A0007BB465 /* InteractiveImageModel.swift */; };
 		27C66EA92A4BF0A0007BB465 /* ParentAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA32A4BF0A0007BB465 /* ParentAvatarModel.swift */; };
 		27C66EAA2A4BF0A0007BB465 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA42A4BF0A0007BB465 /* UserModel.swift */; };
@@ -65,6 +66,7 @@
 		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
 		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
 		27355B582A4BD964006C495A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1View.swift; sourceTree = "<group>"; };
 		27C66EA22A4BF0A0007BB465 /* InteractiveImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractiveImageModel.swift; sourceTree = "<group>"; };
 		27C66EA32A4BF0A0007BB465 /* ParentAvatarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentAvatarModel.swift; sourceTree = "<group>"; };
 		27C66EA42A4BF0A0007BB465 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 				272897402A4A8661005B1A36 /* WorldMapView.swift */,
 			);
 			path = WorldMap;
+			sourceTree = "<group>";
+		};
+		27B59A0E2A4E5C2600C13D14 /* Stages */ = {
+			isa = PBXGroup;
+			children = (
+				27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */,
+			);
+			path = Stages;
 			sourceTree = "<group>";
 		};
 		27C66EA12A4BF0A0007BB465 /* Model */ = {
@@ -229,6 +239,7 @@
 		EEA1FA462A42AB6C0041270B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				27B59A0E2A4E5C2600C13D14 /* Stages */,
 				2728973F2A4A8656005B1A36 /* WorldMap */,
 				EEA1FA8E2A444C940041270B /* CityMap */,
 				EECF3CF82A49394100470917 /* ChooseAvatarView.swift */,
@@ -426,6 +437,7 @@
 				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
 				272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */,
 				27C66EA82A4BF0A0007BB465 /* InteractiveImageModel.swift in Sources */,
+				27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */,
 				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
 				EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */,
 				EECF3CF52A4936D600470917 /* Checklist.swift in Sources */,

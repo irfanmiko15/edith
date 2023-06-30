@@ -8,42 +8,57 @@
 import SwiftUI
 
 struct MapStageButton: ButtonStyle {
-    var foregroundColor:Color
-    var shadowColor:Color
+    var color:Color
     var isActive:Bool
-    var outlineColor:Color
+    var textStage:String
+    
     func makeBody(configuration: Configuration) -> some View {
-        ZStack{
+        VStack{
             let offset=CGFloat(8)
-            if(isActive){
-                Ellipse()
-                   .fill(outlineColor).offset(y : offset)
-                   .blur(radius: 16, opaque: false)
+            VStack(spacing: 20){
+                ZStack{
+                    if(isActive){
+                        Ellipse()
+                            .fill(color).offset(y : offset)
+                            .blur(radius: 16, opaque: false)
+                    }
+                    //shadowColor
+                    Ellipse()
+                        .fill(color)
+                        .offset(y : offset)
+                    
+                    //foregroundColor
+                    Ellipse()
+                        .strokeBorder(Color.white,lineWidth: 10)
+                        .background(Circle().foregroundColor(color))
+                        .background(Circle().foregroundColor(color)).offset(y : isActive ? (configuration.isPressed ? offset : 0): 0)
+                }
+                .frame(width: 60, height: 40)
+                
+                Text(textStage)
+                    .foregroundColor(.white)
+                    .font(.custom(Font.balooBold, size: 24))
+                    .frame(width: 140,height: 50)
+                    .background(RoundedRectangle(cornerRadius: 8)
+                        .strokeBorder(Color.white,lineWidth: 4)
+                        .background(Rectangle().foregroundColor(color)).offset(y :  0)
+                        .cornerRadius(8))
+                
             }
-            //shadowColor
-            Ellipse()
-               .fill(shadowColor).offset(y : offset)
-            //foregroundColor
-            Ellipse()
-                .strokeBorder(Color.white,lineWidth: 10)
-                .background(Circle().foregroundColor(foregroundColor)).offset(y : configuration.isPressed ? offset : 0)
             
-            configuration.label.offset(y : configuration.isPressed ? offset : 0)
-        }.compositingGroup()
+        }
     }
+    
+    
 }
 
 struct MapStageButton_Previews: PreviewProvider {
     static var previews: some View {
-        
-        //how to use
-        Button("a"){
+        Button(""){
             
         }
         .foregroundColor(.white)
-        .frame(width: 50,height: 30)
-        .buttonStyle(MapStageButton(
-            foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40, isActive: true, outlineColor: Color.orangeFox50
-        ))
+        .frame(width: 50,height: 50)
+        .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Stage 1"))
     }
 }

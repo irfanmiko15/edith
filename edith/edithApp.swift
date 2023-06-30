@@ -11,7 +11,7 @@ import SwiftUI
 struct edithApp: App {
     var body: some Scene {
         WindowGroup {
-            WorldMapView()
+            Stage1View(stage1: StageModel(prompt: ""))
         }
     }
 }

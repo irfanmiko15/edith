@@ -39,43 +39,21 @@ struct WorldMapView: View {
                         
                         MapButton(iconName: "mapsIcon3", size: CGFloat(geo.size.width/4), position: CGPoint(x: CGFloat(geo.size.width/4-geo.size.width/12), y: CGFloat(geo.size.height-geo.size.height*1/4)))
                         
-                        
                         NavigationLink(destination: Map1View()){
                             
                         }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/6), y: CGFloat(geo.size.height/3+geo.size.height/14)))
-                            .buttonStyle(MapStageButton(
-                                foregroundColor: Color.orangeFox50, shadowColor: Color.orangeFox50, isActive: true, outlineColor: Color.orangeFox50
-                            ))
+                            .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/6), y: CGFloat(geo.size.height/3+geo.size.height/14+25)))
+                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Stage 1"))
                         
                         NavigationLink(destination: Map1View()){
-                            
                         }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-geo.size.height/10)))
-                            .buttonStyle(MapStageButton(
-                                foregroundColor: Color.neutral80, shadowColor: Color.neutral80, isActive: false, outlineColor: Color.neutral80
-                            ))
+                            .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10)+35)))
+                            .disabled(true)
+                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Stage 2"))
                         
-                        NavigationLink(destination: Map1View()){
-                            
-                        }.foregroundColor(.white)
-                            .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/20), y: CGFloat(geo.size.height-geo.size.height*1/6)))
-                            .buttonStyle(MapStageButton(
-                                foregroundColor: Color.neutral80, shadowColor: Color.neutral80, isActive: false, outlineColor: Color.neutral80
-                            ))
-                        Button("Starts Here"){
-                            
-                        }
-                        .foregroundColor(.white)
-                        .font(.custom(Font.balooBold, size: 18))
-                        .frame(width: 150,height: 40)
-                        .buttonStyle(ContainerView(
-                            foregroundColor: Color.orangeFox50, shadowColor: Color.orangeFox50
-                        ))
-                        .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/6), y: CGFloat(geo.size.height/3+(geo.size.height/8)+10)))
+                        
                     }
                 }
                 .ignoresSafeArea()
