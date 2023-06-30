@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct StageModel:Hashable{
+struct StageModel:Identifiable, Hashable, Encodable, Decodable{
     let id=UUID()
     let prompt:String
     var listImage:[InteractiveImageModel]=[]

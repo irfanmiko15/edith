@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ChooseAvatarView: View {
+    @AppStorage("user")  var myArray: String = ""
+    @StateObject var userModel: UserViewModel
+    @State var selection: Int? = nil
     @State private var name: String = ""
     @State var showSheet = false
     @State var selectedDate = Date()
     @State var dateString:String=""
     @State var isExpand:Bool=false
+    @State var indexChild:Int=0
+    @State var indexParent:Int=0
     let columns = [
         GridItem(.flexible(),spacing: 0),
         GridItem(.flexible(),spacing: 0),
@@ -25,20 +30,22 @@ struct ChooseAvatarView: View {
         ChildAvatarModel(fullImage: "girl2", cropImage: "girlCrop2", isSelected: false)
     ]
     @State var avatarParentList:[ParentAvatarModel]=[
-        ParentAvatarModel(name:"mom",image: "mom", isSelected: true),
-        ParentAvatarModel(name:"dad",image: "dad", isSelected: false)
+        ParentAvatarModel(name:"Ibu",image: "mom", isSelected: true),
+        ParentAvatarModel(name:"Ayah",image: "dad", isSelected: false)
     ]
     
     func updateAvatarState(idx:Int){
         for x in avatarList.indices {
             avatarList[x].isSelected=false
         }
+        indexChild=idx
         avatarList[idx].isSelected=true
     }
     func updateAvatarParentState(idx:Int){
         for x in avatarParentList.indices {
             avatarParentList[x].isSelected=false
         }
+        indexParent=idx
         avatarParentList[idx].isSelected=true
     }
     
@@ -134,102 +141,115 @@ struct ChooseAvatarView: View {
                         
                     }.frame(width: geo.size.width*0.4).padding([.horizontal],20)
                 }
-                    ZStack(alignment:.top){
+                ZStack(alignment:.top){
                     Rectangle().fill(
                         LinearGradient(gradient: Gradient(colors: [Color.orangeFox70, Color.orangeFox50]), startPoint: .top, endPoint: .bottom)
                     )
-                        HStack(spacing:0){
-                            if(isExpand){
-                                VStack(alignment:.leading,spacing:0){
-                                    
-                                    Text("Hi!").font(.custom(Font.balooBold,size:120)).foregroundColor(Color.white)
-                                    Text("Aku \(name)").font(.custom(Font.balooBold,size:80)).foregroundColor(Color.white).padding(.top,-60)
+                    HStack(spacing:0){
+                        if(isExpand){
+                            VStack(alignment:.leading,spacing:0){
+                                
+                                Text("Hi!").font(.custom(Font.balooBold,size:120)).foregroundColor(Color.white)
+                                Text("Aku \(name)").font(.custom(Font.balooBold,size:80)).foregroundColor(Color.white).padding(.top,-60)
+                                HStack{
                                     Text("Aku bermain dengan").font(.custom(Font.balooBold,size:40)).foregroundColor(Color.white)
-                                    LazyVGrid(columns: columns,spacing: 20) {
-                                        ForEach(avatarParentList.indices, id: \.self) { item in
-                                            ZStack{
-                                                CircleAvatar(imageName: avatarParentList[item].image).frame(height: geo.size.width*0.14).opacity(avatarParentList[item].isSelected==true ?1:0.3).onTapGesture {
-                                                    print(item)
-                                                    updateAvatarParentState(idx: item)
-                                                }
-                                                if(avatarParentList[item].isSelected==true){
-                                                    Image(systemName: "checkmark").font(.custom(Font.balooBold, size: 25))
-                                                        .frame(width: 5, height: 5)
-                                                        .foregroundColor(.white)
-                                                        .padding(20)
-                                                        .background(Color.orangeFox50)
-                                                        .clipShape(Circle()).offset(x:50,y:50)
-                                                }
+                                    if let i = avatarParentList.firstIndex(where: { $0.isSelected == true}) {
+                                        Text(avatarParentList[i].name).font(.custom(Font.balooBold,size:40)).foregroundColor(Color.white)
+                                    }
+                                }
+                                LazyVGrid(columns: columns,spacing: 20) {
+                                    ForEach(avatarParentList.indices, id: \.self) { item in
+                                        ZStack{
+                                            CircleAvatar(imageName: avatarParentList[item].image).frame(height: geo.size.width*0.14).opacity(avatarParentList[item].isSelected==true ?1:0.3).onTapGesture {
+                                                print(item)
+                                                updateAvatarParentState(idx: item)
                                             }
+                                            if(avatarParentList[item].isSelected==true){
+                                                Image(systemName: "checkmark").font(.custom(Font.balooBold, size: 25))
+                                                    .frame(width: 5, height: 5)
+                                                    .foregroundColor(.white)
+                                                    .padding(20)
+                                                    .background(Color.orangeFox50)
+                                                    .clipShape(Circle()).offset(x:50,y:50)
+                                            }
+                                        }
+                                        
+                                    }
+                                }.frame(width: geo.size.width*0.30)
+                                    .padding([.top], 16)
+                               
+                                Spacer()
+                                HStack(){
+                                    Button{
+                                        withAnimation(.easeOut) {
+                                            isExpand.toggle()
                                             
                                         }
-                                    }.frame(width: geo.size.width*0.30)
-                                        .padding([.top], 16)
+                                    }label:{
+                                        Image(systemName: "chevron.left").font(.system(size:40).bold())
+                                            .frame(width:60,height: 60)
+                                            .foregroundColor(Color.orangeFox50)
+                                    }.buttonStyle(BackThreeD()).frame(width:100,height:100).padding(.top)
                                     Spacer()
-                                    HStack(){
+                                }
+                                Spacer()
+                            }.frame(width:geo.size.width*0.40).padding(.top,60).padding(.bottom,20).padding(.leading,30)
+                        }
+                        ZStack{
+                            Image("light").resizable().scaledToFit()
+                            VStack{
+                                Spacer()
+                                if let i = avatarList.firstIndex(where: { $0.isSelected == true}) {
+                                    Image(avatarList[i].fullImage).resizable().scaledToFit().frame(height: geo.size.height*0.6).offset(y:150).zIndex(1).shadow(
+                                        color:Color.white,
+                                        radius: 10)
+                                }
+                                
+                                ZStack{
+                                    
+                                    Image("podium").resizable().frame(width: geo.size.width*0.35).scaledToFit().offset(y:120)
+                                    if(name==""||dateString==""){
                                         Button{
-                                            withAnimation(.easeOut) {
-                                                isExpand.toggle()
+                                            
+                                            
+                                        }label: {
+                                            
+                                            Text("OK").font(.custom(Font.balooBold, size: 35)).foregroundColor(Color.white)
+                                        }.buttonStyle(
+                                            
+                                            ThreeDDisabled()).frame(width: 110,height: 60).offset(y:80)
+                                    }
+                                    else{
+                                        Button{
+                                            if(isExpand==false){
+                                                withAnimation(.easeIn) {
+                                                    isExpand.toggle()
+                                                    
+                                                }
+                                            }
+                                            else{
+                                                
+                                                userModel.save(
+                                                    
+                                                    user: UserModel(
+                                                        name:name,
+                                                        child: avatarList[indexChild], parent: avatarParentList[indexParent]))
                                                 
                                             }
-                                        }label:{
-                                            Image(systemName: "chevron.left").font(.system(size:40).bold())
-                                                .frame(width:60,height: 60)
-                                                .foregroundColor(Color.orangeFox50)
-                                        }.buttonStyle(BackThreeD()).frame(width:100,height:100).padding(.top)
-                                        Spacer()
-                                    }
-                                    Spacer()
-                                }.frame(width:geo.size.width*0.40).padding(.top,60).padding(.bottom,20).padding(.leading,30)
-                            }
-                            ZStack{
-                                Image("light").resizable().scaledToFit()
-                                VStack{
-                                    Spacer()
-                                    if let i = avatarList.firstIndex(where: { $0.isSelected == true}) {
-                                        Image(avatarList[i].fullImage).resizable().scaledToFit().frame(height: geo.size.height*0.6).offset(y:150).zIndex(1).shadow(
-                                            color:Color.white,
-                                            radius: 10)
+                                        }label: {
+                                            
+                                            Text("OK").font(.custom(Font.balooBold, size: 35)).foregroundColor(Color.white)
+                                        }.buttonStyle(
+                                            
+                                            ThreeD(foregroundColor: Color.orangeFox50, shadowColor: Color.orangeFox70)).frame(width: 110,height: 60).offset(y:80)
                                     }
                                     
-                                    ZStack{
-                                        
-                                        Image("podium").resizable().frame(width: geo.size.width*0.35).scaledToFit().offset(y:120)
-                                        if(name==""||dateString==""){
-                                            Button{
-                                                
-                                                
-                                            }label: {
-                                                
-                                                Text("OK").font(.custom(Font.balooBold, size: 35)).foregroundColor(Color.white)
-                                            }.buttonStyle(
-                                                
-                                                ThreeDDisabled()).frame(width: 110,height: 60).offset(y:80)
-                                        }
-                                        else{
-                                            Button{
-                                                if(isExpand==false){
-                                                    withAnimation(.easeIn) {
-                                                        isExpand.toggle()
-                                                        
-                                                    }
-                                                }
-                                                else{
-                                                    print("next page")
-                                                }
-                                            }label: {
-                                                
-                                                Text("OK").font(.custom(Font.balooBold, size: 35)).foregroundColor(Color.white)
-                                            }.buttonStyle(
-                                                
-                                                ThreeD(foregroundColor: Color.orangeFox50, shadowColor: Color.orangeFox70)).frame(width: 110,height: 60).offset(y:80)
-                                        }
-                                        
-                                    }
-                                }.padding(.top)
-                            }
+                                    
+                                }
+                            }.padding(.top)
                         }
-                       
+                    }
+                    
                 }.frame(width: isExpand ? geo.size.width: geo.size.width*0.6)
             }
         }.ignoresSafeArea()
@@ -238,6 +258,6 @@ struct ChooseAvatarView: View {
 
 struct ChooseAvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        ChooseAvatarView()
+        ChooseAvatarView(userModel: UserViewModel())
     }
 }

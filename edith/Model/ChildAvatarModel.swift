@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftUI
-struct ChildAvatarModel:Hashable{
+struct ChildAvatarModel:Identifiable, Hashable, Encodable, Decodable{
     let id=UUID()
     let fullImage:String
     let cropImage:String

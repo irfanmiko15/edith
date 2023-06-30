@@ -41,6 +41,7 @@
 		EECF3CF52A4936D600470917 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF42A4936D600470917 /* Checklist.swift */; };
 		EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF82A49394100470917 /* ChooseAvatarView.swift */; };
 		EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CFE2A4A805000470917 /* BackButton.swift */; };
+		EECF3D1F2A4BFD5800470917 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3D1E2A4BFD5800470917 /* UserViewModel.swift */; };
 		EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE690DD2A44816500B7394C /* RoadmapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		EECF3CF42A4936D600470917 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		EECF3CF82A49394100470917 /* ChooseAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarView.swift; sourceTree = "<group>"; };
 		EECF3CFE2A4A805000470917 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		EECF3D1E2A4BFD5800470917 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		EEE690DD2A44816500B7394C /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,12 +182,12 @@
 		EEA1FA182A42AB300041270B /* edith */ = {
 			isa = PBXGroup;
 			children = (
+				EECF3D1D2A4BFD4B00470917 /* ViewModel */,
 				27C66EA12A4BF0A0007BB465 /* Model */,
 				EEA1FA882A43F65F0041270B /* Info.plist */,
 				EEA1FA732A43F58F0041270B /* Fonts */,
 				EEA1FA4B2A43DE0F0041270B /* Component */,
 				EEA1FA462A42AB6C0041270B /* View */,
-				EEA1FA442A42AB590041270B /* ViewModel */,
 				EEA1FA432A42AB500041270B /* Utils */,
 				EEA1FA192A42AB300041270B /* edithApp.swift */,
 				EEA1FA1B2A42AB300041270B /* ContentView.swift */,
@@ -227,13 +229,6 @@
 				EEA1FA562A43F4160041270B /* Font.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		EEA1FA442A42AB590041270B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		EEA1FA462A42AB6C0041270B /* View */ = {
@@ -283,6 +278,14 @@
 				EEA1FA892A440A7C0041270B /* Map1View.swift */,
 			);
 			path = CityMap;
+			sourceTree = "<group>";
+		};
+		EECF3D1D2A4BFD4B00470917 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EECF3D1E2A4BFD5800470917 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,6 +447,7 @@
 				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
 				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
+				EECF3D1F2A4BFD5800470917 /* UserViewModel.swift in Sources */,
 				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

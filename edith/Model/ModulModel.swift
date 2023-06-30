@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ModulModel:Hashable{
+struct ModulModel:Identifiable, Hashable, Encodable, Decodable{
     let id=UUID()
     let prompt:String
     let editImage:String

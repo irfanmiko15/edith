@@ -7,8 +7,16 @@
 import Foundation
 
 import SwiftUI
-struct UserModel:Hashable{
-    let id=UUID()
-    let child:ChildAvatarModel
-    let parent:ParentAvatarModel
+struct UserModel:Hashable,Codable{
+    var name:String
+    var child:ChildAvatarModel
+    var parent:ParentAvatarModel
+    init( name:String, child: ChildAvatarModel, parent: ParentAvatarModel) {
+    
+        self.name=name
+            self.child = child
+            self.parent = parent
+           
+        }
 }
+
