@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct ModulModel:Identifiable, Hashable, Encodable, Decodable{
+struct ModulModel:Identifiable, Hashable, Codable{
     let id=UUID()
     let prompt:String
     let editImage:String
     var listImage:[InteractiveImageModel]=[]
+    
+    init(prompt: String, editImage: String, listImage: [InteractiveImageModel]) {
+        self.prompt = prompt
+        self.editImage = editImage
+        self.listImage = listImage
+    }
 }

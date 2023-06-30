@@ -48,6 +48,7 @@ struct Stage1View: View {
 
 struct Stage1View_Previews: PreviewProvider {
     static var previews: some View {
-        Stage1View(stage1: StageModel(prompt: ""))
+        var emptyImageModel:[InteractiveImageModel] = []
+        Stage1View(stage1: StageModel(prompt: "", listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel))
     }
 }
