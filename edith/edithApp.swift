@@ -11,10 +11,10 @@ import SwiftUI
 struct edithApp: App {
     
     var emptyImageModel:[InteractiveImageModel] = []
-   
+    @StateObject var userModel=UserViewModel()
     var body: some Scene {
         WindowGroup {
-            WorldMapView()
+            ContentView(userModel: UserViewModel())
         }
     }
 }
