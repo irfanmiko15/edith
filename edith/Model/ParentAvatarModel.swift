@@ -8,7 +8,7 @@
 import Foundation
 
 import SwiftUI
-struct ParentAvatarModel:Hashable{
+struct ParentAvatarModel:Identifiable, Hashable, Encodable, Decodable{
     let id=UUID()
     let name:String
     let image:String

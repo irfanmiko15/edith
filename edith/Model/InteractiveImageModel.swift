@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct InteractiveImageModel:Hashable{
+struct InteractiveImageModel:Identifiable, Hashable, Encodable, Decodable{
     let id=UUID()
     let image:String
     var imageCount:Int?

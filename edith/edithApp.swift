@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct edithApp: App {
+   
     var body: some Scene {
         WindowGroup {
-            WorldMapView()
+            ChooseAvatarView(userModel:UserViewModel())
         }
     }
 }
