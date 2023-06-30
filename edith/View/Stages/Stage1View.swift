@@ -19,6 +19,9 @@ struct Stage1View: View {
             GeometryReader {reader in
                 VStack{
                     ZStack{
+                        ContainerView(textInside: "Ini", strokeWidth: CGFloat(10))
+                            .padding([.horizontal], 48)
+                            .padding([.vertical], 16)
                         HStack{
                             ForEach(listImages) { image in
                                 NavigationLink(destination: Stage2View(stage2: StageModel(prompt: [""], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
@@ -30,6 +33,7 @@ struct Stage1View: View {
                             }
                         }
                     }.frame(height: reader.size.height/2)
+                    
                     HStack{
                         VStack{
                             Text("ini punya bapak")

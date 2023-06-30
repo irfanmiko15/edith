@@ -9,11 +9,6 @@ import Foundation
 import SwiftUI
 class StageViewModel:ObservableObject{
     
-    
-    @State var listImages: [InteractiveImageModel] = []
-    @State var resultsParents: [InteractiveImageModel] = []
-    @State var resultsChild: [InteractiveImageModel] = []
-    
     @AppStorage("stages") var stages:Data=Data()
     @Published var dataStages: [StageModel] = []
     
