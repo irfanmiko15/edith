@@ -44,8 +44,8 @@ struct WorldMapView: View {
                         MapButton(iconName: "mapsIcon3", size: CGFloat(geo.size.width/4), position: CGPoint(x: CGFloat(geo.size.width/4-geo.size.width/12), y: CGFloat(geo.size.height-geo.size.height*1/4)))
                         
                         NavigationLink(destination:
-                                        Stage1View(stage1: StageModel(prompt: [""], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
-                                    ){
+                                        Map1View(userModel: UserViewModel())
+                            .navigationBarBackButtonHidden(true)){
 
                         }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
