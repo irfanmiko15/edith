@@ -144,8 +144,8 @@ struct RoadmapView: View {
                 .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                 .buttonStyle(StageButton(
                     foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40
-                )).position(x:geo.size.width*0.18, y: geo.size.height*0.8)
-            }
+                ))}.position(x:geo.size.width*0.18, y: geo.size.height*0.8)
+
             //stage1
                 VStack{
                     if(modul1Stage1==true){
