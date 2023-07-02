@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Module1View: View {
     @ObservedObject var modulViewModel: ModulViewModel
+    @Environment(\.presentationMode) var presentationMode
+    @AppStorage("modul1Stage1") var modul1Stage1:Bool=false
     @State var listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.","Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup.", "Keinginan adalah hal-hal yang diharapkan untuk dimiliki.","Boneka, sepeda dan mainan baru adalah  contoh keinginan.","Tanpa keinginan, kita masih bisa bertahan hidup.","Sekarang, kita akan coba membedakan keinginan dan kebutuhan.","Apakah kalian siap?"]
     @State var listImages: [String] = ["edithMenyapa", "edithDiam", "edithSedih","edithMenyapa", "edithDiam", "edithMenyapa", "edithMenyapa", "edithBahagia"]
     // contoh: listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.", "Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup."]
@@ -37,7 +39,8 @@ struct Module1View: View {
                                 indexPrompt += 1
                                 indexImage += 1
                             } else{
-                                
+                                modul1Stage1=true
+                                self.presentationMode.wrappedValue.dismiss()
                             }
                             
                         }label:{
