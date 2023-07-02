@@ -50,14 +50,14 @@ struct WorldMapView: View {
                         }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
                             .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/6), y: CGFloat(geo.size.height/3+geo.size.height/14+25)))
-                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Stage 1"))
+                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Hutan"))
 
                         NavigationLink(destination: Stage2View(stage2: StageModel(prompt: [""], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
                         }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
                             .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10)+35)))
                             .disabled(false)
-                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Stage 2"))
+                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Desa"))
 //
                         
                     }

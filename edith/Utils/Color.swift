@@ -70,6 +70,14 @@ extension Color{
         return Color("BrownWood40")
     }
     
+    static var blueTang95: Color {
+        return Color("BlueTang95")
+    }
+    
+    static var redWood95: Color {
+        return Color("RedWood95")
+    }
+    
     static var neutral80:Color{
         return Color("Neutral80")
     }
