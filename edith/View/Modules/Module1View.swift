@@ -9,11 +9,16 @@ import SwiftUI
 
 struct Module1View: View {
     @ObservedObject var modulViewModel: ModulViewModel
-    @State var listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.","masukin sini satu-satu", "harus dimasukin yah", "ini isinya prompt"]
-    @State var listImages: [String] = ["edithMenyapa", "format nama image harus urut", "misalnya di prompt 1 itu edithBahagia maka", "ditulsi disini edithBahagia"]
+    @Environment(\.presentationMode) var presentationMode
+    @AppStorage("modul1Stage1") var modul1Stage1:Bool=false
+    @State var listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.","Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup.", "Keinginan adalah hal-hal yang diharapkan untuk dimiliki.","Boneka, sepeda dan mainan baru adalah  contoh keinginan.","Tanpa keinginan, kita masih bisa bertahan hidup.","Sekarang, kita akan coba membedakan keinginan dan kebutuhan.","Apakah kalian siap?"]
+    @State var listImages: [String] = ["edithMenyapa", "edithDiam", "edithSedih","edithMenyapa", "edithDiam", "edithMenyapa", "edithMenyapa", "edithBahagia"]
     // contoh: listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.", "Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup."]
     // contoh: listImages: [String] = ["edithMenyapa", "edithDiem", "edithSedih", "edithDiem"] bisa lebih dari satu, pokoknya harus urut misal di listprompt urutan satu promptnya apa, berarti listimages di urutan 1 harus sesuai
     @State var prompts: [ModulModel]
+    
+    @State var indexPrompt:Int = 0
+    @State var indexImage:Int = 0
     
     var body: some View {
         GeometryReader{reader in
@@ -21,8 +26,33 @@ struct Module1View: View {
                 Image("bgModul")
                     .resizable()
                     .scaledToFill()
-                PromptBox(textInside: listPrompt[0], width: reader.size.width/2, height: reader.size.height/2, textSize: 20)
-                Image(listImages[0])
+                HStack{
+                    
+                    Image(listImages[indexImage])
+                    
+                    VStack{
+                        PromptBox(textInside: listPrompt[indexPrompt], width: reader.size.width/2, height: reader.size.height/3, textSize: 35)
+                        
+                        Button{
+                            
+                            if indexPrompt < listPrompt.count-1 {
+                                indexPrompt += 1
+                                indexImage += 1
+                            } else{
+                                modul1Stage1=true
+                                self.presentationMode.wrappedValue.dismiss()
+                            }
+                            
+                        }label:{
+                            Text("OK!")
+                                .font(.custom(Font.balooBold, size: 50))
+                                .foregroundColor(.white)
+                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                            .frame(width: reader.size.width/6, height: reader.size.height/10)
+                            .offset(x:45, y:-50)
+                    }
+                  
+                }
                     
             }
             

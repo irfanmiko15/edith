@@ -156,7 +156,7 @@ struct Stage1View: View {
 //                            )
                     }
                 }
-                .navigationBarBackButtonHidden(true)
+                .navigationBarBackButtonHidden(false)
                 .ignoresSafeArea(.all)
                 
                 .task {

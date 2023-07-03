@@ -160,7 +160,7 @@ struct ChooseAvatarView: View {
                                     LazyVGrid(columns: columns,spacing: 20) {
                                         ForEach(avatarParentList.indices, id: \.self) { item in
                                             ZStack{
-                                                CircleAvatar(imageName: avatarParentList[item].image).frame(height: geo.size.width*0.14).opacity(avatarParentList[item].isSelected==true ?1:0.3).onTapGesture {
+                                                CircleBlueAvatar(imageName: avatarParentList[item].image).frame(height: geo.size.width*0.14).opacity(avatarParentList[item].isSelected==true ?1:0.3).onTapGesture {
                                                     print(item)
                                                     updateAvatarParentState(idx: item)
                                                 }
@@ -239,7 +239,7 @@ struct ChooseAvatarView: View {
                                                     ThreeD(foregroundColor: Color.orangeFox50, shadowColor: Color.orangeFox70)).frame(width: 110,height: 60).offset(y:80)
                                             }
                                             else{
-                                                NavigationLink(destination: WorldMapView(userModel: userModel).navigationBarHidden(false), tag: 1,selection:$selection){
+                                                NavigationLink(destination: WorldMapView(userModel: userModel).navigationBarHidden(true), tag: 1,selection:$selection){
                                                     Button{
                                                         self.selection=1
                                                         

@@ -88,5 +88,7 @@ extension Color{
         return Color("Neutral40")
     }
 
-    
+    static var orangeSomething:Color{
+        return Color("orangeSomething")
+    }
 }
