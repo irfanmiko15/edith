@@ -10,7 +10,6 @@ import SwiftUI
 class StageViewModel:ObservableObject{
     static let stage=StageViewModel()
     
-    
     @Published var listImagesStage1 = ["stage1Apple", "stage1Water", "stage1Tee", "stage1Car", "stage1TeddyBear", "stage1Veggie", "stage1Laptop"]
     @Published var listImagesStage2 = ["stage1Apple", "stage1Water", "stage1Tee", "stage1Car", "stage1TeddyBear", "stage1Veggie", "stage1Laptop"]
     @Published var listImagesStage3 = ["stage1Apple", "stage1Water", "stage1Tee", "stage1Car", "stage1TeddyBear", "stage1Veggie", "stage1Laptop"]
