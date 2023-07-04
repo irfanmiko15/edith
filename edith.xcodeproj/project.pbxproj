@@ -20,6 +20,7 @@
 		27C66EAB2A4BF0A0007BB465 /* ChildAvatarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA52A4BF0A0007BB465 /* ChildAvatarModel.swift */; };
 		27C66EAC2A4BF0A0007BB465 /* StageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA62A4BF0A0007BB465 /* StageModel.swift */; };
 		27C66EAD2A4BF0A0007BB465 /* ModulModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C66EA72A4BF0A0007BB465 /* ModulModel.swift */; };
+		27E9063E2A53D19F0062BB1C /* CounterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E9063D2A53D19F0062BB1C /* CounterObject.swift */; };
 		27F27E442A4EFC6C009CF355 /* PromptBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E432A4EFC6C009CF355 /* PromptBox.swift */; };
 		27F27E472A4EFDCA009CF355 /* Module1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E462A4EFDCA009CF355 /* Module1View.swift */; };
 		27F27E4B2A4F02E0009CF355 /* ModulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */; };
@@ -81,6 +82,7 @@
 		27C66EA52A4BF0A0007BB465 /* ChildAvatarModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildAvatarModel.swift; sourceTree = "<group>"; };
 		27C66EA62A4BF0A0007BB465 /* StageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageModel.swift; sourceTree = "<group>"; };
 		27C66EA72A4BF0A0007BB465 /* ModulModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModulModel.swift; sourceTree = "<group>"; };
+		27E9063D2A53D19F0062BB1C /* CounterObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterObject.swift; sourceTree = "<group>"; };
 		27F27E432A4EFC6C009CF355 /* PromptBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptBox.swift; sourceTree = "<group>"; };
 		27F27E462A4EFDCA009CF355 /* Module1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module1View.swift; sourceTree = "<group>"; };
 		27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulViewModel.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				272897442A4A944C005B1A36 /* MapStageButton.swift */,
 				27355B582A4BD964006C495A /* ContainerView.swift */,
 				27F27E432A4EFC6C009CF355 /* PromptBox.swift */,
+				27E9063D2A53D19F0062BB1C /* CounterObject.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				27C66EAA2A4BF0A0007BB465 /* UserModel.swift in Sources */,
 				27355B592A4BD964006C495A /* ContainerView.swift in Sources */,
 				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
+				27E9063E2A53D19F0062BB1C /* CounterObject.swift in Sources */,
 				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
 				27C66EAB2A4BF0A0007BB465 /* ChildAvatarModel.swift in Sources */,
 				EEA1FA572A43F4160041270B /* Font.swift in Sources */,

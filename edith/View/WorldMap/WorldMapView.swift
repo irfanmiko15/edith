@@ -17,8 +17,8 @@ struct WorldMapView: View {
                         .resizable()
                         .scaledToFill()
                     ZStack{
-                        CircleAvatar(imageName:userModel.dataUser.child.cropImage).frame(height: geo.size.width*0.13)
-                        CircleBlueAvatar(imageName:userModel.dataUser.parent.image).frame(height: geo.size.width*0.10).offset(x:-80,y:80)
+                        CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50).frame(height: geo.size.width*0.13)
+                        CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70).frame(height: geo.size.width*0.10).offset(x:-80,y:80)
                     }.position(x:geo.size.width*0.9,y:geo.size.height*0.15)
                     ZStack{
                         Path { path in

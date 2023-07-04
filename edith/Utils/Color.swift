@@ -87,6 +87,14 @@ extension Color{
     static var neutral40:Color{
         return Color("Neutral40")
     }
+    
+    static var cardinal95:Color{
+        return Color("Cardinal95")
+    }
+    
+    static var cardinal70:Color{
+        return Color("Cardinal70")
+    }
 
     static var orangeSomething:Color{
         return Color("orangeSomething")

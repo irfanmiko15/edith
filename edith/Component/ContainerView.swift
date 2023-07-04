@@ -47,11 +47,11 @@ struct ContainerView: View {
                 }
                 .fill(Color.white)
             }
-            .frame(width: width, height: height)
+            .frame(width: width*0.95, height: height)
             
             Text(textInside)
-                .frame(width: width-(width*0.3), height: height)
-                .offset(x: 0-(width*0.1)/2, y: 0-(height/3))
+                .frame(width: width*0.7, height: height)
+                .offset(x: 0, y: 0-(height/3))
                 .multilineTextAlignment(.center)
                 .font(.custom(Font.balooBold, size: CGFloat(textSize)))
             
@@ -86,8 +86,20 @@ struct ContainerView: View {
                 }
                 .stroke(Color.orangeFox70, style: StrokeStyle(lineWidth: strokeWidth, lineCap: .round, lineJoin: .round))
             }
-            .frame(width: width, height: height)
+            .frame(width: width*0.95, height: height)
+            
+            Image("stageEdithHead")
+                .resizable()
+                .scaledToFit()
+                .frame(width: width/10, height: width/10)
+                .foregroundColor(.white)
+                .background(Color.white).clipShape(Circle()).padding(8)
+                .clipShape(Circle()).overlay(Circle().stroke(Color.orangeFox70,lineWidth: 24)).background(Color.white).clipShape(Circle())
+                .offset(x: -(width*0.95/2), y: 0)
+            
+            
         }
+        .frame(width: width, height: height)
         .ignoresSafeArea(.all)
     }
 }
