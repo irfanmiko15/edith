@@ -69,8 +69,8 @@ struct Map1View: View {
                     }
                 }.position(x:geo.size.width*0.23,y:geo.size.height*0.08)
                 ZStack{
-                    CircleAvatar(imageName:userModel.dataUser.child.cropImage).frame(height: geo.size.width*0.11)
-                    CircleBlueAvatar(imageName:userModel.dataUser.parent.image).frame(height: geo.size.width*0.08).offset(x:-60,y:60)
+                    CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50).frame(height: geo.size.width*0.11)
+                    CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70).frame(height: geo.size.width*0.08).offset(x:-60,y:60)
                     
                 }.position(x:geo.size.width*0.9,y:geo.size.height*0.1)
                 
