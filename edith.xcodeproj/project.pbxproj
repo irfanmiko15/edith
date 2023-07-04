@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B7A7F4F2A52C63B00DDA88B /* Module2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */; };
 		272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897402A4A8661005B1A36 /* WorldMapView.swift */; };
 		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
 		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module2View.swift; sourceTree = "<group>"; };
 		272897402A4A8661005B1A36 /* WorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
 		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
 		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				27F27E462A4EFDCA009CF355 /* Module1View.swift */,
+				0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
 				EECF3D1F2A4BFD5800470917 /* UserViewModel.swift in Sources */,
 				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
+				0B7A7F4F2A52C63B00DDA88B /* Module2View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
