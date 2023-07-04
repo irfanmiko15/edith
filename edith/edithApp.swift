@@ -15,6 +15,7 @@ struct edithApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView(userModel: UserViewModel())
+                .preferredColorScheme(.light)
         }
     }
 }

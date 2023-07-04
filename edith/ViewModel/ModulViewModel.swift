@@ -9,6 +9,7 @@ import Foundation
 
 import SwiftUI
 class ModulViewModel:ObservableObject{
+    static let modul=ModulViewModel()
     
     @AppStorage("modules") var modules:Data=Data()
     @Published var dataModules: [ModulModel] = []
