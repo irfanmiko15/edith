@@ -19,7 +19,7 @@ struct BackThreeD: ButtonStyle {
             
             //foregroundColor
             Circle()
-                .strokeBorder(Color.orangeFox70,lineWidth: 8)
+                .strokeBorder(Color.orangeFox70,lineWidth: 10)
                 .background(Circle().foregroundColor(Color.white)).offset(y : configuration.isPressed ? offset : 0)
             
             configuration.label.offset(y : configuration.isPressed ? offset : 0)
@@ -32,7 +32,7 @@ struct BackButton_Previews: PreviewProvider {
         Button{
             
         }label:{
-            Image(systemName: "chevron.left").font(.system(size:40).bold())
+            Image(systemName: "chevron.left").font(.system(size:900).bold())
                 .frame(width:60,height: 60)
                 .foregroundColor(Color.orangeFox50)
         }.buttonStyle(BackThreeD())
