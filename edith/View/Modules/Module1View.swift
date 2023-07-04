@@ -13,8 +13,7 @@ struct Module1View: View {
     @AppStorage("modul1Stage1") var modul1Stage1:Bool=false
     @State var listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.","Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup.", "Keinginan adalah hal-hal yang diharapkan untuk dimiliki.","Boneka, sepeda dan mainan baru adalah  contoh keinginan.","Tanpa keinginan, kita masih bisa bertahan hidup.","Sekarang, kita akan coba membedakan keinginan dan kebutuhan.","Apakah kalian siap?"]
     @State var listImages: [String] = ["edithMenyapa", "edithDiam", "edithSedih","edithMenyapa", "edithDiam", "edithMenyapa", "edithMenyapa", "edithBahagia"]
-    // contoh: listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.", "Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup."]
-    // contoh: listImages: [String] = ["edithMenyapa", "edithDiem", "edithSedih", "edithDiem"] bisa lebih dari satu, pokoknya harus urut misal di listprompt urutan satu promptnya apa, berarti listimages di urutan 1 harus sesuai
+    
     @State var prompts: [ModulModel]
     
     @State var indexPrompt:Int = 0

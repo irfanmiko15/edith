@@ -11,12 +11,12 @@ struct Stage1View: View {
     @State var listImages: [InteractiveImageModel] = []
     @State var resultsParents: [InteractiveImageModel] = []
     @State var resultsChild: [InteractiveImageModel] = []
-    @State var listImagesName = ["stage1Apple", "stage1Water", "stage1Tee", "stage1Car", "stage1TeddyBear", "stage1Veggie", "stage1Laptop"]
     
     @State var isDragging = false
     @State var draggedObject = InteractiveImageModel(image: "stage1Apple", x: CGFloat(0), y: CGFloat(0))
     
     @ObservedObject var stageViewModel: StageViewModel
+    @ObservedObject var userModel: UserViewModel
     var body: some View {
         NavigationStack{
             GeometryReader {reader in
@@ -27,9 +27,9 @@ struct Stage1View: View {
                     VStack{
                         ZStack(alignment: .center){
                             ContainerView(textInside: "Pindahkan 4 benda yang menurut kalian merupakan \nkebutuhan ke zona kalian masing - masing.", strokeWidth: CGFloat(16), width: reader.size.width*0.9, height: reader.size.height*0.5*0.95)
-                                .offset(x: reader.size.width*0.03)
+                                .position(x: reader.size.width*0.53, y: reader.size.height*0.27)
+                            
                             ForEach(listImages) { image in
-                                
                                 Image(image.image)
                                     .resizable()
                                     .scaledToFit()
@@ -50,9 +50,9 @@ struct Stage1View: View {
                                                 let x = reader.size.width*0.2 +  reader.size.width*(CGFloat(Int(resultsChild.count)%2))/8
                                                 var y = CGFloat(0)
                                                 if(resultsChild.count < 2){
-                                                    y = reader.size.height*0.55 + CGFloat(reader.size.height*1/8)
+                                                    y = reader.size.height*0.58 + CGFloat(reader.size.height*1/8)
                                                 } else {
-                                                    y = reader.size.height*0.6 + CGFloat(reader.size.height*2/8)
+                                                    y = reader.size.height*0.63 + CGFloat(reader.size.height*2/8)
                                                 }
                                             
                                                 resultsChild.append(InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y))
@@ -61,9 +61,9 @@ struct Stage1View: View {
                                                 let x = reader.size.width*0.6 +  reader.size.width*(CGFloat(Int(resultsParents.count)%2))/8
                                                 var y = CGFloat(0)
                                                 if(resultsParents.count < 2){
-                                                    y = reader.size.height*0.55 + CGFloat(reader.size.height*1/8)
+                                                    y = reader.size.height*0.58 + CGFloat(reader.size.height*1/8)
                                                 } else {
-                                                    y = reader.size.height*0.6 + CGFloat(reader.size.height*2/8)
+                                                    y = reader.size.height*0.63 + CGFloat(reader.size.height*2/8)
                                                 }
                                                 
                                                 resultsParents.append(InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y))
@@ -84,26 +84,37 @@ struct Stage1View: View {
                         }.frame(height: reader.size.height/2)
                         
                         HStack{
+                            Spacer()
                             ZStack{
                                 RoundedRectangle(cornerRadius: 32)
                                     .fill(Color.blueTang95)
                                     Text("ini punya anak")
                                 RoundedRectangle(cornerRadius: 32)
                                     .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                
+                                CircleAvatar(imageName:userModel.dataUser.child.cropImage)
+                                    .frame(width: reader.size.width/10, height: reader.size.width/10)
+                                    .position(x: reader.size.width*0.01, y: reader.size.height*0.38)
+                                
                             }
                             .padding([.leading, .vertical], 32)
                             .padding([.trailing], 16)
-                            .frame(width: reader.size.width/2)
+                            .frame(width: reader.size.width*0.45)
                             ZStack{
                                 RoundedRectangle(cornerRadius: 32)
                                     .fill(Color.redWood95)
                                 Text("ini punya anak")
                                 RoundedRectangle(cornerRadius: 32)
                                     .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                
+                                CircleBlueAvatar(imageName:userModel.dataUser.parent.image)
+                                    .frame(width: reader.size.width/10, height: reader.size.width/10)
+                                    .position(x: reader.size.width*0.4, y: reader.size.height*0.38)
                             }
                             .padding([.trailing, .vertical], 32)
                             .padding([.leading], 16)
-                            .frame(width: reader.size.width/2)
+                            .frame(width: reader.size.width*0.45)
+                            Spacer()
                         }.frame(height: reader.size.height/2)
                     }
                     if(isDragging){
@@ -156,11 +167,13 @@ struct Stage1View: View {
 //                            )
                     }
                 }
-                .navigationBarBackButtonHidden(false)
                 .ignoresSafeArea(.all)
                 
+                
                 .task {
-                    for (index, image) in listImagesName.enumerated() {
+                    userModel.load()
+                    print(userModel.dataUser)
+                    for (index, image) in stageViewModel.listImagesStage1.enumerated() {
                         let x = reader.size.width*0.2 + CGFloat(reader.size.width*CGFloat(Int(index))/10)
                         let y = reader.size.height*0.25 + CGFloat(reader.size.height*CGFloat((Int(index)+1)%2)/8)
                         listImages.append(InteractiveImageModel(image: image, isCorrect: false, x: CGFloat(x), y: y))
@@ -178,6 +191,6 @@ struct Stage1View: View {
 struct Stage1View_Previews: PreviewProvider {
     static var previews: some View {
         let emptyImageModel:[InteractiveImageModel] = []
-        Stage1View(stage1: StageModel(prompt: [""], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())
+        Stage1View(stage1: StageModel(prompt: [""], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel(), userModel: UserViewModel())
     }
 }
