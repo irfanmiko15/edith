@@ -10,8 +10,7 @@ import SwiftUI
 class UserViewModel:ObservableObject{
     static let user=UserViewModel()
     
-    @AppStorage("user")
-    var users:Data=Data()
+    @AppStorage("user") var users:Data=Data()
     @Published var dataUser:UserModel=UserModel(name: "", child: ChildAvatarModel(fullImage: "", cropImage: "String", isSelected: false), parent: ParentAvatarModel(name: "", image: "", isSelected: false))
     func save(user: UserModel){
         let jsonEncoder = JSONEncoder()
@@ -32,8 +31,6 @@ class UserViewModel:ObservableObject{
     func load(){
         let jsonDecode=JSONDecoder()
         do{
-           
-
             let jsonData = try jsonDecode.decode(UserModel.self,from:users)
             print(jsonData)
             dataUser.name=jsonData.name

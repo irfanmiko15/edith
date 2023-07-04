@@ -11,7 +11,7 @@ extension Color{
     //how to use
     //call Color.{colorName=[black,yellowBee50, etc]}
     
-    static var black: Color  {
+    static var black: Color  { 
         return Color("black")
     }
     
@@ -87,7 +87,6 @@ extension Color{
     static var neutral40:Color{
         return Color("Neutral40")
     }
-
     static var orangeSomething:Color{
         return Color("orangeSomething")
     }
