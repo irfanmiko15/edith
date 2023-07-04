@@ -239,7 +239,7 @@ struct ChooseAvatarView: View {
                                                     ThreeD(foregroundColor: Color.orangeFox50, shadowColor: Color.orangeFox70)).frame(width: 110,height: 60).offset(y:80)
                                             }
                                             else{
-                                                NavigationLink(destination: WorldMapView(userModel: userModel).navigationBarHidden(true), tag: 1,selection:$selection){
+                                                NavigationLink(destination: MainStoryView(userModel: userModel).navigationBarHidden(true), tag: 1,selection:$selection){
                                                     Button{
                                                         self.selection=1
                                                         

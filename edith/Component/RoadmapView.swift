@@ -143,7 +143,6 @@ struct RoadmapView: View {
                     foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40
                 ))
                 .position(x:geo.size.width*0.18, y: geo.size.height*0.8)
-
             //stage1
                 VStack{
                     if(modul1Stage1==true){

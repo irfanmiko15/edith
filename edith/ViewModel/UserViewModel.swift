@@ -32,8 +32,6 @@ class UserViewModel:ObservableObject{
     func load(){
         let jsonDecode=JSONDecoder()
         do{
-           
-
             let jsonData = try jsonDecode.decode(UserModel.self,from:users)
             print(jsonData)
             dataUser.name=jsonData.name
