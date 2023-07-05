@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B7A7F4F2A52C63B00DDA88B /* Module2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */; };
+		0BB9FA082A53D33E00DB30CC /* CasePoses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB9FA072A53D33E00DB30CC /* CasePoses.swift */; };
+		0BB9FA0C2A54077400DB30CC /* Module3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB9FA0B2A54077400DB30CC /* Module3View.swift */; };
 		272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897402A4A8661005B1A36 /* WorldMapView.swift */; };
 		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
 		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
