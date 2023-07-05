@@ -66,12 +66,15 @@ class ChallengeViewModel : NSObject,ObservableObject,AVCapturePhotoCaptureDelega
         
         guard let imageData = photo.fileDataRepresentation() else{return}
         let image = UIImage(data: imageData)
-//        let i = picData.firstIndex(where: {$0.cgImage==null})
-//        picData[i]
-        picData.append(image!)
+        if let index = picData.firstIndex(where: {$0.cgImage == nil}) {
+            picData[index]=image!
+        }
         
-        print(picData.count)
         
+    }
+    func deleteImage(index:Int){
+        picData.remove(at: index)
+        picData.append(UIImage())
     }
 }
 
@@ -83,7 +86,7 @@ struct CameraPreview: UIViewRepresentable{
         camera.preview.frame = view.frame
         
         camera.preview.videoGravity = .resizeAspectFill
-        camera.preview.connection?.videoOrientation = .landscapeLeft
+        camera.preview.connection?.videoOrientation = .landscapeRight
         camera.preview.connection?.videoPreviewLayer?.frame = view.bounds
         view.layer.addSublayer(camera.preview)
         

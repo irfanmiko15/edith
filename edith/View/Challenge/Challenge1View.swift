@@ -20,16 +20,18 @@ struct Challenge1View: View {
                         .frame(width: reader.size.width*0.6,height: 100).padding(.horizontal,40).overlay(Text("Ambil 5 foto barang yang merupakan kebutuhan").font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40)).padding(.top,50)
                     Spacer()
                     HStack{
-                        ForEach(challengeViewModel.picData, id: \.self) { pic in
+                        ForEach(challengeViewModel.picData.indices, id: \.self) { idx in
                             
                             
-                            if(pic.cgImage == nil){
+                            if(challengeViewModel.picData[idx].cgImage == nil){
                                 RoundedRectangle(cornerRadius: 10).fill(Color.neutral80).frame(width: 180, height: 130).overlay(Text("?").font(.custom(Font.balooBold, size: 50)))
                             }
                             else{
-                                Image(uiImage: pic).resizable().scaledToFit().frame(
+                                Image(uiImage: challengeViewModel.picData[idx]).resizable().scaledToFit().frame(
                                     width: 180,
-                                    height: 130)
+                                    height: 130).onTapGesture{
+                                        challengeViewModel.deleteImage(index: idx)
+                                    }
                             }
                         }.padding()
                         
@@ -50,9 +52,7 @@ struct Challenge1View: View {
                         }
                         
                     }.padding(.trailing)
-                if(!challengeViewModel.picData.isEmpty){
-                    Image(uiImage: challengeViewModel.picData[0]).resizable().scaledToFit().frame(width:100,height: 100)
-                }
+                
                 
             }
         }.onAppear{
