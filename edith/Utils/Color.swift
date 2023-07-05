@@ -11,10 +11,6 @@ extension Color{
     //how to use
     //call Color.{colorName=[black,yellowBee50, etc]}
     
-    static var black: Color  { 
-        return Color("black")
-    }
-    
     static var yellowBee50: Color  {
         return Color("YellowBee50")
     }
