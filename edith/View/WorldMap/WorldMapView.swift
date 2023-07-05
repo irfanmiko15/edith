@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorldMapView: View {
-    @ObservedObject var userModel: UserViewModel
+    @StateObject var userModel: UserViewModel
     var body: some View {
         NavigationStack{
             GeometryReader { geo in
@@ -62,9 +62,9 @@ struct WorldMapView: View {
                     }
                 }
                 .ignoresSafeArea()
+            }.onAppear{
+                userModel.load()
             }
-        }.onAppear{
-            userModel.load()
         }
     }
 }

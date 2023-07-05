@@ -334,7 +334,8 @@ struct MainStory5:View{
                         NavigationLink(destination: WorldMapView(userModel: UserViewModel())
                             .onAppear() {
                                 self.isfinished=true
-                            }.navigationBarHidden(false)){
+                                
+                            }.navigationBarHidden(true).onAppear{userModel.load()}){
                             Text("Mulai")
                                 .font(.custom(Font.balooBold, size: 50))
                                 .foregroundColor(.white)
