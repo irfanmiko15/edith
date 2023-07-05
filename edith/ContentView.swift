@@ -16,8 +16,6 @@ struct ContentView: View {
                 ChooseAvatarView(userModel: UserViewModel())
             }
             else{
-<<<<<<< HEAD
-//                WorldMapView(userModel: UserViewModel())
                 Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
             }
         }.onAppear{
