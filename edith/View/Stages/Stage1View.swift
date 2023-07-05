@@ -22,6 +22,7 @@ struct Stage1View: View {
                     Image("bgModul")
                         .resizable()
                         .scaledToFill()
+                        .blur(radius: 10)
                     ZStack{
                         ContainerView(textInside: "Pindahkan 4 benda yang menurut kalian merupakan \nkebutuhan ke zona kalian masing - masing.",
                                       strokeWidth: CGFloat(16),

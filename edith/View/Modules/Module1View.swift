@@ -74,9 +74,9 @@ struct Module1View: View {
                 Button{
                     
                     if indexPrompt < listPrompt.count-1 {
-                        indexPrompt += 1
-                        indexArm += 1
-                        indexHead += 1
+                        indexPrompt -= 1
+                        indexArm -= 1
+                        indexHead -= 1
                         
                     
                     }
