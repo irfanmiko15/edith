@@ -11,18 +11,16 @@ struct ContentView: View {
     @StateObject var userModel: UserViewModel
     
     var body: some View {
-//        ZStack{
-//            if(userModel.dataUser.name.isEmpty){
-//                ChooseAvatarView(userModel: UserViewModel())
-//            }
-//            else{
-////                WorldMapView(userModel: UserViewModel())
-//                Challenge1View(challengeViewModel: ChallengeViewModel())
-//            }
-//        }.onAppear{
-//            userModel.load()
-//        }
-        Challenge1View(challengeViewModel: ChallengeViewModel())
+        ZStack{
+            if(userModel.dataUser.name.isEmpty){
+                ChooseAvatarView(userModel: UserViewModel())
+            }
+            else{
+                Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
+            }
+        }.onAppear{
+            userModel.load()
+        }
         
     }
 }
