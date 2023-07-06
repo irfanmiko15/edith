@@ -12,12 +12,13 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-            if(userModel.dataUser.name.isEmpty){
-                ChooseAvatarView(userModel: UserViewModel())
-            }
-            else{
-                Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
-            }
+            Challenge1View(challengeViewModel: ChallengeViewModel())
+//            if(userModel.dataUser.name.isEmpty){
+//                ChooseAvatarView(userModel: UserViewModel())
+//            }
+//            else{
+//                Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
+//            }
         }.onAppear{
             userModel.load()
         }

@@ -26,6 +26,7 @@
 		27F27E442A4EFC6C009CF355 /* PromptBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E432A4EFC6C009CF355 /* PromptBox.swift */; };
 		27F27E472A4EFDCA009CF355 /* Module1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E462A4EFDCA009CF355 /* Module1View.swift */; };
 		27F27E4B2A4F02E0009CF355 /* ModulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */; };
+		EE25AED22A56540F001F5B45 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE25AED12A56540F001F5B45 /* CloseButton.swift */; };
 		EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA192A42AB300041270B /* edithApp.swift */; };
 		EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA1B2A42AB300041270B /* ContentView.swift */; };
 		EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA1D2A42AB320041270B /* Assets.xcassets */; };
@@ -95,6 +96,7 @@
 		27F27E432A4EFC6C009CF355 /* PromptBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptBox.swift; sourceTree = "<group>"; };
 		27F27E462A4EFDCA009CF355 /* Module1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module1View.swift; sourceTree = "<group>"; };
 		27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulViewModel.swift; sourceTree = "<group>"; };
+		EE25AED12A56540F001F5B45 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		EEA1FA162A42AB300041270B /* edith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = edith.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA1FA192A42AB300041270B /* edithApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithApp.swift; sourceTree = "<group>"; };
 		EEA1FA1B2A42AB300041270B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				27355B582A4BD964006C495A /* ContainerView.swift */,
 				27F27E432A4EFC6C009CF355 /* PromptBox.swift */,
 				0BB9FA072A53D33E00DB30CC /* CasePoses.swift */,
+				EE25AED12A56540F001F5B45 /* CloseButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
 				EEB981C52A541EB40089A429 /* Extension.swift in Sources */,
 				0BB9FA082A53D33E00DB30CC /* CasePoses.swift in Sources */,
+				EE25AED22A56540F001F5B45 /* CloseButton.swift in Sources */,
 				27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */,
 				EEB981CA2A5458550089A429 /* Challenge1View.swift in Sources */,
 				EEB981C32A541E980089A429 /* MainStoryView.swift in Sources */,
@@ -696,6 +700,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -733,6 +738,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
