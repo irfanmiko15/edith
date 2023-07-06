@@ -11,7 +11,7 @@ struct Stage1View: View {
     
     @State var stage: StageModel
     @State var isDragging = false
-    @State var draggedObject = InteractiveImageModel(image: "stage1Apple", x: CGFloat(0), y: CGFloat(0))
+    @State var draggedObject = InteractiveImageModel(image: "stageApple", x: CGFloat(0), y: CGFloat(0))
     
     @ObservedObject var stageViewModel: StageViewModel
     
@@ -28,7 +28,6 @@ struct Stage1View: View {
                                       strokeWidth: CGFloat(16),
                                       width: reader.size.width*0.9,
                                       height: reader.size.height*0.42)
-                        
                     }
                     .position(x: reader.size.width*0.5, y: reader.size.height*0.25)
                     
@@ -91,7 +90,6 @@ struct Stage1View: View {
                                     isDragging = true
                                 }
                                 .onEnded { value in
-                                    
                                     let pos = [-0.5, 0.5]
                                     if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 4){
                                         

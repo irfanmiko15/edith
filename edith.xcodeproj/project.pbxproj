@@ -48,6 +48,8 @@
 		EEB981C32A541E980089A429 /* MainStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB981C22A541E980089A429 /* MainStoryView.swift */; };
 		EEB981C52A541EB40089A429 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB981C42A541EB40089A429 /* Extension.swift */; };
 		EEB981C72A541ECF0089A429 /* CounterObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB981C62A541ECF0089A429 /* CounterObject.swift */; };
+		EEB981CA2A5458550089A429 /* Challenge1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB981C92A5458550089A429 /* Challenge1View.swift */; };
+		EEC157052A5501F70024A13E /* ChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC157042A5501F70024A13E /* ChallengeViewModel.swift */; };
 		EECF3CF32A49366D00470917 /* CircleAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF22A49366D00470917 /* CircleAvatar.swift */; };
 		EECF3CF52A4936D600470917 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF42A4936D600470917 /* Checklist.swift */; };
 		EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF82A49394100470917 /* ChooseAvatarView.swift */; };
@@ -119,6 +121,8 @@
 		EEB981C22A541E980089A429 /* MainStoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainStoryView.swift; sourceTree = "<group>"; };
 		EEB981C42A541EB40089A429 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		EEB981C62A541ECF0089A429 /* CounterObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterObject.swift; sourceTree = "<group>"; };
+		EEB981C92A5458550089A429 /* Challenge1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge1View.swift; sourceTree = "<group>"; };
+		EEC157042A5501F70024A13E /* ChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeViewModel.swift; sourceTree = "<group>"; };
 		EECF3CF22A49366D00470917 /* CircleAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAvatar.swift; sourceTree = "<group>"; };
 		EECF3CF42A4936D600470917 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		EECF3CF82A49394100470917 /* ChooseAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarView.swift; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 		EEA1FA462A42AB6C0041270B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EEB981C82A5458420089A429 /* Challenge */,
 				EEB981C12A541E980089A429 /* MainStory */,
 				27F27E452A4EFDBA009CF355 /* Modules */,
 				27B59A0E2A4E5C2600C13D14 /* Stages */,
@@ -327,12 +332,21 @@
 			path = MainStory;
 			sourceTree = "<group>";
 		};
+		EEB981C82A5458420089A429 /* Challenge */ = {
+			isa = PBXGroup;
+			children = (
+				EEB981C92A5458550089A429 /* Challenge1View.swift */,
+			);
+			path = Challenge;
+			sourceTree = "<group>";
+		};
 		EECF3D1D2A4BFD4B00470917 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				EECF3D1E2A4BFD5800470917 /* UserViewModel.swift */,
 				27B59A132A4E71DE00C13D14 /* StageViewModel.swift */,
 				27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */,
+				EEC157042A5501F70024A13E /* ChallengeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -497,11 +511,13 @@
 				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
 				EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */,
 				EECF3CF52A4936D600470917 /* Checklist.swift in Sources */,
+				EEC157052A5501F70024A13E /* ChallengeViewModel.swift in Sources */,
 				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
 				EEB981C52A541EB40089A429 /* Extension.swift in Sources */,
 				0BB9FA082A53D33E00DB30CC /* CasePoses.swift in Sources */,
 				27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */,
+				EEB981CA2A5458550089A429 /* Challenge1View.swift in Sources */,
 				EEB981C32A541E980089A429 /* MainStoryView.swift in Sources */,
 				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
 				EECF3D1F2A4BFD5800470917 /* UserViewModel.swift in Sources */,
@@ -667,12 +683,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"edith/Preview Content\"";
-				DEVELOPMENT_TEAM = GZ6BD64S23;
+				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = edith/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Edith;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSCameraUsageDescription = "required access to your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -709,6 +726,7 @@
 				INFOPLIST_FILE = edith/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Edith;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_NSCameraUsageDescription = "required access to your camera";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
