@@ -14,6 +14,7 @@
 		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
 		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
 		27355B592A4BD964006C495A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27355B582A4BD964006C495A /* ContainerView.swift */; };
+		27A6FD002A564681008096AF /* Stage3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6FCFF2A564681008096AF /* Stage3View.swift */; };
 		27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */; };
 		27B59A142A4E71DE00C13D14 /* StageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A132A4E71DE00C13D14 /* StageViewModel.swift */; };
 		27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A152A4E7EDF00C13D14 /* Stage2View.swift */; };
@@ -83,6 +84,7 @@
 		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
 		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
 		27355B582A4BD964006C495A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		27A6FCFF2A564681008096AF /* Stage3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage3View.swift; sourceTree = "<group>"; };
 		27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1View.swift; sourceTree = "<group>"; };
 		27B59A132A4E71DE00C13D14 /* StageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModel.swift; sourceTree = "<group>"; };
 		27B59A152A4E7EDF00C13D14 /* Stage2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2View.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */,
 				27B59A152A4E7EDF00C13D14 /* Stage2View.swift */,
+				27A6FCFF2A564681008096AF /* Stage3View.swift */,
 			);
 			path = Stages;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				27C66EAA2A4BF0A0007BB465 /* UserModel.swift in Sources */,
 				27355B592A4BD964006C495A /* ContainerView.swift in Sources */,
 				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
+				27A6FD002A564681008096AF /* Stage3View.swift in Sources */,
 				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
 				27C66EAB2A4BF0A0007BB465 /* ChildAvatarModel.swift in Sources */,
 				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
@@ -680,10 +684,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"edith/Preview Content\"";
-				DEVELOPMENT_TEAM = 3P8PQZ7GZK;
+				DEVELOPMENT_TEAM = QP38GAQ82K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = edith/Info.plist;
@@ -703,6 +708,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ada.edith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
