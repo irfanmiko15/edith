@@ -146,7 +146,7 @@ struct RoadmapView: View {
             //stage1
                 VStack{
                     if(modul1Stage1==true){
-                        NavigationLink(destination: Stage1View(userModel: UserViewModel(), stage: StageModel(prompt: [""], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())
+                        NavigationLink(destination: Stage1View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 1", prompt: [], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())
                             .navigationBarBackButtonHidden(false)){
                                 Text("1").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:35))
                             }

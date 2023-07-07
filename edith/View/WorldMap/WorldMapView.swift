@@ -55,21 +55,21 @@ struct WorldMapView: View {
                             .frame(width: 60,height: 40)
                             .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/6), y: CGFloat(geo.size.height/3+geo.size.height/14+25)))
                             .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Hutan"))
-
-                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
-                        }.foregroundColor(.white)
-                            .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10))))
-                            .disabled(true)
-                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
-                        
-                        
-                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
-                        }.foregroundColor(.white)
-                            .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(geo.size.width*0.3), y: CGFloat(geo.size.height*0.84)))
-                            .disabled(true)
-                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
+//
+//                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
+//                        }.foregroundColor(.white)
+//                            .frame(width: 60,height: 40)
+//                            .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10))))
+//                            .disabled(true)
+//                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
+//                        
+//                        
+//                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
+//                        }.foregroundColor(.white)
+//                            .frame(width: 60,height: 40)
+//                            .position(CGPoint(x: CGFloat(geo.size.width*0.3), y: CGFloat(geo.size.height*0.84)))
+//                            .disabled(true)
+//                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
                         
                     }
                 }

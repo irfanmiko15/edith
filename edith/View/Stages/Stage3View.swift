@@ -229,7 +229,7 @@ struct Stage3View: View {
                         userModel.load()
                         stageViewModel.load()
                         
-                        stage = StageModel(prompt: stageViewModel.listPromptStage3, listImage: [], resultParent: [], resultChild: [])
+                        stage = StageModel(stagename: "Stage 3", prompt: stageViewModel.listPromptStage3, listImage: [], resultParent: [], resultChild: [])
                         for (index, image) in stageViewModel.listImagesStage3.enumerated() {
                             let x = reader.size.width*0.5 + ((CGFloat(Int(index)))-2)*reader.size.width*0.12
                             let y = reader.size.height*0.35
@@ -250,7 +250,7 @@ struct Stage3View: View {
 struct Stage3View_Previews: PreviewProvider {
     static var previews: some View {
         Stage3View(userModel: UserViewModel(),
-                   stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []),
+                   stage: StageModel(stagename: "", prompt: [], listImage: [], resultParent: [], resultChild: []),
                    stageViewModel: StageViewModel())
         .previewInterfaceOrientation(.landscapeRight)
     }

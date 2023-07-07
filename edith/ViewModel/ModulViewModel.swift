@@ -36,7 +36,7 @@ class ModulViewModel:ObservableObject{
         do{
             let jsonData = try jsonDecode.decode([ModulModel].self,from:modules)
             for module in jsonData {
-                let module: ModulModel = ModulModel(prompt: module.prompt, edithImage: module.edithImage, buttonText: module.buttonText,listImage: module.listImage)
+                let module: ModulModel = ModulModel(modulName: module.modulName, prompt: module.prompt, edithImage: module.edithImage, buttonText: module.buttonText,listImage: module.listImage)
                 dataModules.append(module)
             }
             print("loaded")
@@ -47,6 +47,11 @@ class ModulViewModel:ObservableObject{
             print("error load data")
         }
 
+    }
+    
+    func checkModel(modulName: String) -> Bool{
+        load()
+        return (dataModules.contains(where: {$0.modulName == modulName}))
     }
 }
 

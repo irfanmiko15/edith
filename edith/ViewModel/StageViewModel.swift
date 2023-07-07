@@ -22,14 +22,13 @@ class StageViewModel:ObservableObject{
     @AppStorage("stages") var stages:Data=Data()
     @Published var dataStages: [StageModel] = []
     
-
     func save(stages: [StageModel]){
         let jsonEncoder = JSONEncoder()
         do{
             let jsonData = try jsonEncoder.encode(stages)
             self.stages=jsonData
 
-            print("Saved")
+//            print("Saved")
             DispatchQueue.main.async {
                 self.load()
             }
@@ -42,18 +41,37 @@ class StageViewModel:ObservableObject{
     func load(){
         let jsonDecode=JSONDecoder()
         do{
+            dataStages = []
             let jsonData = try jsonDecode.decode([StageModel].self,from:stages)
             for stage in jsonData {
-                let stage: StageModel = StageModel(prompt: stage.prompt, listImage: stage.listImage, resultParent: stage.resultParent, resultChild: stage.resultChild)
+                let stage: StageModel = StageModel(stagename: stage.stagename, prompt: stage.prompt, listImage: stage.listImage, resultParent: stage.resultParent, resultChild: stage.resultChild)
                 dataStages.append(stage)
             }
-            print("loaded")
+//            print("loaded")
 //            print(dataStages)
-            
+            print(dataStages.count)
         }
         catch{
             print("error load data")
         }
 
+    }
+    
+    func saveStage(stage: StageModel){
+        load()
+        var stages = dataStages
+        
+        if(stages.contains(where: {$0.stagename == stage.stagename})){
+            let index = stages.firstIndex(where: {$0.stagename == stage.stagename}) ?? 0
+            stages[index] = stage
+        } else {
+            stages.append(stage)
+        }
+        save(stages: stages)
+    }
+    
+    func checkModel(stageName: String) -> Bool{
+        load()
+        return (dataStages.contains(where: {$0.stagename == stageName}))
     }
 }

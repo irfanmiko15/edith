@@ -7,13 +7,15 @@
 
 import Foundation
 struct StageModel:Identifiable, Hashable, Codable{
-    let id=UUID()
+    var id=UUID()
+    let stagename: String
     let prompt:[String]
     var listImage:[InteractiveImageModel]=[]
     var resultParent:[InteractiveImageModel]=[]
     var resultChild:[InteractiveImageModel]=[]
     
-    init(prompt: [String], listImage: [InteractiveImageModel], resultParent: [InteractiveImageModel], resultChild: [InteractiveImageModel]) {
+    init(stagename: String, prompt: [String], listImage: [InteractiveImageModel], resultParent: [InteractiveImageModel], resultChild: [InteractiveImageModel]) {
+        self.stagename = stagename
         self.prompt = prompt
         self.listImage = listImage
         self.resultParent = resultParent
