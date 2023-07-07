@@ -135,7 +135,7 @@ struct RoadmapView: View {
             }
             .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             //modul1
-            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(prompt: "", edithImage: "", listImage: [])]).navigationBarHidden(false)){
+            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(prompt: "", edithImage: "",buttonText: "", listImage: [])]).navigationBarHidden(false)){
                     Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                 }
                 .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
