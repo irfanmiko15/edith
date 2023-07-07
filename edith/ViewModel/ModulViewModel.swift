@@ -14,6 +14,15 @@ class ModulViewModel:ObservableObject{
     @AppStorage("modules") var modules:Data=Data()
     @Published var dataModules: [ModulModel] = []
     
+    @Published var listHead: [String] = ["edithHeadStill", "edithHeadQuestion", "edithHeadSad", "edithHeadHappy", "edithHeadQuestion", "edithHeadSad", "edithHeadHappy"]
+    @Published var listArm: [String] = ["edithWavingArms", "edithStillArms","edithStillArms","edithWavingArms", "edithStillArms", "edithWavingArms","edithWavingArms","edithWavingArms"]
+    
+    @Published var listPromptModul2: [String] = ["Kebutuhan bisa berubah menurut situasi kita.","Saat kita lapar, apa yang lebih kita butuhkan?","Air membantu kita saat haus. Coba pilih lainnya.","Benar! Makan apel dapat membuat kita tidak lapar.","Saat kita kedinginan, apa yang lebih kita butuhkan?","Sayur tidak bisa membuat kita hangat. Coba pilih lainnya.","Benar! Pakaian bisa membuat kita lebih hangat."]
+    
+    @Published var imageLeftRight: [String] = ["stageApple","stageWater","stageTee","stageVeggie"]
+    @Published var imageCorrect: [String] = ["stageApple","stageTee"]
+    
+    
 
     func save(modules: [ModulModel]){
         let jsonEncoder = JSONEncoder()
