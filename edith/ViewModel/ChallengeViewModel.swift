@@ -14,10 +14,12 @@ class ChallengeViewModel : NSObject,ObservableObject,AVCapturePhotoCaptureDelega
     @Published var session = AVCaptureSession()
     @Published var alert = false
     @Published var output = AVCapturePhotoOutput()
+    @Published var indexChallenge:Int = 0
     @Published var preview : AVCaptureVideoPreviewLayer!
-    @Published var picData:[UIImage] = [UIImage(),UIImage(),UIImage(),UIImage(),UIImage()]
+    @Published var picDataNeed:[UIImage] = [UIImage(),UIImage(),UIImage(),UIImage(),UIImage()]
+    @Published var picDataWant:[UIImage] = [UIImage(),UIImage(),UIImage(),UIImage(),UIImage()]
     @Published var isImageFilled:Bool=false
-    @Published var listPrompt:[ModulModel]=[ModulModel(prompt: "Keren! Sekarang kalian sudah paham tentang kebutuhan dan keinginan", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),ModulModel(prompt: "Sebagai penutup, aku punya tantangan yang seru untuk kalian!", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),ModulModel(prompt: "Ambil masing-masing 5 foto barang yang merupakan kebutuhan dan keinginan", edithImage: "edithMenyapa", buttonText: "NEXT", listImage: []),ModulModel(prompt: "Setelah itu, kita akan mendiskusikan gambar-gambar yang sudah kalian ambil", edithImage: "edithMenyapa", buttonText: "OK", listImage: []),ModulModel(prompt: "", edithImage: "", buttonText: "", listImage: []),ModulModel(prompt: "Ayo kita diskusikan gambar-gambar yang sudah kalian ambil bersama!", edithImage: "edithMenyapa", buttonText: "Ayo", listImage: []),ModulModel(prompt: "", edithImage: "", buttonText: "", listImage: []),ModulModel(prompt: "Luar biasa! Kalian sudah berhasil memahami kebutuhan dan keinginan", edithImage: "edithMenyapa", buttonText: "Ayo", listImage: []),ModulModel(prompt: "Ini baru permulaan, petualangan kita selanjutnya akan jauh lebih menyenangkan!", edithImage: "edithMenyapa", buttonText: "Selesai", listImage: [])]
+    @Published var listPrompt:[ChallengeModel]=[ChallengeModel(prompt: "Keren! Sekarang kalian sudah paham tentang kebutuhan dan keinginan", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),ChallengeModel(prompt: "Sebagai penutup, aku punya tantangan yang seru untuk kalian!", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),ChallengeModel(prompt: "Ambil masing-masing 5 foto barang yang merupakan kebutuhan dan keinginan", edithImage: "edithMenyapa", buttonText: "NEXT", listImage: []),ChallengeModel(prompt: "Setelah itu, kita akan mendiskusikan gambar-gambar yang sudah kalian ambil", edithImage: "edithMenyapa", buttonText: "OK", listImage: []),ChallengeModel(prompt: "", edithImage: "", buttonText: "", listImage: []),ChallengeModel(prompt: "Ayo kita diskusikan gambar-gambar yang sudah kalian ambil bersama!", edithImage: "edithMenyapa", buttonText: "Ayo", listImage: []),ChallengeModel(prompt: "", edithImage: "", buttonText: "", listImage: []),ChallengeModel(prompt: "Luar biasa! Kalian sudah berhasil memahami kebutuhan dan keinginan", edithImage: "edithMenyapa", buttonText: "Ayo", listImage: []),ChallengeModel(prompt: "Ini baru permulaan, petualangan kita selanjutnya akan jauh lebih menyenangkan!", edithImage: "edithMenyapa", buttonText: "Selesai", listImage: [])]
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video){
         case .authorized:
@@ -67,33 +69,59 @@ class ChallengeViewModel : NSObject,ObservableObject,AVCapturePhotoCaptureDelega
             return
         }
         print("pic taken")
-        
         guard let imageData = photo.fileDataRepresentation() else{return}
         let image = UIImage(data: imageData)
-        if let index = picData.firstIndex(where: {$0.cgImage == nil}) {
-            picData[index]=image!
+        if(indexChallenge==0){
+            if let index = picDataNeed.firstIndex(where: {$0.cgImage == nil}) {
+                picDataNeed[index]=image!
+            }
+        }
+        else{
+            if let index = picDataWant.firstIndex(where: {$0.cgImage == nil}) {
+                picDataWant[index]=image!
+            }
         }
         checkPhotoValue()
-        
-        
     }
+    
     func deleteImage(index:Int){
-        picData.remove(at: index)
-        picData.append(UIImage())
+        if(indexChallenge==0){
+            picDataNeed.remove(at: index)
+            picDataNeed.append(UIImage())
+        }
+        else{
+            picDataWant.remove(at: index)
+            picDataWant.append(UIImage())
+        }
         checkPhotoValue()
     }
+    
     func stopCamera(){
         self.session.stopRunning()
     }
     
     func checkPhotoValue(){
-        for i in picData.indices{
-            if(i==picData.count-1){
-                if(picData[i].cgImage != nil){
-                    isImageFilled=true
+        if(indexChallenge==0){
+            for i in picDataNeed.indices{
+                if(i==picDataNeed.count-1){
+                    if(picDataNeed[i].cgImage != nil){
+                        isImageFilled=true
+                    }
+                    else{
+                        isImageFilled=false
+                    }
                 }
-                else{
-                    isImageFilled=false
+            }
+        }
+        else{
+            for i in picDataWant.indices{
+                if(i==picDataWant.count-1){
+                    if(picDataWant[i].cgImage != nil){
+                        isImageFilled=true
+                    }
+                    else{
+                        isImageFilled=false
+                    }
                 }
             }
         }
