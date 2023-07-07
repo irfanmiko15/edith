@@ -35,14 +35,16 @@ struct MapStageButton: ButtonStyle {
                 }
                 .frame(width: 60, height: 40)
                 
-                Text(textStage)
-                    .foregroundColor(.white)
-                    .font(.custom(Font.balooBold, size: 24))
-                    .frame(width: 140,height: 50)
-                    .background(RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(Color.white,lineWidth: 4)
-                        .background(Rectangle().foregroundColor(color)).offset(y :  0)
-                        .cornerRadius(8))
+                if(isActive){
+                    Text(textStage)
+                        .foregroundColor(.white)
+                        .font(.custom(Font.balooBold, size: 24))
+                        .frame(width: 140,height: 50)
+                        .background(RoundedRectangle(cornerRadius: 8)
+                            .strokeBorder(Color.white,lineWidth: 4)
+                            .background(Rectangle().foregroundColor(color)).offset(y :  0)
+                            .cornerRadius(8))
+                }
                 
             }
             

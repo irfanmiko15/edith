@@ -52,7 +52,6 @@ struct Stage3View: View {
                                         isDragging = true
                                     }
                                     .onEnded { value in
-                                        let pos = [-0.5, 0.5]
                                         if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 3){
                                             
                                             let offset = ((CGFloat(Int(stage.resultParent.count)) - 1)*(reader.size.width*0.18*0.2+(reader.size.width/12)))
@@ -253,5 +252,6 @@ struct Stage3View_Previews: PreviewProvider {
         Stage3View(userModel: UserViewModel(),
                    stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []),
                    stageViewModel: StageViewModel())
+        .previewInterfaceOrientation(.landscapeRight)
     }
 }

@@ -16,10 +16,15 @@ struct WorldMapView: View {
                     Image("maps")
                         .resizable()
                         .scaledToFill()
+                    
                     ZStack{
-                        CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50).frame(height: geo.size.width*0.13)
-                        CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70).frame(height: geo.size.width*0.10).offset(x:-80,y:80)
-                    }.position(x:geo.size.width*0.9,y:geo.size.height*0.15)
+                        CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50)
+                            .frame(height: geo.size.width*0.12)
+                        CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70)
+                            .frame(height: geo.size.width*0.08)
+                            .offset(x:-(geo.size.width*0.06),y:geo.size.width*0.025)
+                    }.position(x:(geo.size.width*0.94)-(geo.size.width*0.02),y:geo.size.width*0.06+(geo.size.width*0.02))
+                    
                     ZStack{
                         Path { path in
                             path.move(to: CGPoint(x: CGFloat(geo.size.width/4+(geo.size.width/6)+60), y: CGFloat(geo.size.height/3+geo.size.height/11)))
@@ -46,19 +51,26 @@ struct WorldMapView: View {
                         NavigationLink(destination:
                                         Map1View(userModel: UserViewModel())
                             .navigationBarBackButtonHidden(true)){
-
                         }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
                             .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/6), y: CGFloat(geo.size.height/3+geo.size.height/14+25)))
                             .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Hutan"))
-//
-//                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
-//                        }.foregroundColor(.white)
-//                            .frame(width: 60,height: 40)
-//                            .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10)+35)))
-//                            .disabled(true)
-//                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Desa"))
-//                        
+
+                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
+                        }.foregroundColor(.white)
+                            .frame(width: 60,height: 40)
+                            .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10))))
+                            .disabled(true)
+                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
+                        
+                        
+                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
+                        }.foregroundColor(.white)
+                            .frame(width: 60,height: 40)
+                            .position(CGPoint(x: CGFloat(geo.size.width*0.3), y: CGFloat(geo.size.height*0.84)))
+                            .disabled(true)
+                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
+                        
                     }
                 }
                 .ignoresSafeArea()
@@ -72,5 +84,6 @@ struct WorldMapView: View {
 struct WorldMapView_Previews: PreviewProvider {
     static var previews: some View {
         WorldMapView(userModel: UserViewModel())
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

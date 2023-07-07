@@ -299,5 +299,6 @@ struct Stage2View: View {
 struct Stage2View_Previews: PreviewProvider {
     static var previews: some View {
         Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
