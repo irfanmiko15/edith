@@ -14,6 +14,7 @@ struct Stage1View: View {
     @State var draggedObject = InteractiveImageModel(image: "stageApple", x: CGFloat(0), y: CGFloat(0))
     
     @ObservedObject var stageViewModel: StageViewModel
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         NavigationStack{
@@ -114,7 +115,7 @@ struct Stage1View: View {
                                             let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
                                             if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
                                                 stage.resultParent.append(newObject)
-//                                                print(stage.resultParent)
+                                                //                                                print(stage.resultParent)
                                             }
                                             
                                         } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 4){
@@ -125,7 +126,7 @@ struct Stage1View: View {
                                             let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
                                             if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
                                                 stage.resultChild.append(newObject)
-//                                                print(stage.resultChild)
+                                                //                                                print(stage.resultChild)
                                                 stageViewModel.saveProgress(stageName: "Stage 1")
                                             }
                                             
@@ -219,6 +220,19 @@ struct Stage1View: View {
                             .frame(width: reader.size.width*0.12)
                             .position(CGPoint(x: draggedObject.x, y: draggedObject.y))
                     }
+                    
+                    // CLOSE BUTTON
+                    Button{
+                        presentationMode.wrappedValue.dismiss()
+                    }label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 30,height: 30)
+                            .font(Font.title.weight(.black))
+                    }.frame(width:90,height: 90)
+                        .position(CGPoint(x: reader.size.width-(45)-reader.size.width*0.025, y: 45+(reader.size.width*0.025)))
+                        .buttonStyle(CloseButton())
                     
                 }
                 

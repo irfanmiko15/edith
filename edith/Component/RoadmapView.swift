@@ -14,6 +14,7 @@ struct RoadmapView: View {
     
     @ObservedObject var stageViewModel: StageViewModel
     @ObservedObject var modulViewModel: ModulViewModel
+    
     var body: some View {
         GeometryReader{geo in
             ZStack{
@@ -25,7 +26,7 @@ struct RoadmapView: View {
                 }
                 .stroke(Color.white, style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
                 
-                if(modul1Stage1==true){
+                if(stageViewModel.checkProgress(stageName: "Modul 1")){
                     Path { path in
                         path.move(to: CGPoint(x:geo.size.width*0.18, y: geo.size.height*0.8))
                         path.addLine(to: CGPoint(x: geo.size.width*0.18, y: geo.size.height*0.45))
@@ -138,7 +139,7 @@ struct RoadmapView: View {
             }
             .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             //modul1
-            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(modulName: "Modul 1", prompt: [], edithImage: [], listImage: [])]).navigationBarHidden(false)){
+            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(modulName: "Modul 1", prompt: [], edithImage: [], listImage: [])])){
                     Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                 }
                 .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
@@ -148,9 +149,8 @@ struct RoadmapView: View {
                 .position(x:geo.size.width*0.18, y: geo.size.height*0.8)
             //stage1
                 VStack{
-                    if(stageViewModel.checkProgress(stageName: "Modul 1")==true){
-                        NavigationLink(destination: Stage1View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 1", prompt: [], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())
-                            .navigationBarBackButtonHidden(false)){
+                    if(stageViewModel.checkProgress(stageName: "Modul 1")){
+                        NavigationLink(destination: Stage1View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 1", prompt: [], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())){
                                 Text("1").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:35))
                             }
                             .frame(width:geo.size.width*0.12,height: geo.size.width*0.12)

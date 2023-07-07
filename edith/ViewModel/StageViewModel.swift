@@ -21,6 +21,26 @@ class StageViewModel:ObservableObject{
     
     let userDefaults = UserDefaults.standard
     var progress: [String] = []
+    
+    func saveProgress(stageName: String){
+        progress = userDefaults.stringArray(forKey: "progress") ?? []
+        var newProgress = progress
+        if(newProgress.contains(where: {$0 == stageName})){
+            let index = newProgress.firstIndex(where: {$0 == stageName}) ?? 0
+            newProgress[index] = stageName
+        } else {
+            newProgress.append(stageName)
+        }
+        progress = newProgress
+        userDefaults.set(progress, forKey: "progress")
+    }
+    
+    func checkProgress(stageName: String) -> Bool{
+        progress = userDefaults.stringArray(forKey: "progress") ?? []
+        return progress.contains(where: {$0 == stageName})
+    }
+    
+    
 //    @AppStorage("stages") var stages:Data=Data()
 //    @Published var dataStages: [StageModel] = []
     
@@ -79,22 +99,5 @@ class StageViewModel:ObservableObject{
 //        return (dataStages.contains(where: {$0.stagename == stageName}))
 //    }
     
-    func saveProgress(stageName: String){
-        progress = userDefaults.stringArray(forKey: "progress") ?? []
-        var newProgress = progress
-        if(newProgress.contains(where: {$0 == stageName})){
-            let index = newProgress.firstIndex(where: {$0 == stageName}) ?? 0
-            newProgress[index] = stageName
-        } else {
-            newProgress.append(stageName)
-        }
-        progress = newProgress
-        userDefaults.set(progress, forKey: "progress")
-    }
-    
-    func checkProgress(stageName: String) -> Bool{
-        progress = userDefaults.stringArray(forKey: "progress") ?? []
-        return progress.contains(where: {$0 == stageName})
-    }
     
 }

@@ -73,9 +73,6 @@ struct Map1View: View {
                     CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70).frame(height: geo.size.width*0.08).offset(x:-60,y:60)
                     
                 }.position(x:geo.size.width*0.9,y:geo.size.height*0.1)
-                
-                
-                
             }
             
         }.ignoresSafeArea()
