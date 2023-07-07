@@ -292,9 +292,9 @@ struct Module2View: View {
                 
             }
             .task{
-                modulViewModel.load()
+//                modulViewModel.load()
                 
-                modul = ModulModel(prompt: modulViewModel.listPromptModul2, edithImage: [], listImage: [])
+                modul = ModulModel(modulName: "Modul 1", prompt: modulViewModel.listPromptModul2, edithImage: [], listImage: [])
                 
                 for (index, image) in modulViewModel.imageLeftRight.enumerated(){
                     var x = CGFloat(0)
@@ -317,6 +317,6 @@ struct Module2View: View {
 
 struct Module2View_Previews: PreviewProvider {
     static var previews: some View {
-        Module2View(modul: ModulModel(prompt: [], edithImage: [], listImage: []), modulViewModel: ModulViewModel())
+        Module2View(modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []), modulViewModel: ModulViewModel())
     }
 }

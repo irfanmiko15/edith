@@ -11,6 +11,9 @@ struct RoadmapView: View {
     let emptyImageModel:[InteractiveImageModel] = []
     @State var selection: Int? = nil
     @AppStorage("modul1Stage1") var modul1Stage1:Bool=false
+    
+    @ObservedObject var stageViewModel: StageViewModel
+    @ObservedObject var modulViewModel: ModulViewModel
     var body: some View {
         GeometryReader{geo in
             ZStack{
@@ -135,7 +138,7 @@ struct RoadmapView: View {
             }
             .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             //modul1
-            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(prompt: "", edithImage: "",buttonText: "", listImage: [])]).navigationBarHidden(false)){
+            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(modulName: "Modul 1", prompt: [], edithImage: [], listImage: [])]).navigationBarHidden(false)){
                     Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                 }
                 .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
@@ -145,7 +148,7 @@ struct RoadmapView: View {
                 .position(x:geo.size.width*0.18, y: geo.size.height*0.8)
             //stage1
                 VStack{
-                    if(modul1Stage1==true){
+                    if(stageViewModel.checkProgress(stageName: "Modul 1")==true){
                         NavigationLink(destination: Stage1View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 1", prompt: [], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())
                             .navigationBarBackButtonHidden(false)){
                                 Text("1").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:35))
@@ -299,6 +302,6 @@ struct FinalStage:Shape{
 }
 struct RoadmapView_Previews: PreviewProvider {
     static var previews: some View {
-        RoadmapView()
+        RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel())
     }
 }

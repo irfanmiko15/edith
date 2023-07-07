@@ -19,59 +19,82 @@ class StageViewModel:ObservableObject{
     @Published var listPromptStage2 = ["Saat lapar,\napa yang lebih dibutuhkan?", "Saat kedinginan,\napa yang lebih dibutuhkan?", "Saat mengerjakan tes,\napa yang lebih dibutuhkan?", "Saat tersesat di supermarket,\napa yang lebih dibutuhkan?", "Saat berenang,\napa yang lebih dibutuhkan?", "Saat pergi ke sekolah,\napa yang lebih dibutuhkan?", "Saat terluka,\napa yang lebih dibutuhkan?"]
     @Published var listPromptStage3 = ["Saat bangun pagi untuk ke sekolah,\napa yang kamu butuhkan lebih dahulu?"]
     
-    @AppStorage("stages") var stages:Data=Data()
-    @Published var dataStages: [StageModel] = []
+    let userDefaults = UserDefaults.standard
+    var progress: [String] = []
+//    @AppStorage("stages") var stages:Data=Data()
+//    @Published var dataStages: [StageModel] = []
     
-    func save(stages: [StageModel]){
-        let jsonEncoder = JSONEncoder()
-        do{
-            let jsonData = try jsonEncoder.encode(stages)
-            self.stages=jsonData
-
+    
+//    func save(stages: [StageModel]){
+//        let jsonEncoder = JSONEncoder()
+//        do{
+//            let jsonData = try jsonEncoder.encode(stages)
+//            self.stages=jsonData
+//
 //            print("Saved")
-            DispatchQueue.main.async {
-                self.load()
-            }
-        }
-        catch{
-            print("error save to appstorage")
-        }
-    }
-    
-    func load(){
-        let jsonDecode=JSONDecoder()
-        do{
-            dataStages = []
-            let jsonData = try jsonDecode.decode([StageModel].self,from:stages)
-            for stage in jsonData {
-                let stage: StageModel = StageModel(stagename: stage.stagename, prompt: stage.prompt, listImage: stage.listImage, resultParent: stage.resultParent, resultChild: stage.resultChild)
-                dataStages.append(stage)
-            }
+//            DispatchQueue.main.async {
+//                self.load()
+//            }
+//        }
+//        catch{
+//            print("error save to appstorage")
+//        }
+//    }
+//
+//    func load(){
+//        let jsonDecode=JSONDecoder()
+//        do{
+//            dataStages = []
+//            let jsonData = try jsonDecode.decode([StageModel].self,from:stages)
+//            for stage in jsonData {
+//                let stage: StageModel = StageModel(stagename: stage.stagename, prompt: stage.prompt, listImage: stage.listImage, resultParent: stage.resultParent, resultChild: stage.resultChild)
+//                dataStages.append(stage)
+//            }
 //            print("loaded")
 //            print(dataStages)
-            print(dataStages.count)
-        }
-        catch{
-            print("error load data")
-        }
-
-    }
+//            print(dataStages.count)
+//        }
+//        catch{
+//            print("error load data")
+//        }
+//
+//    }
+//
+//    func saveStageProgress(stage: StageModel){
+//        load()
+//        var stages = dataStages
+//
+//        if(stages.contains(where: {$0.stagename == stage.stagename})){
+//            let index = stages.firstIndex(where: {$0.stagename == stage.stagename}) ?? 0
+//            stages[index] = stage
+//        } else {
+//            stages.append(stage)
+//        }
+//        save(stages: stages)
+//    }
     
-    func saveStage(stage: StageModel){
-        load()
-        var stages = dataStages
-        
-        if(stages.contains(where: {$0.stagename == stage.stagename})){
-            let index = stages.firstIndex(where: {$0.stagename == stage.stagename}) ?? 0
-            stages[index] = stage
+    
+//    func checkModel(stageName: String) -> Bool{
+//        load()
+//        return (dataStages.contains(where: {$0.stagename == stageName}))
+//    }
+    
+    func saveProgress(stageName: String){
+        progress = userDefaults.stringArray(forKey: "progress") ?? []
+        var newProgress = progress
+        if(newProgress.contains(where: {$0 == stageName})){
+            let index = newProgress.firstIndex(where: {$0 == stageName}) ?? 0
+            newProgress[index] = stageName
         } else {
-            stages.append(stage)
+            newProgress.append(stageName)
         }
-        save(stages: stages)
+        progress = newProgress
+        userDefaults.set(progress, forKey: "progress")
     }
     
-    func checkModel(stageName: String) -> Bool{
-        load()
-        return (dataStages.contains(where: {$0.stagename == stageName}))
+    func checkProgress(stageName: String) -> Bool{
+        progress = userDefaults.stringArray(forKey: "progress") ?? []
+        return progress.contains(where: {$0 == stageName})
     }
+    
 }

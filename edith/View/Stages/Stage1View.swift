@@ -115,7 +115,6 @@ struct Stage1View: View {
                                             if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
                                                 stage.resultParent.append(newObject)
 //                                                print(stage.resultParent)
-                                                stageViewModel.saveStage(stage: stage)
                                             }
                                             
                                         } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 4){
@@ -127,7 +126,7 @@ struct Stage1View: View {
                                             if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
                                                 stage.resultChild.append(newObject)
 //                                                print(stage.resultChild)
-                                                stageViewModel.saveStage(stage: stage)
+                                                stageViewModel.saveProgress(stageName: "Stage 1")
                                             }
                                             
                                         }
@@ -232,7 +231,7 @@ struct Stage1View: View {
                         let y = reader.size.height*0.23 + CGFloat(reader.size.height*CGFloat((Int(index)+1)%2)/8)
                         stage.listImage.append(InteractiveImageModel(image: image, isCorrect: false, x: CGFloat(x), y: y))
                     }
-//                    stageViewModel.saveStage(stage: stage)
+                    
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("")

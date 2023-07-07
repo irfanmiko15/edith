@@ -209,7 +209,7 @@ struct Stage2View: View {
                 // LOGIC
                 .task {
                     userModel.load()
-                    stageViewModel.load()
+//                    stageViewModel.load()
                     
                     stage = StageModel(stagename: "Stage 2", prompt: stageViewModel.listPromptStage2, listImage: [], resultParent: [], resultChild: [])
                     for (index, image) in stageViewModel.listImagesStage2.enumerated() {

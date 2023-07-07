@@ -10,7 +10,7 @@ import SwiftUI
 struct Module1View: View {
     @ObservedObject var modulViewModel: ModulViewModel
     @Environment(\.presentationMode) var presentationMode
-    @AppStorage("modul1Stage1") var modul1Stage1:Bool=false
+//    @AppStorage("modul1Stage1") var modul1Stage1:Bool=false
     @State var listPrompt: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.","Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup.", "Keinginan adalah hal-hal yang diharapkan untuk dimiliki.","Boneka, sepeda dan mainan baru adalah  contoh keinginan.","Tanpa keinginan, kita masih bisa bertahan hidup.","Sekarang, kita akan coba membedakan keinginan dan kebutuhan.","Apakah kalian siap?"]
     
     @State var prompts: [ModulModel]
@@ -54,7 +54,8 @@ struct Module1View: View {
 //
                 Button{
                     
-                    modul1Stage1=true
+//                    modul1Stage1=true
+                    modulViewModel.saveProgress(modulName: "Modul 1")
                     self.presentationMode.wrappedValue.dismiss()
                     
                 }label:{
@@ -161,7 +162,8 @@ struct Module1View: View {
                                 indexHead += 1
                                 
                             } else{
-                                modul1Stage1=true
+//                                modul1Stage1=true
+                                modulViewModel.saveProgress(modulName: "Modul 1")
                                 self.presentationMode.wrappedValue.dismiss()
                             }
                             
@@ -185,6 +187,6 @@ struct Module1View: View {
 
 struct Module1View_Previews: PreviewProvider {
     static var previews: some View {
-        Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(prompt: [], edithImage: [], listImage: [])])
+        Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(modulName: "Modul 1", prompt: [], edithImage: [], listImage: [])])
     }
 }

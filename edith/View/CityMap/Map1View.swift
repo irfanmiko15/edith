@@ -53,7 +53,7 @@ struct Map1View: View {
                 }.offset(x:0,y:-180)
                 Rectangle().fill(Color.white.opacity(0.6)).frame(maxWidth: .infinity,maxHeight: .infinity)
                
-                RoadmapView().padding(.leading)
+                RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel()).padding(.leading)
                 HStack{
                     Button{
                         self.presentationMode.wrappedValue.dismiss()
