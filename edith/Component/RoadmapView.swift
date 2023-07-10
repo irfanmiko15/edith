@@ -138,6 +138,7 @@ struct RoadmapView: View {
                 
             }
             .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
+            
             //modul1
             NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(modulName: "Modul 1", prompt: [], edithImage: [], listImage: [])])){
                     Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
@@ -147,6 +148,7 @@ struct RoadmapView: View {
                     foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40
                 ))
                 .position(x:geo.size.width*0.18, y: geo.size.height*0.8)
+            
             //stage1
                 VStack{
                     if(stageViewModel.checkProgress(stageName: "Modul 1")){

@@ -14,6 +14,7 @@ struct ContainerView: View {
     var height = CGFloat(300)
     var textSize: Int = 24
     var ratio = 0.001
+    var isCenter = false
     
     var body: some View{
         ZStack(alignment: .center){
@@ -49,11 +50,20 @@ struct ContainerView: View {
             }
             .frame(width: width*0.95, height: height)
             
-            Text(textInside)
-                .frame(width: width*0.7, height: height)
-                .offset(x: 0, y: 0-(height/3))
-                .multilineTextAlignment(.center)
-                .font(.custom(Font.balooBold, size: CGFloat(textSize)))
+            if(isCenter){
+                
+                Text(textInside)
+                    .frame(width: width*0.7, height: height)
+                    .multilineTextAlignment(.center)
+                    .font(.custom(Font.balooBold, size: CGFloat(textSize)))
+            } else {
+                
+                Text(textInside)
+                    .frame(width: width*0.7, height: height)
+                    .offset(x: 0, y: 0-(height/3))
+                    .multilineTextAlignment(.center)
+                    .font(.custom(Font.balooBold, size: CGFloat(textSize)))
+            }
             
             
             VStack{

@@ -11,7 +11,7 @@ struct Map1View: View {
     @ObservedObject var userModel: UserViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        GeometryReader { geo in
+        GeometryReader { reader in
             ZStack{
                 Image("map-1")
                     .resizable()
@@ -53,7 +53,10 @@ struct Map1View: View {
                 }.offset(x:0,y:-180)
                 Rectangle().fill(Color.white.opacity(0.6)).frame(maxWidth: .infinity,maxHeight: .infinity)
                
-                RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel()).padding(.leading)
+                RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel())
+                    .padding(.leading)
+                    .offset(y: reader.size.height*0.05)
+                
                 HStack{
                     Button{
                         self.presentationMode.wrappedValue.dismiss()
@@ -67,12 +70,17 @@ struct Map1View: View {
                         Text("Chapter 1").font(.custom(Font.balooBold, size: 40))
                         Text("Kebutuhan dan keinginan").font(.custom(Font.baloSemiBold, size: 30)).offset(y:-15)
                     }
-                }.position(x:geo.size.width*0.23,y:geo.size.height*0.08)
+                }.position(x:reader.size.width*0.23,y:reader.size.height*0.08)
+                
+                
+                // AVATAR
                 ZStack{
-                    CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50).frame(height: geo.size.width*0.11)
-                    CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70).frame(height: geo.size.width*0.08).offset(x:-60,y:60)
-                    
-                }.position(x:geo.size.width*0.9,y:geo.size.height*0.1)
+                    CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50)
+                        .frame(height: reader.size.width*0.12)
+                    CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70)
+                        .frame(height: reader.size.width*0.08)
+                        .offset(x:-(reader.size.width*0.06),y:reader.size.width*0.025)
+                }.position(x:(reader.size.width*0.94)-(reader.size.width*0.02),y:reader.size.width*0.06+(reader.size.width*0.02))
             }
             
         }.ignoresSafeArea()
@@ -85,5 +93,6 @@ struct Map1View: View {
 struct Map1View_Previews: PreviewProvider {
     static var previews: some View {
         Map1View(userModel: UserViewModel())
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }
