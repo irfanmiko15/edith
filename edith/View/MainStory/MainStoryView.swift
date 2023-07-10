@@ -325,44 +325,46 @@ struct MainStory5:View{
                     
                     Circle()
                         .fill(.radialGradient(colors: [Color.white,Color.white.opacity(0.8),Color.white.opacity(0.3),Color.white.opacity(0)],  center: .center, startRadius: 300, endRadius: 525))
-                        .frame(width:1300)
+                        .frame(width:reader.size.width*0.8)
                         .offset(y: reader.size.height*0.01)
 //                        .opacity(0.8)
                     
                     Image("edithBahagia")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: reader.size.height/1.5)
-                        .offset(y: -reader.size.height*0.05)
+                        .frame(height: reader.size.height/1.7)
+                        .offset(y: -reader.size.height*0.08)
                     
-                    Image("dad")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width:reader.size.width*0.275)
-                        .offset(x:-reader.size.width*0.15)
-                    
-                    Image("boyCrop1")
+                    Image(userModel.dataUser.parent.image)
                         .resizable()
                         .scaledToFit()
                         .frame(width:reader.size.width*0.23)
-                        .offset(x:reader.size.width*0.15, y:reader.size.height*0.03)
+                        .offset(x:-reader.size.width*0.14,y:-20)
                     
-                    RoundedRectangle(cornerRadius: 50).strokeBorder(Color.orangeSomething, lineWidth: 10)
-                        .background(RoundedRectangle(cornerRadius: 50).fill(.white))
-                        .frame(width: 1250,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
-                        .offset( y:280)
-                    
-                    NavigationLink(destination: WorldMapView(userModel: UserViewModel())
-                        .onAppear() {
-                            self.isfinished=true
-                            
-                        }.navigationBarHidden(true).onAppear{userModel.load()}){
-                            Text("Mulai")
-                                .font(.custom(Font.balooBold, size: 50))
-                                .foregroundColor(.white)
-                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                        .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-                        .offset(x:reader.size.width*0.25, y:390)
+                    Image(userModel.dataUser.child.fullImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width:reader.size.width*0.18)
+                        .offset(x:reader.size.width*0.16, y:reader.size.height*0.09)
+                    VStack(spacing: 0){
+                        Spacer()
+                        
+                        RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
+                            .background(RoundedRectangle(cornerRadius: 8).fill(.white))
+                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
+                        
+                        NavigationLink(destination: WorldMapView(userModel: UserViewModel())
+                            .onAppear() {
+                                self.isfinished=true
+                                
+                            }.navigationBarHidden(true).onAppear{userModel.load()}){
+                                Text("Mulai")
+                                    .font(.custom(Font.balooBold, size: 50))
+                                    .foregroundColor(.white)
+                            }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                            .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
+                            .offset(x: reader.size.width*0.3,y:-30)
+                    }.padding(.bottom,60)
                 }.onAppear{
                     userModel.load()
                     fullText="Dengan semangat, \(userModel.dataUser.name) dan \(userModel.dataUser.parent.name)nya akan memulai petualangan mereka bersama Edith"
@@ -379,52 +381,6 @@ struct MainStory5:View{
     }
 }
 
-//ZStack{
-//    Image("backgroundWorldMap").resizable().scaledToFill()
-//    ZStack{
-//
-//        ZStack{
-//            Circle()
-//                .fill(.radialGradient(colors: [Color.white,Color.white.opacity(0.8),Color.white.opacity(0.3),Color.white.opacity(0)],  center: .center, startRadius: 100, endRadius: 325))
-//                .frame(width:1500)
-//
-//            Image("edithBahagia")
-//                .resizable()
-//                .scaledToFit()
-//        }
-//
-//
-//        ZStack{
-//            RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
-//                .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-//                .frame(width: 1250,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
-//                .offset(x:-reader.size.width*0.04, y:250)
-//
-//            NavigationLink(destination: WorldMapView(userModel: UserViewModel())
-//                .onAppear() {
-//                    self.isfinished=true
-//
-//                }.navigationBarHidden(true).onAppear{userModel.load()}){
-//                    Text("Mulai")
-//                        .font(.custom(Font.balooBold, size: 50))
-//                        .foregroundColor(.white)
-//                }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-//                .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-//                .offset(x:reader.size.width*0.25, y:350)
-//
-//        }
-//    }
-//
-//}.onAppear{
-//    userModel.load()
-//    fullText="Dengan semangat, \(userModel.dataUser.name) dan \(userModel.dataUser.parent.name)nya akan memulai petualangan mereka bersama Edith"
-//    if isfinished==false{
-//        typeWriter()
-//    }
-//    else{
-//
-//    }
-//}
 
 
 
