@@ -65,6 +65,9 @@ struct WorldMapView: View {
             }.onAppear{
                 userModel.load()
             }
+        }.onAppear{
+            SoundControl()
+                .playMapSong()
         }
     }
 }
