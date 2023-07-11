@@ -186,7 +186,9 @@ struct RoadmapView: View {
                         .position(x: geo.size.width*0.38, y: geo.size.height*0.25)
                     } else {
                         
-                        NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
+                        Button{
+                            
+                        }label:{
                             Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                         }
                         .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
@@ -207,7 +209,9 @@ struct RoadmapView: View {
                         
                     } else {
                         
-                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 2", prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
+                        Button{
+                            
+                        }label:{
                             Text("2").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:35))
                         }
                         .frame(width:geo.size.width*0.12,height: geo.size.width*0.12)
@@ -229,15 +233,15 @@ struct RoadmapView: View {
                         
                     } else {
                         
-                        NavigationLink(destination: Module3View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 3", prompt: [], edithImage: [], listImage: []))){
+                        Button{
+                            
+                        }label:{
                             Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                         }
                         .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                         .buttonStyle(StageButtonDisable())
                         .position(x: geo.size.width*0.6, y: geo.size.height*0.6)
                     }
-                    
-                    
                     
                     
                     //stage 3
@@ -254,7 +258,9 @@ struct RoadmapView: View {
                     } else {
                         
                         
-                        NavigationLink(destination: Stage3View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 3", prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
+                        Button{
+                            
+                        }label:{
                             Text("3").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:40))
                         }
                         .frame(width:geo.size.width*0.13,height: geo.size.width*0.13)
@@ -279,8 +285,9 @@ struct RoadmapView: View {
                     } else {
                         
                         
-                        
-                        NavigationLink(destination: Challenge1View()){
+                        Button{
+                            
+                        }label:{
                             Image( "flag").resizable().scaledToFit().frame(width: geo.size.width*0.07)
                         }
                         .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)

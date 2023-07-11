@@ -97,12 +97,16 @@ struct Module2View: View {
                                         if modulViewModel.imageCorrect.contains(where: {
                                             $0 == currentObjectCompared[0].image
                                         }){
-                                            if(isWrong){
-                                                indexPrompt += 1
-                                            } else {
-                                                indexPrompt += 2
+                                            if(indexPrompt < modulViewModel.listPromptModul2.count - 1){
+                                                if(isWrong){
+                                                    indexPrompt += 1
+                                                }
+                                                else {
+                                                    indexPrompt += 2
+                                                }
+                                                
+                                                isCorrect = true
                                             }
-                                            isCorrect = true
                                         }else{
                                             indexPrompt += 1
                                             isWrong = true
@@ -131,12 +135,16 @@ struct Module2View: View {
                                         if modulViewModel.imageCorrect.contains(where: {
                                             $0 == currentObjectCompared[1].image
                                         }){
-                                            if(isWrong){
-                                                indexPrompt += 1
-                                            } else {
-                                                indexPrompt += 2
+                                            if(indexPrompt < modulViewModel.listPromptModul2.count - 1){
+                                                if(isWrong){
+                                                    indexPrompt += 1
+                                                }
+                                                else {
+                                                    indexPrompt += 2
+                                                }
+                                                
+                                                isCorrect = true
                                             }
-                                            isCorrect = true
                                         }else{
                                             indexPrompt += 1
                                             isWrong = true

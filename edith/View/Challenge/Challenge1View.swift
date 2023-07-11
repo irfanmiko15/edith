@@ -11,17 +11,23 @@ struct Challenge1View: View {
     @State var yOffset: CGFloat = -20
     @State var index:Int = 0
     var body: some View {
-        ZStack{
-            if(index<=3 || index==5 || index>6){
-                PromptView(challengeViewModel: challengeViewModel, index: $index)
-
+        NavigationStack{
+            ZStack{
+                if(index<=3 || index==5 || index>6){
+                    PromptView(challengeViewModel: challengeViewModel, index: $index)
+                    
+                }
+                else if(index==4){
+                    TakeImageView(index:$index,challengeViewModel: challengeViewModel)
+                }
+                else{
+                    ResultView(challengeViewModel: challengeViewModel, index: $index)
+                }
+                
             }
-            else if(index==4){
-                TakeImageView(index:$index,challengeViewModel: challengeViewModel)
-            }
-            else{
-                ResultView(challengeViewModel: challengeViewModel, index: $index)
-            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }
@@ -72,12 +78,12 @@ struct ResultView:View{
                 }.offset(x:0,y:-180)
                 
                 ZStack{
-                   
-                        ContainerView(textInside: challengeViewModel.indexChallenge == 0 ? "Ayo berdiskusi bersama kenapa barang ini adalah sebuah kebutuhan?" : "Ayo berdiskusi bersama kenapa barang ini adalah sebuah keinginan?",
-                                      strokeWidth: CGFloat(16),
-                                      width: reader.size.width*0.8,
-                                      height: reader.size.height*0.8).padding()
-                        
+                    
+                    ContainerView(textInside: challengeViewModel.indexChallenge == 0 ? "Ayo berdiskusi bersama kenapa barang ini adalah sebuah kebutuhan?" : "Ayo berdiskusi bersama kenapa barang ini adalah sebuah keinginan?",
+                                  strokeWidth: CGFloat(16),
+                                  width: reader.size.width*0.8,
+                                  height: reader.size.height*0.8).padding()
+                    
                     if(challengeViewModel.indexChallenge==0){
                         Image(uiImage:challengeViewModel.picDataNeed[indexImage]).resizable().scaledToFill().rotationEffect(.degrees(-90)).frame(width: reader.size.width*0.3, height: reader.size.height*0.2).position(x:reader.size.width*0.5,y: reader.size.height*0.6)
                     }else{
@@ -98,10 +104,10 @@ struct ResultView:View{
                         else{
                             if(indexImage==challengeViewModel.picDataWant.count-1){
                                 index+=1
-                                                            }
+                            }
                             else{
                                 indexImage+=1
-
+                                
                             }
                         }
                     }label: {
@@ -110,7 +116,7 @@ struct ResultView:View{
                         .frame(width: reader.size.width*0.2, height: reader.size.height*0.1).offset(x:reader.size.width*0.3,y:reader.size.height*0.4)
                 }.position(x:reader.size.width/2,y:reader.size.height/2)
             }
-           
+            
         }.ignoresSafeArea()
     }
 }
@@ -161,7 +167,7 @@ struct PromptView: View {
                     )
                 }.offset(x:0,y:-180)
                 Rectangle().fill(Color.white.opacity(0.6)).frame(maxWidth: .infinity,maxHeight: .infinity)
-               
+                
                 HStack{
                     Image(challengeViewModel.listPrompt[index].edithImage).resizable().scaledToFit().frame(height: reader.size.height*0.7).shadow(color:.white,radius: 10).offset(y:yOffset)
                         .task{
@@ -290,68 +296,68 @@ struct TakeImageView: View {
                         }.background(RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
                             .background(RoundedRectangle(cornerRadius: 8).fill(.white)))
                     }
-            }.padding(.trailing,150).padding(.bottom)
-            HStack{
-                Spacer()
-                Rectangle().fill(.black.opacity(0.5)).frame(width: reader.size.width*0.12)
-            }
-            HStack{
-                Spacer()
-                
-                Button{
-                    if(challengeViewModel.isImageFilled==true){
-                    }
-                    else{
-                        challengeViewModel.takePic()
-                    }
-                }label: {
-                    ZStack{
-                        Circle().fill(challengeViewModel.isImageFilled ? .white.opacity(0.5) : .white).frame(width: reader.size.width*0.08,height: reader.size.width*0.08)
-                        Circle().stroke(challengeViewModel.isImageFilled ? .white.opacity(0.5) : .white,lineWidth:4).frame(width: reader.size.width*0.09,height: reader.size.width*0.09)
-                    }
+                }.padding(.trailing,150).padding(.bottom)
+                HStack{
+                    Spacer()
+                    Rectangle().fill(.black.opacity(0.5)).frame(width: reader.size.width*0.12)
                 }
-                
-            }.padding(.trailing)
-            
-            
-            
-            if(challengeViewModel.isImageFilled==true){
-                
-                ZStack{
-                    RoundedRectangle(cornerRadius: 24)
-                        .fill(Color.white)
-                        .frame(width: reader.size.width*0.4, height: reader.size.height*0.5)
+                HStack{
+                    Spacer()
                     
-                    RoundedRectangle(cornerRadius: 24)
-                        .stroke(Color.orangeFox70, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
-                        .frame(width: reader.size.width*0.4, height: reader.size.height*0.5)
-                    VStack(spacing: 0){
-                        Image("edithBahagia")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: reader.size.height*0.25)
-                        Text("Pastikan foto yang diambil sudah jelas \nya sebelum lanjut!")
-                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.15)
-                            .multilineTextAlignment(.center)
-                            .font(.custom(Font.balooBold, size: CGFloat(25)))
-                    }
                     Button{
-                        if(challengeViewModel.indexChallenge==0){
-                            challengeViewModel.indexChallenge=1
-                            challengeViewModel.isImageFilled=false
+                        if(challengeViewModel.isImageFilled==true){
                         }
                         else{
-                            index+=1
-                            challengeViewModel.indexChallenge=0
+                            challengeViewModel.takePic()
                         }
+                    }label: {
+                        ZStack{
+                            Circle().fill(challengeViewModel.isImageFilled ? .white.opacity(0.5) : .white).frame(width: reader.size.width*0.08,height: reader.size.width*0.08)
+                            Circle().stroke(challengeViewModel.isImageFilled ? .white.opacity(0.5) : .white,lineWidth:4).frame(width: reader.size.width*0.09,height: reader.size.width*0.09)
+                        }
+                    }
+                    
+                }.padding(.trailing)
+                
+                
+                
+                if(challengeViewModel.isImageFilled==true){
+                    
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 24)
+                            .fill(Color.white)
+                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.5)
                         
-                    } label:{Text("Next")
-                            .font(.custom(Font.balooBold, size: 40))
-                            .foregroundColor(.white)
-                    }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                        .frame(width: reader.size.width*0.2, height: reader.size.height*0.1).position(x: reader.size.width*0.5, y: reader.size.height*0.75)
-                } .position(x: reader.size.width*0.45, y: reader.size.height*0.45)
-            }
+                        RoundedRectangle(cornerRadius: 24)
+                            .stroke(Color.orangeFox70, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
+                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.5)
+                        VStack(spacing: 0){
+                            Image("edithBahagia")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: reader.size.height*0.25)
+                            Text("Pastikan foto yang diambil sudah jelas \nya sebelum lanjut!")
+                                .frame(width: reader.size.width*0.4, height: reader.size.height*0.15)
+                                .multilineTextAlignment(.center)
+                                .font(.custom(Font.balooBold, size: CGFloat(25)))
+                        }
+                        Button{
+                            if(challengeViewModel.indexChallenge==0){
+                                challengeViewModel.indexChallenge=1
+                                challengeViewModel.isImageFilled=false
+                            }
+                            else{
+                                index+=1
+                                challengeViewModel.indexChallenge=0
+                            }
+                            
+                        } label:{Text("Next")
+                                .font(.custom(Font.balooBold, size: 40))
+                                .foregroundColor(.white)
+                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                            .frame(width: reader.size.width*0.2, height: reader.size.height*0.1).position(x: reader.size.width*0.5, y: reader.size.height*0.75)
+                    } .position(x: reader.size.width*0.45, y: reader.size.height*0.45)
+                }
             }.onAppear{
                 challengeViewModel.check()
             }
