@@ -196,27 +196,50 @@ struct RoadmapView: View {
             }
             
 //            stage 2
-            VStack{
-
-                Button{
-
-                }label:{
+            
+            if(modulViewModel.checkProgress(modulName: "Modul 2")){
+                
+                NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 2", prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
                     Text("2").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:35))
                 }
                 .frame(width:geo.size.width*0.12,height: geo.size.width*0.12)
-                .buttonStyle(StageButtonDisable(
-                ))
-            }.position(x:geo.size.width*0.38, y: geo.size.height*0.6)
+                .buttonStyle(StageButton(foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40))
+                .position(x:geo.size.width*0.38, y: geo.size.height*0.6)
+                
+            } else {
+                
+                NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 2", prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
+                    Text("2").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:35))
+                }
+                .frame(width:geo.size.width*0.12,height: geo.size.width*0.12)
+                .buttonStyle(StageButtonDisable())
+                .position(x:geo.size.width*0.38, y: geo.size.height*0.6)
+            }
 
             //modul 3
-            Button{
-
-            }label:{
-                Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+            
+            if(modulViewModel.checkProgress(modulName: "Stage 2")){
+                
+                NavigationLink(destination: Module3View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 3", prompt: [], edithImage: [], listImage: []))){
+                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                }
+                .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
+                .buttonStyle(StageButton(foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40))
+                .position(x: geo.size.width*0.6, y: geo.size.height*0.6)
+                
+                
+            } else {
+                
+                NavigationLink(destination: Module3View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 3", prompt: [], edithImage: [], listImage: []))){
+                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                }
+                .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
+                .buttonStyle(StageButtonDisable())
+                .position(x: geo.size.width*0.6, y: geo.size.height*0.6)
             }
-            .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
-            .buttonStyle(StageButtonDisable(
-            )).position(x: geo.size.width*0.6, y: geo.size.height*0.6)
+            
+            
+            
 
             //stage 3
             VStack{

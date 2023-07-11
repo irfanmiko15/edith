@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct Stage3View: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var userModel: UserViewModel
+    
+    @State var isConfirming = false
+    @State var isDiscussing = true
+    @State var currentPrompt = ""
     
     @State var stage: StageModel
     @State var isDragging = false
@@ -18,128 +23,145 @@ struct Stage3View: View {
     var body: some View {
         NavigationStack{
             GeometryReader{reader in
+                // VIEW
                 ZStack{
-                    ZStack {
+                    // BACKGROUND
+                    ZStack{
                         Image("bgModul")
                             .resizable()
                             .scaledToFill()
                             .blur(radius: 16)
                         Rectangle()
                             .fill(Color.black)
-                            .frame(width: reader.size.width, height: reader.size.height)
+                            .frame(maxWidth: .infinity)
                             .opacity(0.2)
+                    }
                     
-                        ZStack{
-                            ContainerView(textInside: "Saat bangun pagi untuk ke sekolah,\napa yang kamu butuhkan lebih dahulu?",
-                                          strokeWidth: CGFloat(16),
-                                          width: reader.size.width*0.9,
-                                          height: reader.size.height*0.5)
+                    ZStack {
+                    
+                        // CONTAINER
+                        Group {
+                            ZStack{
+                                ContainerView(textInside: currentPrompt,
+                                              strokeWidth: CGFloat(16),
+                                              width: reader.size.width*0.9,
+                                              height: reader.size.height*0.5,
+                                              textSize: (isDiscussing ? 30 : 24),
+                                              isCenter: isDiscussing)
+                            }
+                            .position(x: reader.size.width*0.5, y: reader.size.height*0.3)
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 32)
+                                    .fill(Color.blueTang95)
+                                    .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
+                                
+                                RoundedRectangle(cornerRadius: 32)
+                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                    .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
+                                
+                                HStack(spacing: reader.size.width*0.1*0.2){
+                                    CircleWithNumber(textInside: "1", color: Color.blueTang70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
+                                    CircleWithNumber(textInside: "2", color: Color.blueTang70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
+                                    CircleWithNumber(textInside: "3", color: Color.blueTang70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
+                                }
+                                .position(x: reader.size.width*0.42*0.5, y: reader.size.height*0.18)
+                                
+                                CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.white, strokeWidth: 16)
+                                    .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                    .offset(x: -reader.size.width*0.4*0.5, y: reader.size.height*0.13)
+                                
+                                
+                            }
+                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
+                            .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
+                            .offset(x: reader.size.width*0.025)
+                            
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 32)
+                                    .fill(Color.cardinal95)
+                                    .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
+                                
+                                RoundedRectangle(cornerRadius: 32)
+                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                    .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
+                                
+                                HStack(spacing: reader.size.width*0.1*0.2){
+                                    CircleWithNumber(textInside: "1", color: Color.cardinal70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
+                                    CircleWithNumber(textInside: "2", color: Color.cardinal70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
+                                    CircleWithNumber(textInside: "3", color: Color.cardinal70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
+                                }
+                                .position(x: reader.size.width*0.42*0.5, y: reader.size.height*0.18)
+                                
+                                CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.white, strokeWidth: 16)
+                                    .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                    .offset(x: reader.size.width*0.4*0.5, y: reader.size.height*0.13)
+                                
+                                
+                            }
+                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
+                            .position(x: reader.size.width*0.75, y: reader.size.height*0.75)
+                            .offset(x: -reader.size.width*0.025)
                         }
-                        .position(x: reader.size.width*0.5, y: reader.size.height*0.3)
                         
-                        ForEach(stage.listImage) { image in
-                            Image(image.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: reader.size.width*0.5*0.2)
-                                .position(CGPoint(x: image.x, y: image.y))
-                                .shadow(radius: 5)
-                                .gesture(DragGesture()
-                                    .onChanged { value in
-                                        draggedObject.image = image.image
-                                        draggedObject.x = value.location.x
-                                        draggedObject.y = value.location.y
-                                        isDragging = true
-                                    }
-                                    .onEnded { value in
-                                        if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 3){
-                                            
-                                            let offset = ((CGFloat(Int(stage.resultParent.count)) - 1)*(reader.size.width*0.18*0.2+(reader.size.width/12)))
-                                            let x = reader.size.width*0.25-(reader.size.width*0.005)+offset
-                                            
-                                            let y = reader.size.height*0.75
-                                            
-                                            let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
-                                            if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
-                                                stage.resultParent.append(newObject)
-                                                print(stage.resultParent)
+                        // OBJECT
+                        if(!isDiscussing){
+                            ForEach(stage.listImage) { image in
+                                Image(image.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: reader.size.width*0.5*0.2)
+                                    .position(CGPoint(x: image.x, y: image.y))
+                                    .shadow(radius: 5)
+                                    .gesture(DragGesture()
+                                        .onChanged { value in
+                                            draggedObject.image = image.image
+                                            draggedObject.x = value.location.x
+                                            draggedObject.y = value.location.y
+                                            isDragging = true
+                                        }
+                                        .onEnded { value in
+                                            if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 3){
+                                                
+                                                let offset = ((CGFloat(Int(stage.resultParent.count)) - 1)*(reader.size.width*0.18*0.2+(reader.size.width/12)))
+                                                let x = reader.size.width*0.25-(reader.size.width*0.005)+offset
+                                                
+                                                let y = reader.size.height*0.75
+                                                
+                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
+                                                    stage.resultParent.append(newObject)
+                                                    
+                                                    if(stage.resultChild.count == 3 && stage.resultParent.count == 3){
+                                                        isConfirming = true
+                                                    }
+                                                }
+                                                
+                                            } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 3){
+                                                
+                                                
+                                                
+                                                let offset = ((CGFloat(Int(stage.resultChild.count)) - 1)*(reader.size.width*0.18*0.2+(reader.size.width/12)))
+                                                let x = reader.size.width*0.7-(reader.size.width*0.005)+offset
+                                                
+                                                let y = reader.size.height*0.75
+                                                
+                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
+                                                    stage.resultChild.append(newObject)
+                                                    if(stage.resultChild.count == 3 && stage.resultParent.count == 3){
+                                                        isConfirming = true
+                                                    }
+                                                }
+                                                
                                             }
-                                            
-                                        } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 3){
-                                            
-                                            
-                                            
-                                            let offset = ((CGFloat(Int(stage.resultChild.count)) - 1)*(reader.size.width*0.18*0.2+(reader.size.width/12)))
-                                            let x = reader.size.width*0.7-(reader.size.width*0.005)+offset
-                                            
-                                            let y = reader.size.height*0.75
-                                            
-                                            let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
-                                            if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
-                                                stage.resultChild.append(newObject)
-                                                print(stage.resultChild)
-                                            }
+                                            isDragging = false
                                             
                                         }
-                                        isDragging = false
-                                        
-                                    }
-                                )
-                        }
-                        
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 32)
-                                .fill(Color.blueTang95)
-                                .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
-                            
-                            RoundedRectangle(cornerRadius: 32)
-                                .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                                .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
-                            
-                            HStack(spacing: reader.size.width*0.1*0.2){
-                                CircleWithNumber(textInside: "1", color: Color.blueTang70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
-                                CircleWithNumber(textInside: "2", color: Color.blueTang70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
-                                CircleWithNumber(textInside: "3", color: Color.blueTang70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
+                                    )
                             }
-                            .position(x: reader.size.width*0.42*0.5, y: reader.size.height*0.18)
-                            
-                            CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.white, strokeWidth: 16)
-                                .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
-                                .offset(x: -reader.size.width*0.4*0.5, y: reader.size.height*0.13)
-                            
-                            
                         }
-                        .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
-                        .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
-                        .offset(x: reader.size.width*0.025)
-                        
-                        
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 32)
-                                .fill(Color.cardinal95)
-                                .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
-                            
-                            RoundedRectangle(cornerRadius: 32)
-                                .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                                .frame(width: reader.size.width*0.42, height: reader.size.height*0.25)
-                            
-                            HStack(spacing: reader.size.width*0.1*0.2){
-                                CircleWithNumber(textInside: "1", color: Color.cardinal70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
-                                CircleWithNumber(textInside: "2", color: Color.cardinal70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
-                                CircleWithNumber(textInside: "3", color: Color.cardinal70, strokeWidth: 8, size: reader.size.width*0.05, fontSize: CGFloat(48))
-                            }
-                            .position(x: reader.size.width*0.42*0.5, y: reader.size.height*0.18)
-                            
-                            CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.white, strokeWidth: 16)
-                                .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
-                                .offset(x: reader.size.width*0.4*0.5, y: reader.size.height*0.13)
-                            
-                            
-                        }
-                        .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
-                        .position(x: reader.size.width*0.75, y: reader.size.height*0.75)
-                        .offset(x: -reader.size.width*0.025)
-                        
                         
                         ForEach(stage.resultChild) { child in
                             Image(child.image)
@@ -215,6 +237,7 @@ struct Stage3View: View {
                                 )
                         }
                         
+                        // DRAGGABLE OBJECT
                         if (isDragging) {
                             Image(draggedObject.image)
                                 .resizable()
@@ -223,20 +246,106 @@ struct Stage3View: View {
                                 .position(CGPoint(x: draggedObject.x, y: draggedObject.y))
                         }
                         
+                        // CLOSE BUTTON
+                        Button{
+                            presentationMode.wrappedValue.dismiss()
+                        }label: {
+                            Image(systemName: "xmark")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .frame(width: reader.size.width*0.025, height: reader.size.width*0.025)
+                                .font(Font.title.weight(.black))
+                        }.frame(width: reader.size.width*0.065, height: reader.size.width*0.65)
+                            .position(CGPoint(x: reader.size.width-(45)-reader.size.width*0.025, y: 45+(reader.size.width*0.025)))
+                            .buttonStyle(CloseButton())
+                        
+                        // DIALOG CONFIRMING DRAG N DROP END
+                        if(isConfirming){
+                            ZStack{
+                                Rectangle()
+                                    .fill(Color.black)
+                                    .frame(width: reader.size.width, height: reader.size.height)
+                                    .opacity(0.6)
+                                
+                                ZStack{
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .fill(Color.white)
+                                        .frame(width: reader.size.width*0.5, height: reader.size.height*0.6)
+                                    
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .stroke(Color.orangeFox70, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
+                                        .frame(width: reader.size.width*0.5, height: reader.size.height*0.6)
+                                    VStack(spacing: 0){
+                                        Image("edithBertanya")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height: reader.size.height*0.35)
+                                        Text("Apakah kalian sudah selesai\nmemindahkan semua kebutuhan?")
+                                            .frame(width: reader.size.width*0.5, height: reader.size.height*0.15)
+                                            .multilineTextAlignment(.center)
+                                            .font(.custom(Font.balooBold, size: CGFloat(32)))
+                                    }
+                                    
+                                    Button{
+                                        isConfirming = false
+                                        isDiscussing = true
+                                        currentPrompt = stageViewModel.listPromptStage3[1]
+                                    }label:{
+                                        Text("Sudah")
+                                            .font(.custom(Font.balooBold, size: 50))
+                                            .foregroundColor(.white)
+                                    }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                                        .frame(width: reader.size.width/6, height: reader.size.height/10)
+                                        .position(x: reader.size.width*0.5 + reader.size.width*0.1,
+                                                  y: reader.size.height*0.3 + reader.size.height*0.5)
+                                    
+                                    Button{
+                                        isConfirming = false
+                                    }label:{
+                                        Text("Belum")
+                                            .font(.custom(Font.balooBold, size: 50))
+                                            .foregroundColor(.white)
+                                    }.buttonStyle(ThreeD(foregroundColor: .orangeFox50, shadowColor: .orangeFox50))
+                                        .frame(width: reader.size.width/6, height: reader.size.height/10)
+                                        .position(x: reader.size.width*0.5 - reader.size.width*0.1,
+                                                  y: reader.size.height*0.3 + reader.size.height*0.5)
+                                }
+                                .position(x: reader.size.width*0.5, y: reader.size.height*0.5)
+                            }
+                        }
+                        
+                        // END BUTTON
+                        if(isDiscussing){
+                            Button{
+                                presentationMode.wrappedValue.dismiss()
+                                stageViewModel.saveProgress(stageName: "Stage 3")
+                            }label:{
+                                Text("AKHIRI DISKUSI")
+                                    .font(.custom(Font.balooBold, size: 36))
+                                    .foregroundColor(.white)
+                            }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                                .frame(width: reader.size.width*0.25, height: reader.size.height/10)
+                                .position(x: reader.size.width*0.5 + reader.size.width*0.3,
+                                          y: reader.size.height*0.5 + reader.size.height*0.01)
+                        }
+                        
                     }
                     
-                    .task{
-                        userModel.load()
+                    
+                }
+                
+                // LOGIC
+                .task{
+                    userModel.load()
 //                        stageViewModel.load()
-                        
-                        stage = StageModel(stagename: "Stage 3", prompt: stageViewModel.listPromptStage3, listImage: [], resultParent: [], resultChild: [])
-                        for (index, image) in stageViewModel.listImagesStage3.enumerated() {
-                            let x = reader.size.width*0.5 + ((CGFloat(Int(index)))-2)*reader.size.width*0.12
-                            let y = reader.size.height*0.35
-                            stage.listImage.append(InteractiveImageModel(image: image, isCorrect: false, x: CGFloat(x), y: y))
-                        }
-//                        stageViewModel.save(stages: [stage])
+                    
+                    stage = StageModel(stagename: "Stage 3", prompt: stageViewModel.listPromptStage3, listImage: [], resultParent: [], resultChild: [])
+                    for (index, image) in stageViewModel.listImagesStage3.enumerated() {
+                        let x = reader.size.width*0.5 + ((CGFloat(Int(index)))-2)*reader.size.width*0.12
+                        let y = reader.size.height*0.35
+                        stage.listImage.append(InteractiveImageModel(image: image, isCorrect: false, x: CGFloat(x), y: y))
                     }
+                    currentPrompt = stageViewModel.listPromptStage3[0]
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("")

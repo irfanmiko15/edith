@@ -36,7 +36,7 @@ struct Stage1View: View {
                             .blur(radius: 16)
                         Rectangle()
                             .fill(Color.black)
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                             .opacity(0.2)
                     }
                     
