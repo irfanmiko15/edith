@@ -1,0 +1,25 @@
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/Checklist.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Checklist.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Checklist.d"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Checklist.o"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Checklist.dia"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/ViewModel/ChallengeViewModel.swift":
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChallengeViewModel.dia"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChallengeViewModel.d"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChallengeViewModel.swiftdeps"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChallengeViewModel.o"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/StageButton.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageButton.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageButton.d"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageButton.dia"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageButton.o"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/RoadmapView.swift":
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/RoadmapView.o"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/RoadmapView.d"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/RoadmapView.dia"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/RoadmapView.swiftdeps"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Utils/Extension.swift":
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Extension.d"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Extension.swiftdeps"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Extension.o"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Extension.dia"

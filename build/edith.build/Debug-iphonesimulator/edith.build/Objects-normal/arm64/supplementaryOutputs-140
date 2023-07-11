@@ -1,0 +1,25 @@
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Model/ModulModel.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ModulModel.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ModulModel.d"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ModulModel.o"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ModulModel.dia"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/CityMap/Map1View.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.d"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.o"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.dia"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/WorldMap/WorldMapView.swift":
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/WorldMapView.dia"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/WorldMapView.d"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/WorldMapView.swiftdeps"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/WorldMapView.o"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/Modules/Module1View.swift":
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Module1View.d"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Module1View.swiftdeps"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Module1View.dia"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Module1View.o"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/edithApp.swift":
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/edithApp.o"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/edithApp.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/edithApp.d"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/edithApp.dia"

@@ -1,0 +1,25 @@
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/Stages/Stage2View.swift":
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Stage2View.dia"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Stage2View.d"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Stage2View.o"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Stage2View.swiftdeps"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/CasePoses.swift":
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CasePoses.d"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CasePoses.swiftdeps"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CasePoses.dia"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CasePoses.o"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/MainStory/MainStoryView.swift":
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MainStoryView.o"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MainStoryView.d"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MainStoryView.dia"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MainStoryView.swiftdeps"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/ChooseAvatarView.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChooseAvatarView.swiftdeps"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChooseAvatarView.o"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChooseAvatarView.dia"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/ChooseAvatarView.d"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/Challenge/Challenge1View.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Challenge1View.swiftdeps"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Challenge1View.o"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Challenge1View.d"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Challenge1View.dia"
