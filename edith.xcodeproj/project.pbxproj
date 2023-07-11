@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B37755E2A5BB1C70059E96B /* AudioResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B37755D2A5BB1C70059E96B /* AudioResources.swift */; };
 		0B3775762A5BB38A0059E96B /* ButtonSfx.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0B37756B2A5BB3890059E96B /* ButtonSfx.m4a */; };
 		0B3775772A5BB38A0059E96B /* MainStoryBgm2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0B37756C2A5BB38A0059E96B /* MainStoryBgm2.m4a */; };
 		0B3775782A5BB38A0059E96B /* WrongSfx.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0B37756D2A5BB38A0059E96B /* WrongSfx.m4a */; };
@@ -20,6 +19,7 @@
 		0B37757F2A5BB38A0059E96B /* EdithPowerUp.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0B3775742A5BB38A0059E96B /* EdithPowerUp.m4a */; };
 		0B3775802A5BB38A0059E96B /* StageCompleted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0B3775752A5BB38A0059E96B /* StageCompleted.m4a */; };
 		0B7A7F4F2A52C63B00DDA88B /* Module2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */; };
+		0B867B512A5CFD5800BAAA22 /* AudioResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B867B4E2A5CFD5800BAAA22 /* AudioResources.swift */; };
 		0BB9FA0C2A54077400DB30CC /* Module3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB9FA0B2A54077400DB30CC /* Module3View.swift */; };
 		272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897402A4A8661005B1A36 /* WorldMapView.swift */; };
 		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
@@ -93,7 +93,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B37755D2A5BB1C70059E96B /* AudioResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioResources.swift; sourceTree = "<group>"; };
 		0B37756B2A5BB3890059E96B /* ButtonSfx.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ButtonSfx.m4a; sourceTree = "<group>"; };
 		0B37756C2A5BB38A0059E96B /* MainStoryBgm2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = MainStoryBgm2.m4a; sourceTree = "<group>"; };
 		0B37756D2A5BB38A0059E96B /* WrongSfx.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = WrongSfx.m4a; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		0B3775742A5BB38A0059E96B /* EdithPowerUp.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = EdithPowerUp.m4a; sourceTree = "<group>"; };
 		0B3775752A5BB38A0059E96B /* StageCompleted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = StageCompleted.m4a; sourceTree = "<group>"; };
 		0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module2View.swift; sourceTree = "<group>"; };
+		0B867B4E2A5CFD5800BAAA22 /* AudioResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioResources.swift; sourceTree = "<group>"; };
 		0BB9FA0B2A54077400DB30CC /* Module3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module3View.swift; sourceTree = "<group>"; };
 		272897402A4A8661005B1A36 /* WorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
 		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
@@ -342,6 +342,7 @@
 		EEA1FA4B2A43DE0F0041270B /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				0B867B4E2A5CFD5800BAAA22 /* AudioResources.swift */,
 				EEB981C62A541ECF0089A429 /* CounterObject.swift */,
 				EEA1FA4E2A43DEB80041270B /* ThreeDButton.swift */,
 				EEA1FA522A43E6F90041270B /* StageButton.swift */,
@@ -556,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27C66EA92A4BF0A0007BB465 /* ParentAvatarModel.swift in Sources */,
+				0B867B512A5CFD5800BAAA22 /* AudioResources.swift in Sources */,
 				27F27E4B2A4F02E0009CF355 /* ModulViewModel.swift in Sources */,
 				27C66EAA2A4BF0A0007BB465 /* UserModel.swift in Sources */,
 				27355B592A4BD964006C495A /* ContainerView.swift in Sources */,
