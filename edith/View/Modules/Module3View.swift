@@ -92,6 +92,20 @@ struct Module3View: View {
                         .offset(y: -reader.size.height/20)
                     }
                     
+                    // CLOSE BUTTON
+                    Button{
+                        presentationMode.wrappedValue.dismiss()
+                    }label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .font(Font.title.weight(.black))
+                            .frame(width: 30,height: 30)
+                    }.frame(width: reader.size.height*0.1, height: 90)
+                        .position(CGPoint(x: reader.size.width-(45)-reader.size.width*0.025,
+                                          y: 45+(reader.size.width*0.025)))
+                        .buttonStyle(CloseButton())
+                    
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("")

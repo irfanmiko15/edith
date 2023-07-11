@@ -12,7 +12,7 @@ struct Stage3View: View {
     @StateObject var userModel: UserViewModel
     
     @State var isConfirming = false
-    @State var isDiscussing = true
+    @State var isDiscussing = false
     @State var currentPrompt = ""
     
     @State var stage: StageModel
