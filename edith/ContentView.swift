@@ -12,12 +12,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-            if(userModel.dataUser.name.isEmpty){
-                ChooseAvatarView(userModel: UserViewModel())
-            }
-            else{
-                OnboardingView(userModel: UserViewModel())
-            }
+            OnboardingView(userModel: UserViewModel())
+            
         }.onAppear{
             userModel.load()
         }
