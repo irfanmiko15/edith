@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import AVFoundation
+
+
 
 struct MainStoryView: View {
     @State var index:Int = 1
@@ -30,6 +33,9 @@ struct MainStoryView: View {
             if(index == 5){
                 MainStory5(index: $index,userModel: UserViewModel()).transition(AnyTransition.opacity.animation(.easeInOut(duration:0.3)))
             }
+            if(index == 6){
+                MainStory6(index: $index,userModel: UserViewModel()).transition(AnyTransition.opacity.animation(.easeInOut(duration:0.3)))
+            }
         }
     }
 }
@@ -42,55 +48,54 @@ struct MainStory1:View{
     @State var fullText:String=""
     
     func typeWriter(at position: Int = 0) {
-            if position == 0 {
-                text = ""
+        if position == 0 {
+            text = ""
+        }
+        if position < fullText.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                text.append(fullText[position])
+                typeWriter(at: position + 1)
             }
-            if position < fullText.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                    text.append(fullText[position])
-                    typeWriter(at: position + 1)
-                }
-                
-            }
+            
+        }
         
-            if isfinished == true{
-                text=fullText
-            }
+        if isfinished == true{
+            text=fullText
+        }
     }
     var body: some View {
         NavigationStack{
             GeometryReader{reader in
                 ZStack{
                     Image("mainStoryBackground").resizable().scaledToFill()
-                    VStack{
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
-                        
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 50).strokeBorder(Color.orangeSomething, lineWidth: 10)
+                            .background(RoundedRectangle(cornerRadius: 50).fill(.white))
+                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 35)).padding(.horizontal,reader.size.width*0.06))
+                            .offset(y:reader.size.height*0.3)
                         Button{
-                            withAnimation(.easeOut) {
-                                index=2
-                                
-                            }
-                            
+                            index=2
                         } label:{Text("Next")
-                            .font(.custom(Font.balooBold, size: 50))
-                            .foregroundColor(.white)
-                    }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                        .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-                        .offset(x:reader.size.width*0.3, y:-50)
+                                .font(.custom(Font.balooBold, size: 50))
+                                .foregroundColor(.white)
+                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                            .frame(width: reader.size.width*0.20, height: reader.size.height*0.10)
+                            .offset(x:reader.size.width*0.35, y:reader.size.height*0.4)
+                        Spacer()
                         
                     }.padding(.bottom,55)
                 }.onAppear{
                     userModel.load()
-                    fullText="Suatu hari, \(userModel.dataUser.parent.name) bercerita bahwa ia memiliki sebuah robot yang sudah lama tidak digunakan"
+                    fullText="Suatu hari, \(userModel.dataUser.parent.name) bercerita bahwa ia memiliki sebuah robot celengan yang sudah lama tidak digunakan."
                     if isfinished==false{
                         typeWriter()
                     }
                     else{
                         
                     }
+                    
+                    SoundControl()
+//                      .playMainStoryAudio()
                 }
             }.ignoresSafeArea()
         }
@@ -103,48 +108,52 @@ struct MainStory2:View{
     @ObservedObject var userModel:UserViewModel
     @State var fullText:String=""
     func typeWriter(at position: Int = 0) {
-            if position == 0 {
-                text = ""
+        if position == 0 {
+            text = ""
+        }
+        if position < fullText.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                text.append(fullText[position])
+                typeWriter(at: position + 1)
             }
-            if position < fullText.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                    text.append(fullText[position])
-                    typeWriter(at: position + 1)
-                }
-                
-            }
+            
+        }
         
-            if isfinished == true{
-                text=fullText
-            }
+        if isfinished == true{
+            text=fullText
+        }
     }
     var body: some View {
         NavigationStack{
             GeometryReader{reader in
                 ZStack{
                     Image("mainStoryBackgroundRectangle").resizable().scaledToFill()
-                    VStack{
-                        Spacer()
-                        HStack{
-                            Image("edithBrokenDark").resizable().scaledToFit().frame(height: reader.size.height*0.55)
-                            Image("coin").resizable().scaledToFit().frame(width: reader.size.width*0.3)
+                    ZStack{
+                        ZStack{
+                            Image("edithBrokenDark").resizable().scaledToFit().frame(height: reader.size.height*0.9)
+                                .offset(x:-reader.size.width*0.2)
+                                .brightness(-0.2)
+                            Image("coin").resizable().scaledToFit().frame(width: reader.size.width*0.5)
                                 .shadow(color: Color.white, radius: 100)
                                 .shadow(color: Color.white, radius: 100)
+                                .offset(x:reader.size.width*0.23)
                         }
-                        RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
+                        RoundedRectangle(cornerRadius: 50).strokeBorder(Color.orangeSomething, lineWidth: 10)
+                            .background(RoundedRectangle(cornerRadius: 50).fill(.white))
+                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 35)).padding(.horizontal,reader.size.width*0.07))
+                            .offset(y:reader.size.height*0.3)
                         Button{
                             index=3
                         } label:{Text("Next")
-                            .font(.custom(Font.balooBold, size: 50))
-                            .foregroundColor(.white)
-                    }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                        .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-                        .offset(x:reader.size.width*0.3, y:-50)
+                                .font(.custom(Font.balooBold, size: 50))
+                                .foregroundColor(.white)
+                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                            .frame(width: reader.size.width*0.20, height: reader.size.height*0.10)
+                            .offset(x:reader.size.width*0.35, y:reader.size.height*0.4)
                         Spacer()
                     }.padding(.bottom,55)
-                }.onAppear{
+                }
+                .onAppear{
                     userModel.load()
                     fullText="Untuk meng-aktifkannya kembali, \(userModel.dataUser.parent.name) memberikan sebuah koin kepada \(userModel.dataUser.name)"
                     if isfinished==false{
@@ -153,146 +162,245 @@ struct MainStory2:View{
                     else{
                         
                     }
+                    
+                    SoundControl()
+                        .playBrokenEdith()
                 }
             }.ignoresSafeArea()
         }
     }
 }
+
 struct MainStory3:View{
     @Binding var index:Int
-    @ObservedObject var userModel:UserViewModel
     @State var isfinished:Bool = false
     @State var text: String = ""
-
     @State var fullText:String=""
-
+    @ObservedObject var userModel:UserViewModel
+    
+    
     func typeWriter(at position: Int = 0) {
-            if position == 0 {
-                text = ""
+        if position == 0 {
+            text = ""
+        }
+        if position < fullText.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                text.append(fullText[position])
+                typeWriter(at: position + 1)
             }
-            if position < fullText.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                    text.append(fullText[position])
-                    typeWriter(at: position + 1)
-                }
-                
-            }
+            
+        }
         
-            if isfinished == true{
-                text=fullText
-            }
+        if isfinished == true{
+            text=fullText
+        }
     }
     var body: some View {
+        
         NavigationStack{
             GeometryReader{reader in
+                
                 ZStack{
-                    Image("mainStoryBackgroundRectangle").resizable().scaledToFill()
-                    VStack{
-                        Spacer()
-                       
-                            Image("edithBahagia").resizable().scaledToFit().frame(height: reader.size.height*0.55)
-                            
+                    Image("mainStoryBackgroundRectangle")
+                        .resizable()
+                        .scaledToFill()
+                    Image("dropCoin")
+                        .resizable()
+                        .scaledToFill()
+                    
+                    ZStack{
                         
-                        RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
+                        RoundedRectangle(cornerRadius: 50).strokeBorder(Color.orangeSomething, lineWidth: 10)
+                            .background(RoundedRectangle(cornerRadius: 50).fill(.white))
+                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 35)).padding(.horizontal,reader.size.width*0.07))
+                            .offset(y:reader.size.height*0.3)
+                        
                         Button{
                             index=4
                         } label:{Text("Next")
-                            .font(.custom(Font.balooBold, size: 50))
-                            .foregroundColor(.white)
-                    }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                        .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-                        .offset(x:reader.size.width*0.3, y:-50)
+                                .font(.custom(Font.balooBold, size: 50))
+                                .foregroundColor(.white)
+                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                            .frame(width: reader.size.width*0.20, height: reader.size.height*0.10)
+                            .offset(x:reader.size.width*0.35, y:reader.size.height*0.4)
                         Spacer()
-                    }.padding(.bottom,55)
-                }.onAppear{
-                    userModel.load()
-                    fullText="\(userModel.dataUser.name) pun memasukkan koin tersebut ke dalam kepala sang robot, yang membuatnya kembali aktif"
-                    if isfinished==false{
-                        typeWriter()
+                    }.padding(.bottom, 55)
+                    
+                }
+                
+            }.onAppear{
+                userModel.load()
+                fullText=" \(userModel.dataUser.name)pun memasukkan koin itu ke dalam Edith."
+                if isfinished==false{
+                    typeWriter()
+                }
+                else{
+                    
+                }
+                
+                SoundControl()
+                    .playCoinSFX()
+                
+            }
+        }.ignoresSafeArea()
+    }
+}
+
+struct MainStory4:View{
+    @Binding var index:Int
+    @ObservedObject var userModel:UserViewModel
+    @State var isfinished:Bool = false
+    @State var text: String = ""
+    
+    @State var fullText:String=""
+    
+    
+    @State var yOffset: CGFloat = 0
+    @State var yOffsett: CGFloat = -10
+    @State var scaleEffect: CGFloat = 0.8
+    @State var opacityCircle: CGFloat = 0.8
+    
+    func typeWriter(at position: Int = 0) {
+        if position == 0 {
+            text = ""
+        }
+        if position < fullText.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                text.append(fullText[position])
+                typeWriter(at: position + 1)
+            }
+            
+        }
+        
+        if isfinished == true{
+            text=fullText
+        }
+    }
+    var body: some View {
+        NavigationStack{
+            GeometryReader{reader in
+                
+                ZStack{
+                    
+                    Image("mainStoryBackgroundRectangle").resizable().scaledToFill()
+                    
+                    ZStack{
+                        
+                        Image("edithBodyStill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: reader.size.height*0.9)
+                            .offset(y:-reader.size.height*0.05)
+                        
+                        Circle()
+                            .stroke(RadialGradient(colors: [Color("orangeSomething"), Color("orangeSomething"), Color.orange, Color.orange, Color.clear], center: .center, startRadius: 0, endRadius: 145), lineWidth: reader.size.width*0.08)
+                            .frame(width: reader.size.width*0.23)
+                            .offset(y:-reader.size.height*0.2)
+                            .opacity(opacityCircle)
                     }
-                    else{
+                    .offset(y:yOffsett)
+                    .task{
+                        withAnimation(Animation.easeOut(duration: 0.3).repeatForever()){
+                            yOffsett = 20
+                            opacityCircle = 0.3
+                            
+                        }
                         
                     }
+                }
+                .onAppear{
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3)
+                    {
+                        index=5
+                    }
+                    
+                    SoundControl()
+                        .playEdithPowerUp()
                 }
             }.ignoresSafeArea()
         }
     }
 }
-struct MainStory4:View{
+
+
+struct MainStory5:View{
     @Binding var index:Int
     @State var isfinished:Bool = false
     @State var text: String = ""
     @State var fullText:String=""
     @ObservedObject var userModel:UserViewModel
-  
+    
     func typeWriter(at position: Int = 0) {
-            if position == 0 {
-                text = ""
+        if position == 0 {
+            text = ""
+        }
+        if position < fullText.count {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                text.append(fullText[position])
+                typeWriter(at: position + 1)
             }
-            if position < fullText.count {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                    text.append(fullText[position])
-                    typeWriter(at: position + 1)
-                }
-                
-            }
+            
+        }
         
-            if isfinished == true{
-                text=fullText
-            }
+        if isfinished == true{
+            text=fullText
+        }
     }
     var body: some View {
         NavigationStack{
             GeometryReader{reader in
                 ZStack{
                     Image("mainStoryBackgroundRectangle").resizable().scaledToFill()
-                    VStack{
+                    ZStack{
                         Spacer()
-                       
-                            Image("edithMenyapa").resizable().scaledToFit().frame(height: reader.size.height*0.55)
-                            
                         
-                        RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
+                        EdithFigure(pose: "happy", width: reader.size.width*0.35)
+                        
+                        RoundedRectangle(cornerRadius: 50).strokeBorder(Color.orangeSomething, lineWidth: 10)
+                            .background(RoundedRectangle(cornerRadius: 50).fill(.white))
+                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 35)).padding(.horizontal,reader.size.width*0.07))
+                            .offset(y:reader.size.height*0.3)
                         Button{
-                            index=5
+                            index=6
                         } label:{Text("Next")
-                            .font(.custom(Font.balooBold, size: 50))
-                            .foregroundColor(.white)
-                    }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                        .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-                        .offset(x:reader.size.width*0.3, y:-50)
+                                .font(.custom(Font.balooBold, size: 50))
+                                .foregroundColor(.white)
+                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                            .frame(width: reader.size.width*0.20, height: reader.size.height*0.10)
+                            .offset(x:reader.size.width*0.35, y:reader.size.height*0.4)
                         Spacer()
-//                        NavigationLink(destination: WorldMapView(userModel: UserViewModel())
-//                            .onAppear() {
-//                                self.isfinished=true
-//                            }.navigationBarHidden(false)){
-//                            Text("Next")
-//                                .font(.custom(Font.balooBold, size: 50))
-//                                .foregroundColor(.white)
-//                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-//                            .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-//                            .offset(x:reader.size.width*0.3, y:-50)
-//
+                        //                        NavigationLink(destination: WorldMapView(userModel: UserViewModel())
+                        //                            .onAppear() {
+                        //                                self.isfinished=true
+                        //                            }.navigationBarHidden(false)){
+                        //                            Text("Next")
+                        //                                .font(.custom(Font.balooBold, size: 50))
+                        //                                .foregroundColor(.white)
+                        //                        }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                        //                            .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
+                        //                            .offset(x:reader.size.width*0.3, y:-50)
+                        //
                     }.padding(.bottom,55)
                 }.onAppear{
                     userModel.load()
-                    fullText="Hi! Aku Edith. Terima kasih sudah membantu aku, \(userModel.dataUser.name) dan \(userModel.dataUser.parent.name)! Sebagai kebaikan kalian, aku ingin mengajak kalian pergi berpetualang!"
+                    fullText="Hi! Aku Edith. Terima kasih sudah membantu aku! Sebagai kebaikan kalian, aku ingin mengajak kalian pergi berpetualang!"
                     if isfinished==false{
                         typeWriter()
                     }
                     else{
                         
                     }
+                    
+                    SoundControl()
+                        .playEdithTalk()
+                    
                 }
             }.ignoresSafeArea()
         }
     }
 }
-struct MainStory5:View{
+struct MainStory6:View{
     @Binding var index:Int
     @State var isfinished:Bool = false
     @State var text: String = ""
@@ -303,7 +411,7 @@ struct MainStory5:View{
             text = ""
         }
         if position < fullText.count {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                 text.append(fullText[position])
                 typeWriter(at: position + 1)
             }
@@ -324,10 +432,10 @@ struct MainStory5:View{
                         .scaledToFill()
                     
                     Circle()
-                        .fill(.radialGradient(colors: [Color.white,Color.white.opacity(0.8),Color.white.opacity(0.3),Color.white.opacity(0)],  center: .center, startRadius: 300, endRadius: 525))
+                        .fill(.radialGradient(colors: [Color.white,Color.white.opacity(0.8),Color.white.opacity(0.3),Color.white.opacity(0)],  center: .center, startRadius: 250, endRadius: 450))
                         .frame(width:reader.size.width*0.8)
-                        .offset(y: reader.size.height*0.01)
-//                        .opacity(0.8)
+                        .offset(y: -reader.size.height*0.03)
+                    //                        .opacity(0.8)
                     
                     Image("edithBahagia")
                         .resizable()
@@ -338,36 +446,41 @@ struct MainStory5:View{
                     Image(userModel.dataUser.parent.image)
                         .resizable()
                         .scaledToFit()
-                        .frame(width:reader.size.width*0.23)
-                        .offset(x:-reader.size.width*0.14,y:-20)
+                        .frame(width:reader.size.width*0.25)
+                        .offset(x:-reader.size.width*0.14,y:reader.size.height*0.01)
                     
                     Image(userModel.dataUser.child.fullImage)
                         .resizable()
                         .scaledToFit()
-                        .frame(width:reader.size.width*0.18)
-                        .offset(x:reader.size.width*0.16, y:reader.size.height*0.09)
-                    VStack(spacing: 0){
+                        .frame(width:reader.size.width*0.2)
+                        .offset(x:reader.size.width*0.15, y:reader.size.height*0.13)
+                    ZStack{
                         Spacer()
                         
-                        RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
-                            .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 30)).padding(.horizontal,40))
+                        RoundedRectangle(cornerRadius: 50).strokeBorder(Color.orangeSomething, lineWidth: 10)
+                            .background(RoundedRectangle(cornerRadius: 50).fill(.white))
+                            .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 35)).padding(.horizontal,reader.size.width*0.07))
+                            .offset(y:reader.size.height*0.3)
+
                         
                         NavigationLink(destination: WorldMapView(userModel: UserViewModel())
                             .onAppear() {
                                 self.isfinished=true
-                                
+
                             }.navigationBarHidden(true).onAppear{userModel.load()}){
                                 Text("Mulai")
                                     .font(.custom(Font.balooBold, size: 50))
                                     .foregroundColor(.white)
                             }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                            .frame(width: reader.size.width*0.3, height: reader.size.height*0.11)
-                            .offset(x: reader.size.width*0.3,y:-30)
-                    }.padding(.bottom,60)
+                            .frame(width: reader.size.width*0.20, height: reader.size.height*0.10)
+                            .offset(x:reader.size.width*0.35, y:reader.size.height*0.4)
+                        
+                        Spacer()
+                        
+                    }.padding(.bottom,55)
                 }.onAppear{
                     userModel.load()
-                    fullText="Dengan semangat, \(userModel.dataUser.name) dan \(userModel.dataUser.parent.name)nya akan memulai petualangan mereka bersama Edith"
+                    fullText="Dengan semangat, \(userModel.dataUser.name) dan \(userModel.dataUser.parent.name)nya akan memulai petualangan mereka bersama Edith!"
                     if isfinished==false{
                         typeWriter()
                     }
@@ -385,7 +498,10 @@ struct MainStory5:View{
 
 
 struct MainStoryView_Previews: PreviewProvider {
+    //    @State var index:Int = 1
+    
     static var previews: some View {
+        //        MainStory4(index: .constant(1), userModel: UserViewModel())
         MainStoryView(userModel: UserViewModel())
     }
 }
