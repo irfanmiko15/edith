@@ -31,15 +31,26 @@ struct Stage2View: View {
     @State var isPlay = true
     @State var isRight = true
     @State var statusSelectedObject = ""
-    @State var isDone = false
+    @State var isDone = true
     
     var body: some View {
         NavigationStack{
             GeometryReader{reader in
+                // VIEW
                 ZStack{
-                    Image("bgModul")
-                        .resizable()
-                        .scaledToFill()
+                    // BACKGROUND
+                    ZStack{
+                        Image("bgModul")
+                            .resizable()
+                            .scaledToFill()
+                            .blur(radius: 16)
+                        Rectangle()
+                            .fill(Color.black)
+                            .frame(maxWidth: .infinity)
+                            .opacity(0.2)
+                    }
+                    
+                    // PROMPT BOX
                     ZStack{
                         RoundedRectangle(cornerRadius: 32)
                             .fill(Color.white)
@@ -56,6 +67,7 @@ struct Stage2View: View {
                     }
                     .position(x: reader.size.width*0.5, y: reader.size.height*0.15)
                     
+                    // BASKET
                     Group{
                         ZStack{
                             Image("basketBack")
@@ -74,7 +86,7 @@ struct Stage2View: View {
                         .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
                     }
                     
-                    
+                    // OBJECT COMPARED
                     Group{
                         Group{
                             ZStack{
@@ -124,7 +136,7 @@ struct Stage2View: View {
                         
                     }
                     
-                    
+                    // BALL
                     ZStack{
                         
                         Image("ballBoard")
@@ -143,8 +155,7 @@ struct Stage2View: View {
                         
                     }
                     
-                    
-                    
+                    // BASKET
                     Group{
                         ZStack{
                             Image("basketFront")
@@ -162,12 +173,12 @@ struct Stage2View: View {
                         .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
                     }
                     
-                    
+                    // STATUS CORRECT AND WRONG
                     if(isDone){
                         ZStack{
                             Rectangle()
                                 .fill(Color.black)
-                                .frame(width: reader.size.width, height: reader.size.height)
+                                .frame(maxWidth: .infinity)
                                 .opacity(0.6)
                             
                             ZStack{
@@ -194,11 +205,13 @@ struct Stage2View: View {
                     }
                     
                 }
+                
+                // LOGIC
                 .task {
                     userModel.load()
-                    stageViewModel.load()
+//                    stageViewModel.load()
                     
-                    stage = StageModel(prompt: stageViewModel.listPromptStage2, listImage: [], resultParent: [], resultChild: [])
+                    stage = StageModel(stagename: "Stage 2", prompt: stageViewModel.listPromptStage2, listImage: [], resultParent: [], resultChild: [])
                     for (index, image) in stageViewModel.listImagesStage2.enumerated() {
                         var x = CGFloat(0)
                         let y = reader.size.height*0.575
@@ -266,6 +279,7 @@ struct Stage2View: View {
                                         statusSelectedObject = "stageWrong"
                                     }
                                 }
+                                
                                 isPlay = false
                                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                                     isPlay = true
@@ -285,7 +299,6 @@ struct Stage2View: View {
                         
                     }
                     
-                    //                    stageViewModel.save(stages: [stage])
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("")
@@ -298,6 +311,7 @@ struct Stage2View: View {
 
 struct Stage2View_Previews: PreviewProvider {
     static var previews: some View {
-        Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
+        Stage2View(userModel: UserViewModel(), stage: StageModel(stagename: "", prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

@@ -11,54 +11,83 @@ struct WorldMapView: View {
     @StateObject var userModel: UserViewModel
     var body: some View {
         NavigationStack{
-            GeometryReader { geo in
+            GeometryReader { reader in
                 ZStack {
-                    Image("maps")
-                        .resizable()
-                        .scaledToFill()
+                    // BACKGROUND
                     ZStack{
-                        CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50).frame(height: geo.size.width*0.13)
-                        CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70).frame(height: geo.size.width*0.10).offset(x:-80,y:80)
-                    }.position(x:geo.size.width*0.9,y:geo.size.height*0.15)
+                        Image("maps")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    
+                    // AVATAR
+                    ZStack{
+                        CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.orangeFox50)
+                            .frame(height: reader.size.width*0.12)
+                        CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.blueTang70)
+                            .frame(height: reader.size.width*0.08)
+                            .offset(x:-(reader.size.width*0.06),y:reader.size.width*0.025)
+                    }.position(x:(reader.size.width*0.94)-(reader.size.width*0.02),y:reader.size.width*0.06+(reader.size.width*0.02))
+                    
+                    // PATH
                     ZStack{
                         Path { path in
-                            path.move(to: CGPoint(x: CGFloat(geo.size.width/4+(geo.size.width/6)+60), y: CGFloat(geo.size.height/3+geo.size.height/11)))
-                            path.addCurve(to: CGPoint(x: CGFloat(geo.size.width*3/4-(geo.size.width/6)-30), y: CGFloat(geo.size.height*2/3-geo.size.height/7)),
-                                          control1: CGPoint(x: CGFloat(geo.size.width/4+(geo.size.width/6)+80), y: CGFloat(geo.size.height/3+geo.size.height/10)),
-                                          control2: CGPoint(x: CGFloat(geo.size.width*3/4-(geo.size.width/6)-70), y: CGFloat(geo.size.height*2/3-geo.size.height/5)))
+                            path.move(to: CGPoint(x: CGFloat(reader.size.width/4+(reader.size.width/6)+60), y: CGFloat(reader.size.height/3+reader.size.height/11)))
+                            path.addCurve(to: CGPoint(x: CGFloat(reader.size.width*3/4-(reader.size.width/6)-30), y: CGFloat(reader.size.height*2/3-reader.size.height/7)),
+                                          control1: CGPoint(x: CGFloat(reader.size.width/4+(reader.size.width/6)+80), y: CGFloat(reader.size.height/3+reader.size.height/10)),
+                                          control2: CGPoint(x: CGFloat(reader.size.width*3/4-(reader.size.width/6)-70), y: CGFloat(reader.size.height*2/3-reader.size.height/5)))
                         }
                         .stroke(Color.white, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round, dash: [36]))
                         
                         Path { path in
-                            path.move(to: CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10)+50)))
-                            path.addCurve(to: CGPoint(x: CGFloat(geo.size.width/4+(geo.size.width/20)+70), y: CGFloat(geo.size.height-geo.size.height*1/6)),
-                                          control1: CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3+geo.size.height/20)),
-                                          control2: CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/8), y: CGFloat(geo.size.height-geo.size.height/6)))
+                            path.move(to: CGPoint(x: CGFloat(reader.size.width*3/4-reader.size.width/6), y: CGFloat(reader.size.height*2/3-(reader.size.height/10)+50)))
+                            path.addCurve(to: CGPoint(x: CGFloat(reader.size.width/4+(reader.size.width/20)+70), y: CGFloat(reader.size.height-reader.size.height*1/6)),
+                                          control1: CGPoint(x: CGFloat(reader.size.width*3/4-reader.size.width/6), y: CGFloat(reader.size.height*2/3+reader.size.height/20)),
+                                          control2: CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/8), y: CGFloat(reader.size.height-reader.size.height/6)))
                         }
                         .stroke(Color.white, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round, dash: [36]))
+                    }
+                    
+                    // ICON
+                    Group{
+                        MapButton(iconName: "mapsIcon1", size: CGFloat(reader.size.width/4), position: CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/12), y: CGFloat(reader.size.height/3-reader.size.height/12)))
                         
-                        MapButton(iconName: "mapsIcon1", size: CGFloat(geo.size.width/4), position: CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/12), y: CGFloat(geo.size.height/3-geo.size.height/12)))
+                        MapButton(iconName: "mapsIcon2", size: CGFloat(reader.size.width/4), position: CGPoint(x: CGFloat(reader.size.width*3/4-reader.size.width/12), y: CGFloat(reader.size.height*1/3+reader.size.height/12)))
                         
-                        MapButton(iconName: "mapsIcon2", size: CGFloat(geo.size.width/4), position: CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/12), y: CGFloat(geo.size.height*1/3+geo.size.height/12)))
-                        
-                        MapButton(iconName: "mapsIcon3", size: CGFloat(geo.size.width/4), position: CGPoint(x: CGFloat(geo.size.width/4-geo.size.width/12), y: CGFloat(geo.size.height-geo.size.height*1/4)))
+                        MapButton(iconName: "mapsIcon3", size: CGFloat(reader.size.width/4), position: CGPoint(x: CGFloat(reader.size.width/4-reader.size.width/12), y: CGFloat(reader.size.height-reader.size.height*1/4)))
+                    }
+                    
+                    // CLICKABLE POINT
+                    Group{
+                        NavigationLink(destination:
+                                        Map1View(userModel: UserViewModel())
+                            .navigationBarBackButtonHidden(true)){
+                                
+                            }.foregroundColor(.white)
+                            .frame(width: 60,height: 40)
+                            .position(CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/6), y: CGFloat(reader.size.height/3+reader.size.height/14+25)))
+                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Hutan"))
                         
                         NavigationLink(destination:
                                         Map1View(userModel: UserViewModel())
                             .navigationBarBackButtonHidden(true)){
-
-                        }.foregroundColor(.white)
+                                
+                            }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(geo.size.width/4+geo.size.width/6), y: CGFloat(geo.size.height/3+geo.size.height/14+25)))
-                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Hutan"))
-//
-//                        NavigationLink(destination: Stage2View(userModel: UserViewModel(), stage: StageModel(prompt: [], listImage: [], resultParent: [], resultChild: []), stageViewModel: StageViewModel())){
-//                        }.foregroundColor(.white)
-//                            .frame(width: 60,height: 40)
-//                            .position(CGPoint(x: CGFloat(geo.size.width*3/4-geo.size.width/6), y: CGFloat(geo.size.height*2/3-(geo.size.height/10)+35)))
-//                            .disabled(true)
-//                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Desa"))
-//                        
+                            .position(CGPoint(x: CGFloat(reader.size.width*3/4-reader.size.width/6), y: CGFloat(reader.size.height*2/3-(reader.size.height/10))))
+                            .disabled(true)
+                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
+                        
+                        
+                        NavigationLink(destination:
+                                        Map1View(userModel: UserViewModel())
+                            .navigationBarBackButtonHidden(true)){
+                                
+                            }.foregroundColor(.white)
+                            .frame(width: 60,height: 40)
+                            .position(CGPoint(x: CGFloat(reader.size.width*0.3), y: CGFloat(reader.size.height*0.84)))
+                            .disabled(true)
+                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
                     }
                 }
                 .ignoresSafeArea()
@@ -75,5 +104,6 @@ struct WorldMapView: View {
 struct WorldMapView_Previews: PreviewProvider {
     static var previews: some View {
         WorldMapView(userModel: UserViewModel())
+            .previewInterfaceOrientation(.landscapeRight)
     }
 }

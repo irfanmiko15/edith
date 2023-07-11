@@ -20,12 +20,14 @@
 		0B37757F2A5BB38A0059E96B /* EdithPowerUp.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0B3775742A5BB38A0059E96B /* EdithPowerUp.m4a */; };
 		0B3775802A5BB38A0059E96B /* StageCompleted.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0B3775752A5BB38A0059E96B /* StageCompleted.m4a */; };
 		0B7A7F4F2A52C63B00DDA88B /* Module2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */; };
-		0BB9FA082A53D33E00DB30CC /* CasePoses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB9FA072A53D33E00DB30CC /* CasePoses.swift */; };
 		0BB9FA0C2A54077400DB30CC /* Module3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB9FA0B2A54077400DB30CC /* Module3View.swift */; };
 		272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897402A4A8661005B1A36 /* WorldMapView.swift */; };
 		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
 		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
 		27355B592A4BD964006C495A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27355B582A4BD964006C495A /* ContainerView.swift */; };
+		277375842A5B98E600DA4260 /* EdithFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277375832A5B98E600DA4260 /* EdithFigure.swift */; };
+		27A6FD002A564681008096AF /* Stage3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6FCFF2A564681008096AF /* Stage3View.swift */; };
+		27A6FD022A564C83008096AF /* CircleWithNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6FD012A564C83008096AF /* CircleWithNumber.swift */; };
 		27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */; };
 		27B59A142A4E71DE00C13D14 /* StageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A132A4E71DE00C13D14 /* StageViewModel.swift */; };
 		27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A152A4E7EDF00C13D14 /* Stage2View.swift */; };
@@ -38,6 +40,9 @@
 		27F27E442A4EFC6C009CF355 /* PromptBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E432A4EFC6C009CF355 /* PromptBox.swift */; };
 		27F27E472A4EFDCA009CF355 /* Module1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E462A4EFDCA009CF355 /* Module1View.swift */; };
 		27F27E4B2A4F02E0009CF355 /* ModulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */; };
+		EE25AED22A56540F001F5B45 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE25AED12A56540F001F5B45 /* CloseButton.swift */; };
+		EE25AED42A57BA9D001F5B45 /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE25AED32A57BA9C001F5B45 /* ChallengeModel.swift */; };
+		EE25AED62A5C6A7A001F5B45 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE25AED52A5C6A7A001F5B45 /* OnboardingView.swift */; };
 		EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA192A42AB300041270B /* edithApp.swift */; };
 		EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA1B2A42AB300041270B /* ContentView.swift */; };
 		EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA1D2A42AB320041270B /* Assets.xcassets */; };
@@ -101,12 +106,14 @@
 		0B3775742A5BB38A0059E96B /* EdithPowerUp.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = EdithPowerUp.m4a; sourceTree = "<group>"; };
 		0B3775752A5BB38A0059E96B /* StageCompleted.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = StageCompleted.m4a; sourceTree = "<group>"; };
 		0B7A7F4E2A52C63B00DDA88B /* Module2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module2View.swift; sourceTree = "<group>"; };
-		0BB9FA072A53D33E00DB30CC /* CasePoses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasePoses.swift; sourceTree = "<group>"; };
 		0BB9FA0B2A54077400DB30CC /* Module3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module3View.swift; sourceTree = "<group>"; };
 		272897402A4A8661005B1A36 /* WorldMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldMapView.swift; sourceTree = "<group>"; };
 		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
 		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
 		27355B582A4BD964006C495A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		277375832A5B98E600DA4260 /* EdithFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdithFigure.swift; sourceTree = "<group>"; };
+		27A6FCFF2A564681008096AF /* Stage3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage3View.swift; sourceTree = "<group>"; };
+		27A6FD012A564C83008096AF /* CircleWithNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleWithNumber.swift; sourceTree = "<group>"; };
 		27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1View.swift; sourceTree = "<group>"; };
 		27B59A132A4E71DE00C13D14 /* StageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageViewModel.swift; sourceTree = "<group>"; };
 		27B59A152A4E7EDF00C13D14 /* Stage2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage2View.swift; sourceTree = "<group>"; };
@@ -119,6 +126,9 @@
 		27F27E432A4EFC6C009CF355 /* PromptBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptBox.swift; sourceTree = "<group>"; };
 		27F27E462A4EFDCA009CF355 /* Module1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module1View.swift; sourceTree = "<group>"; };
 		27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulViewModel.swift; sourceTree = "<group>"; };
+		EE25AED12A56540F001F5B45 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
+		EE25AED32A57BA9C001F5B45 /* ChallengeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModel.swift; sourceTree = "<group>"; };
+		EE25AED52A5C6A7A001F5B45 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EEA1FA162A42AB300041270B /* edith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = edith.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA1FA192A42AB300041270B /* edithApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithApp.swift; sourceTree = "<group>"; };
 		EEA1FA1B2A42AB300041270B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -211,6 +221,7 @@
 			children = (
 				27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */,
 				27B59A152A4E7EDF00C13D14 /* Stage2View.swift */,
+				27A6FCFF2A564681008096AF /* Stage3View.swift */,
 			);
 			path = Stages;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 				27C66EA52A4BF0A0007BB465 /* ChildAvatarModel.swift */,
 				27C66EA62A4BF0A0007BB465 /* StageModel.swift */,
 				27C66EA72A4BF0A0007BB465 /* ModulModel.swift */,
+				EE25AED32A57BA9C001F5B45 /* ChallengeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +334,7 @@
 				2728973F2A4A8656005B1A36 /* WorldMap */,
 				EEA1FA8E2A444C940041270B /* CityMap */,
 				EECF3CF82A49394100470917 /* ChooseAvatarView.swift */,
+				EE25AED52A5C6A7A001F5B45 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,8 +355,9 @@
 				272897442A4A944C005B1A36 /* MapStageButton.swift */,
 				27355B582A4BD964006C495A /* ContainerView.swift */,
 				27F27E432A4EFC6C009CF355 /* PromptBox.swift */,
-				0BB9FA072A53D33E00DB30CC /* CasePoses.swift */,
-				0B37755D2A5BB1C70059E96B /* AudioResources.swift */,
+				27A6FD012A564C83008096AF /* CircleWithNumber.swift */,
+				EE25AED12A56540F001F5B45 /* CloseButton.swift */,
+				277375832A5B98E600DA4260 /* EdithFigure.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -546,6 +560,7 @@
 				27C66EAA2A4BF0A0007BB465 /* UserModel.swift in Sources */,
 				27355B592A4BD964006C495A /* ContainerView.swift in Sources */,
 				EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */,
+				27A6FD002A564681008096AF /* Stage3View.swift in Sources */,
 				EEA1FA4F2A43DEB80041270B /* ThreeDButton.swift in Sources */,
 				27C66EAB2A4BF0A0007BB465 /* ChildAvatarModel.swift in Sources */,
 				EEA1FA572A43F4160041270B /* Font.swift in Sources */,
@@ -561,7 +576,7 @@
 				27F27E472A4EFDCA009CF355 /* Module1View.swift in Sources */,
 				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
 				272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */,
-				0B37755E2A5BB1C70059E96B /* AudioResources.swift in Sources */,
+				EE25AED62A5C6A7A001F5B45 /* OnboardingView.swift in Sources */,
 				27C66EA82A4BF0A0007BB465 /* InteractiveImageModel.swift in Sources */,
 				27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */,
 				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
@@ -569,9 +584,11 @@
 				EECF3CF52A4936D600470917 /* Checklist.swift in Sources */,
 				EEC157052A5501F70024A13E /* ChallengeViewModel.swift in Sources */,
 				EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */,
+				277375842A5B98E600DA4260 /* EdithFigure.swift in Sources */,
 				EEA1FA532A43E6F90041270B /* StageButton.swift in Sources */,
 				EEB981C52A541EB40089A429 /* Extension.swift in Sources */,
-				0BB9FA082A53D33E00DB30CC /* CasePoses.swift in Sources */,
+				EE25AED42A57BA9D001F5B45 /* ChallengeModel.swift in Sources */,
+				EE25AED22A56540F001F5B45 /* CloseButton.swift in Sources */,
 				27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */,
 				EEB981CA2A5458550089A429 /* Challenge1View.swift in Sources */,
 				EEB981C32A541E980089A429 /* MainStoryView.swift in Sources */,
@@ -579,6 +596,7 @@
 				EECF3D1F2A4BFD5800470917 /* UserViewModel.swift in Sources */,
 				EEA1FA482A43DC1D0041270B /* Color.swift in Sources */,
 				EEB981C72A541ECF0089A429 /* CounterObject.swift in Sources */,
+				27A6FD022A564C83008096AF /* CircleWithNumber.swift in Sources */,
 				0BB9FA0C2A54077400DB30CC /* Module3View.swift in Sources */,
 				0B7A7F4F2A52C63B00DDA88B /* Module2View.swift in Sources */,
 			);
@@ -736,6 +754,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"edith/Preview Content\"";
@@ -752,7 +771,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -760,6 +779,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ada.edith;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
@@ -790,7 +810,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

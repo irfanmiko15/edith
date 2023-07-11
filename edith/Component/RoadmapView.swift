@@ -11,6 +11,10 @@ struct RoadmapView: View {
     let emptyImageModel:[InteractiveImageModel] = []
     @State var selection: Int? = nil
     @AppStorage("modul1Stage1") var modul1Stage1:Bool=false
+    
+    @ObservedObject var stageViewModel: StageViewModel
+    @ObservedObject var modulViewModel: ModulViewModel
+    
     var body: some View {
         GeometryReader{geo in
             ZStack{
@@ -22,7 +26,7 @@ struct RoadmapView: View {
                 }
                 .stroke(Color.white, style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
                 
-                if(modul1Stage1==true){
+                if(stageViewModel.checkProgress(stageName: "Modul 1")){
                     Path { path in
                         path.move(to: CGPoint(x:geo.size.width*0.18, y: geo.size.height*0.8))
                         path.addLine(to: CGPoint(x: geo.size.width*0.18, y: geo.size.height*0.45))
@@ -119,35 +123,39 @@ struct RoadmapView: View {
                     }
                     .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             
+                
+            }
+            ZStack{
+                
+                Path { path in
+                    path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
+                    path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.7))
+                    
+                }
+                .stroke(Color.white, style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
+                Path { path in
+                    path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
+                    path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.8))
+                    
+                }
+                .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             }
             
-            //stage 3 to challenge stage
-            Path { path in
-                path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
-                path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.7))
-                
-            }
-            .stroke(Color.white, style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
-            Path { path in
-                path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
-                path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.8))
-                
-            }
-            .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
+            
             //modul1
-            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(prompt: [], edithImage: [], listImage: [])]).navigationBarHidden(false)){
-                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel())){
+                    Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                 }
                 .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                 .buttonStyle(StageButton(
                     foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40
                 ))
                 .position(x:geo.size.width*0.18, y: geo.size.height*0.8)
+            
             //stage1
                 VStack{
-                    if(modul1Stage1==true){
-                        NavigationLink(destination: Stage1View(userModel: UserViewModel(), stage: StageModel(prompt: [""], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())
-                            .navigationBarBackButtonHidden(false)){
+                    if(stageViewModel.checkProgress(stageName: "Modul 1")){
+                        NavigationLink(destination: Stage1View(userModel: UserViewModel(), stage: StageModel(stagename: "Stage 1", prompt: [], listImage: emptyImageModel, resultParent: emptyImageModel, resultChild: emptyImageModel), stageViewModel: StageViewModel())){
                                 Text("1").font(.custom(Font.balooBold, size: 80)).foregroundColor(Color.white).font(.system(size:35))
                             }
                             .frame(width:geo.size.width*0.12,height: geo.size.width*0.12)
@@ -167,16 +175,26 @@ struct RoadmapView: View {
                     }
                 }.position(x:geo.size.width*0.18, y: geo.size.height*0.45)
             
+            
             //modul 2
-            Button{
-
-            }label:{
-                Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+            if(modulViewModel.checkProgress(modulName: "Stage 1")){
+                
+                NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
+                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                }
+                .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
+                .buttonStyle(StageButton(foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40))
+                .position(x: geo.size.width*0.38, y: geo.size.height*0.25)
+            } else {
+                
+                NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
+                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                }
+                .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
+                .buttonStyle(StageButtonDisable())
+                .position(x: geo.size.width*0.38, y: geo.size.height*0.25)
             }
-            .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
-            .buttonStyle(StageButtonDisable(
-            )).position(x: geo.size.width*0.38, y: geo.size.height*0.25)
-        
+            
 //            stage 2
             VStack{
 
@@ -299,6 +317,6 @@ struct FinalStage:Shape{
 }
 struct RoadmapView_Previews: PreviewProvider {
     static var previews: some View {
-        RoadmapView()
+        RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel()).previewInterfaceOrientation(.landscapeRight)
     }
 }
