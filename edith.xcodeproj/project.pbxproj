@@ -30,6 +30,7 @@
 		27F27E4B2A4F02E0009CF355 /* ModulViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */; };
 		EE25AED22A56540F001F5B45 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE25AED12A56540F001F5B45 /* CloseButton.swift */; };
 		EE25AED42A57BA9D001F5B45 /* ChallengeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE25AED32A57BA9C001F5B45 /* ChallengeModel.swift */; };
+		EE25AED62A5C6A7A001F5B45 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE25AED52A5C6A7A001F5B45 /* OnboardingView.swift */; };
 		EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA192A42AB300041270B /* edithApp.swift */; };
 		EEA1FA1C2A42AB300041270B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEA1FA1B2A42AB300041270B /* ContentView.swift */; };
 		EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA1FA1D2A42AB320041270B /* Assets.xcassets */; };
@@ -103,6 +104,7 @@
 		27F27E4A2A4F02E0009CF355 /* ModulViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulViewModel.swift; sourceTree = "<group>"; };
 		EE25AED12A56540F001F5B45 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		EE25AED32A57BA9C001F5B45 /* ChallengeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModel.swift; sourceTree = "<group>"; };
+		EE25AED52A5C6A7A001F5B45 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EEA1FA162A42AB300041270B /* edith.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = edith.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA1FA192A42AB300041270B /* edithApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edithApp.swift; sourceTree = "<group>"; };
 		EEA1FA1B2A42AB300041270B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				2728973F2A4A8656005B1A36 /* WorldMap */,
 				EEA1FA8E2A444C940041270B /* CityMap */,
 				EECF3CF82A49394100470917 /* ChooseAvatarView.swift */,
+				EE25AED52A5C6A7A001F5B45 /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				27F27E472A4EFDCA009CF355 /* Module1View.swift in Sources */,
 				EEA1FA1A2A42AB300041270B /* edithApp.swift in Sources */,
 				272897412A4A8661005B1A36 /* WorldMapView.swift in Sources */,
+				EE25AED62A5C6A7A001F5B45 /* OnboardingView.swift in Sources */,
 				27C66EA82A4BF0A0007BB465 /* InteractiveImageModel.swift in Sources */,
 				27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */,
 				EEA1FA552A43EDCB0041270B /* Star.swift in Sources */,
