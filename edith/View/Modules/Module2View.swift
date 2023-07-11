@@ -52,8 +52,12 @@ struct Module2View: View {
                         ZStack{
                             // PROMPT
                             ZStack{
-                                PromptBox(textInside: modulViewModel.listPromptModul2[indexPrompt], width: reader.size.width/2, height: reader.size.height/3, textSize: 35)
-                                    .offset(y: -reader.size.height*0.125)
+                                PromptBox(textInside: modulViewModel.listPromptModul2[indexPrompt],
+                                          width: reader.size.width*3/5 - (reader.size.width*0.1),
+                                          height: reader.size.height/3,
+                                          textSize: 35)
+                                .position(x: reader.size.width*3/5*(0.5),
+                                          y: reader.size.height*0.5 - (reader.size.height*0.125))
                                 
                                 if isExplaining && !isWrong || isCorrect{
                                     Button{
@@ -81,7 +85,7 @@ struct Module2View: View {
                                     }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
                                         .frame(width: reader.size.width/6, height: reader.size.height/10)
                                         .position(x: reader.size.width*0.5*(3/5), y: reader.size.height*(2/3))
-                                        .offset(x: reader.size.width*(0.025), y: -reader.size.height*0.125)
+                                        .offset(x: reader.size.width*(0.025), y: -reader.size.height/3*(0.375))
                                 }
                             }
                             .frame(width: reader.size.width*3/5)
@@ -191,7 +195,7 @@ struct Module2View: View {
                     
                     // CLOSE BUTTON
                     Button{
-                        modulViewModel.saveProgress(modulName: "Modul 1")
+                        modulViewModel.saveProgress(modulName: "Modul 2")
                         presentationMode.wrappedValue.dismiss()
                     }label: {
                         Image(systemName: "xmark")

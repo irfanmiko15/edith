@@ -144,7 +144,7 @@ struct RoadmapView: View {
             
             //modul1
             NavigationLink(destination: Module1View(modulViewModel: ModulViewModel())){
-                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                    Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                 }
                 .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                 .buttonStyle(StageButton(
@@ -175,16 +175,26 @@ struct RoadmapView: View {
                     }
                 }.position(x:geo.size.width*0.18, y: geo.size.height*0.45)
             
+            
             //modul 2
-            Button{
-
-            }label:{
-                Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+            if(modulViewModel.checkProgress(modulName: "Stage 1")){
+                
+                NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
+                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                }
+                .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
+                .buttonStyle(StageButton(foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40))
+                .position(x: geo.size.width*0.38, y: geo.size.height*0.25)
+            } else {
+                
+                NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
+                    Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                }
+                .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
+                .buttonStyle(StageButtonDisable())
+                .position(x: geo.size.width*0.38, y: geo.size.height*0.25)
             }
-            .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
-            .buttonStyle(StageButtonDisable(
-            )).position(x: geo.size.width*0.38, y: geo.size.height*0.25)
-        
+            
 //            stage 2
             VStack{
 

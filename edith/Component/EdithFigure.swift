@@ -54,8 +54,8 @@ struct EdithFigure: View {
                         .frame(width: width*0.65)
                     
                     Circle()
-                        .stroke(RadialGradient(colors: [Color("orangeSomething"), Color("orangeSomething"), Color.white, Color.white, Color.clear], center: .center, startRadius: 30, endRadius: 50), lineWidth: 25)
-                        .frame(width: width*0.095)
+                        .stroke(RadialGradient(colors: [Color("orangeSomething"), Color("orangeSomething"), Color.white, Color.white, Color.clear], center: .center, startRadius: 0, endRadius: 40), lineWidth: 10)
+                        .frame(width: width*0.25)
                         .offset(x:width*0.01, y:-width*0.145)
                         .opacity(opacityCircle)
                     
@@ -112,6 +112,6 @@ struct EdithFigure: View {
 
 struct EdithFigure_Previews: PreviewProvider {
     static var previews: some View {
-        EdithFigure(pose: "confuse")
+        EdithFigure(pose: "happy")
     }
 }

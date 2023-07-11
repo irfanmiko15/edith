@@ -16,7 +16,7 @@ struct ContentView: View {
                 ChooseAvatarView(userModel: UserViewModel())
             }
             else{
-                WorldMapView(userModel: UserViewModel())
+                OnboardingView(userModel: UserViewModel())
             }
         }.onAppear{
             userModel.load()

@@ -31,7 +31,7 @@ struct Stage2View: View {
     @State var isPlay = true
     @State var isRight = true
     @State var statusSelectedObject = ""
-    @State var isDone = false
+    @State var isDone = true
     
     var body: some View {
         NavigationStack{
@@ -46,7 +46,7 @@ struct Stage2View: View {
                             .blur(radius: 16)
                         Rectangle()
                             .fill(Color.black)
-                            .frame(width: reader.size.width, height: reader.size.height)
+                            .frame(maxWidth: .infinity)
                             .opacity(0.2)
                     }
                     
@@ -178,7 +178,7 @@ struct Stage2View: View {
                         ZStack{
                             Rectangle()
                                 .fill(Color.black)
-                                .frame(width: reader.size.width, height: reader.size.height)
+                                .frame(maxWidth: .infinity)
                                 .opacity(0.6)
                             
                             ZStack{
