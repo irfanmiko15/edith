@@ -36,7 +36,7 @@ struct Stage1View: View {
                             .blur(radius: 16)
                         Rectangle()
                             .fill(Color.black)
-                            .frame(width: reader.size.width, height: reader.size.height)
+                            .frame(width: .infinity)
                             .opacity(0.2)
                     }
                     
@@ -255,9 +255,9 @@ struct Stage1View: View {
                         Image(systemName: "xmark")
                             .resizable()
                             .foregroundColor(.white)
-                            .frame(width: 30,height: 30)
+                            .frame(width: reader.size.width*0.025, height: reader.size.width*0.025)
                             .font(Font.title.weight(.black))
-                    }.frame(width:90,height: 90)
+                    }.frame(width: reader.size.width*0.065, height: reader.size.width*0.65)
                         .position(CGPoint(x: reader.size.width-(45)-reader.size.width*0.025, y: 45+(reader.size.width*0.025)))
                         .buttonStyle(CloseButton())
                     

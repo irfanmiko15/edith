@@ -123,24 +123,27 @@ struct RoadmapView: View {
                     }
                     .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             
+                
+            }
+            ZStack{
+                
+                Path { path in
+                    path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
+                    path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.7))
+                    
+                }
+                .stroke(Color.white, style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
+                Path { path in
+                    path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
+                    path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.8))
+                    
+                }
+                .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             }
             
-            //stage 3 to challenge stage
-            Path { path in
-                path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
-                path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.7))
-                
-            }
-            .stroke(Color.white, style: StrokeStyle(lineWidth: 55, lineCap: .round, lineJoin: .round))
-            Path { path in
-                path.move(to: CGPoint(x:geo.size.width*0.8, y: geo.size.height*0.3))
-                path.addLine(to: CGPoint(x: geo.size.width*0.8, y: geo.size.height*0.8))
-                
-            }
-            .stroke(Color.neutral80, style: StrokeStyle(lineWidth: 35, lineCap: .round, lineJoin: .round))
             
             //modul1
-            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel(), prompts: [ModulModel(modulName: "Modul 1", prompt: [], edithImage: [], listImage: [])])){
+            NavigationLink(destination: Module1View(modulViewModel: ModulViewModel())){
                     Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
                 }
                 .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
@@ -304,6 +307,6 @@ struct FinalStage:Shape{
 }
 struct RoadmapView_Previews: PreviewProvider {
     static var previews: some View {
-        RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel())
+        RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel()).previewInterfaceOrientation(.landscapeRight)
     }
 }

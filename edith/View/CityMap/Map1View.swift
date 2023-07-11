@@ -55,7 +55,8 @@ struct Map1View: View {
                
                 RoadmapView(stageViewModel: StageViewModel(), modulViewModel: ModulViewModel())
                     .padding(.leading)
-                    .offset(y: reader.size.height*0.05)
+                    .offset(y: reader.size.height*0.025)
+                    .frame(height: reader.size.height*0.9)
                 
                 HStack{
                     Button{

@@ -78,8 +78,6 @@ struct Module3View: View {
                             
                             ZStack{
                                 
-                                CasePoses(switchPoses: listArm[indexArm])
-                                
                                 Image("edithBodyStill")
                                     .resizable()
                                     .scaledToFit()
