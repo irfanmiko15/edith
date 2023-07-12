@@ -11,36 +11,34 @@ struct OnboardingView: View {
     @StateObject var userModel: UserViewModel
     @State var opacityCircle: CGFloat = 0
     @State var isRotating = 0.0
+    var width: CGFloat = CGFloat(600)
+    var height: CGFloat = CGFloat(300)
     
     var body: some View {
         NavigationStack{
             GeometryReader{reader in
                 ZStack{
-                    Image("onboardingBackground").resizable().scaledToFill()
-                    Image("edithBahagia").resizable().scaledToFit().frame(height: reader.size.height*0.8).offset(x:-20,y:-80)
-                    ZStack{
-                        
-                        Image("onboardingRotation")
-                            .resizable()
-                            .scaledToFill()
-                        
-                        Ellipse()
-                            .fill(.linearGradient(Gradient(colors: [Color.black,Color.white]), startPoint: .leading, endPoint: .trailing))
-//                            .fill(.radialGradient(colors: [Color.white.opacity(0.2)],  center: .center, startRadius: 300, endRadius: 300)).shadow(color:Color.white.opacity(0.5),radius: 40)
-                            .frame(width: 800, height: 400)
-//                            .opacity(opacityCircle)
-//                            .task{
-//                                withAnimation(Animation.rotation(Angle(degrees: 20))(duration: 1).repeatForever()){
-//                                opacityCircle = 1
-//                            }
-//                            }
-                            .rotationEffect(.degrees(isRotating))
-                            .onAppear {
-                                withAnimation(.linear(duration: 1)
-                                        .speed(0.1).repeatForever(autoreverses: false)) {
-                                    isRotating = 360.0
-                                }
+                    
+                    Image("onboardingRotation")
+                    .resizable()
+                        .scaleEffect(2)
+                        .rotationEffect(.degrees(isRotating))
+                        .onAppear {
+                            withAnimation(.linear(duration: 1)
+                                    .speed(0.1).repeatForever(autoreverses: false)) {
+                                isRotating = 360.0
                             }
+                        }
+                    
+                    Image("onboardingBackground").resizable().scaledToFill()
+                    
+                    EdithFigure(pose: "happy",width: 450).offset(y:-reader.size.height*0.05)
+                    
+
+                        Ellipse()
+                            .fill(.radialGradient(colors: [Color.white.opacity(0.2)],  center: .center, startRadius: 300, endRadius: 300)).shadow(color:Color.white.opacity(0.5),radius: 40)
+                            .frame(width: 800, height: 400).offset(y:reader.size.height*0.2)
+
                         VStack(spacing: 0){
                             Image("adventureWith").resizable().scaledToFit().frame(width: reader.size.width*0.25)
                             Image("editText").resizable().scaledToFit().frame(width: reader.size.width*0.4)
@@ -49,7 +47,7 @@ struct OnboardingView: View {
                                     Text("PLAY").font(.custom(Font.balooBold, size: 40)).foregroundColor(.white)
                                 }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
                                     .frame(width: reader.size.width*0.25, height: reader.size.height*0.1)
-                               
+
                             }
                             else{
                                 NavigationLink(destination: WorldMapView(userModel: UserViewModel(), stageViewModel: StageViewModel()).navigationBarBackButtonHidden(true)){
@@ -58,12 +56,12 @@ struct OnboardingView: View {
                                     .frame(width: reader.size.width*0.25, height: reader.size.height*0.1)
                             }
                             
-                        }
-                    }
+                        }.offset(y:reader.size.height*0.2)
+                }.frame(width: .infinity,height: .infinity)
 //                    .offset(y:reader.size.height*0.2)
                     
                 }.ignoresSafeArea()
-            }
+            
         }.onAppear{
             userModel.load()
         }
