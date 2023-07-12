@@ -340,6 +340,7 @@ struct Stage1View: View {
                         ZStack {
                             Rectangle()
                                 .foregroundColor(.black.opacity(0.75))
+                            
                             ZStack{
                                 RoundedRectangle(cornerRadius: 32)
                                     .fill(Color.blueTang95)
@@ -410,10 +411,42 @@ struct Stage1View: View {
                                         .font(.custom(Font.balooBold, size: 36))
                                         .foregroundColor(.white)
                                 }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                                    .frame(height: reader.size.height/10)
+                                    .frame(height: reader.size.height*0.075)
                             }
-                            .frame(width: reader.size.width/6, alignment: .leading)
+                            .frame(width: reader.size.width*0.1, alignment: .leading)
                             .position(x: reader.size.width*0.65, y: reader.size.height*0.23)
+                            Group{
+                                Path { path in
+                                    path.move(to: CGPoint(x: reader.size.width*0.23,
+                                                          y: reader.size.height*0.23))
+                                    path.addCurve(to: CGPoint(x: reader.size.width*0.25,
+                                                              y: reader.size.height*0.47),
+                                                  control1: CGPoint(x: reader.size.width*0.15,
+                                                                    y: reader.size.height*0.3),
+                                                  control2: CGPoint(x: reader.size.width*0.2,
+                                                                    y: reader.size.height*0.4))
+                                }
+                                .stroke(Color.white,
+                                        style: StrokeStyle(lineWidth: 8,
+                                                           lineCap: .round,
+                                                           lineJoin: .round,
+                                                           dash: [36]))
+                                
+                                Path { path in
+                                    path.move(to: CGPoint(x: reader.size.width*0.23 + (reader.size.width*0.25*0.35),
+                                                          y: reader.size.height*0.35))
+                                    path.addCurve(to: CGPoint(x: reader.size.width*0.73,
+                                                              y: reader.size.height*0.47),
+                                                  control1: CGPoint(x: reader.size.width*0.4,
+                                                                    y: reader.size.height*0.5),
+                                                  control2: CGPoint(x: reader.size.width*0.5,
+                                                                    y: reader.size.height*0.35))
+                                }
+                                .stroke(Color.white,
+                                        style: StrokeStyle(lineWidth: 8,
+                                                           lineCap: .round,
+                                                           lineJoin: .round,
+                                                           dash: [36]))}
                         }
                         .compositingGroup()
                     }
