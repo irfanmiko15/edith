@@ -32,12 +32,12 @@ struct OnboardingView: View {
                     
                     Image("onboardingBackground").resizable().scaledToFill()
                     
-                    EdithFigure(pose: "happy",width: 450).offset(y:-reader.size.height*0.05)
+                    EdithFigure(pose: "happy",width: 400).offset(y:-reader.size.height*0.1)
                     
 
                         Ellipse()
                             .fill(.radialGradient(colors: [Color.white.opacity(0.2)],  center: .center, startRadius: 300, endRadius: 300)).shadow(color:Color.white.opacity(0.5),radius: 40)
-                            .frame(width: 800, height: 400).offset(y:reader.size.height*0.2)
+                            .frame(width: 800, height: 400).offset(y:reader.size.height*0.18)
 
                         VStack(spacing: 0){
                             Image("adventureWith").resizable().scaledToFit().frame(width: reader.size.width*0.25)
@@ -56,7 +56,7 @@ struct OnboardingView: View {
                                     .frame(width: reader.size.width*0.25, height: reader.size.height*0.1)
                             }
                             
-                        }.offset(y:reader.size.height*0.2)
+                        }.offset(y:reader.size.height*0.18)
                 }.frame(width: .infinity,height: .infinity)
 //                    .offset(y:reader.size.height*0.2)
                     
