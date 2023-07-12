@@ -35,9 +35,9 @@ struct OnboardingView: View {
                     
                     ZStack{
                         EdithFigure(pose: "happy", width: reader.size.width*0.33)
-                            .position(x: reader.size.width*0.5,
-                                      y: reader.size.height*0.5 - (reader.size.height*0.05))
                     }
+                    .position(x: reader.size.width*0.5,
+                              y: reader.size.height*0.5 - (reader.size.height*0.05))
                     
                     
                     Ellipse()
@@ -68,12 +68,19 @@ struct OnboardingView: View {
                         
                     }.position(x: reader.size.width*0.5,
                                y:reader.size.height*0.5 + (reader.size.height*0.18))
+                    
                 }
-                .ignoresSafeArea()
+                .task{
+                    userModel.load()
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
             }
             
-        }.onAppear{
-            userModel.load()
+            .ignoresSafeArea()
+            
+            
         }
     }
 }

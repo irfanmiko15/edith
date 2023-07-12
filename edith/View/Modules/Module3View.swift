@@ -31,26 +31,26 @@ struct Module3View: View {
                             .opacity(0.2)
                     }
                     
-                    //                Button{
-                    //
-                    //                    if indexPrompt < modulViewModel.listPromptModul3.count-1 {
-                    //                        indexPrompt += 1
-                    //
-                    //
-                    //                    }
-                    //
-                    //                    else{
-                    //
-                    //                    }
-                    //
-                    //                }label:{
-                    //                    Image(systemName: "chevron.left").font(.system(size:50).bold())
-                    //                        .frame(width:60,height: 60)
-                    //                        .foregroundColor(Color.orangeFox50)
-                    //                }.frame(width:100)
-                    //                    .offset(x: -555,y: 400)
-                    //                .buttonStyle(BackThreeD())
-                    //
+                    Button{
+    
+                        if indexPrompt < modulViewModel.listPromptModul3.count-1 {
+                            indexPrompt += 1
+    
+    
+                        }
+    
+                        else{
+    
+                        }
+    
+                    }label:{
+                        Image(systemName: "chevron.left").font(.system(size:50).bold())
+                            .frame(width:60,height: 60)
+                            .foregroundColor(Color.orangeFox50)
+                    }.frame(width:100)
+                        .offset(x: -555,y: 400)
+                    .buttonStyle(BackThreeD())
+    
                     
                     
                     // CONTENT
