@@ -96,8 +96,8 @@ struct MainStory1:View{
                         
                     }
                     
-//                    SoundControl()
-//                      .playMainStoryAudio()
+                    SoundControl()
+                      .playMainStoryAudio()
                 }
             }.ignoresSafeArea().onDisappear{
                 SoundControl()

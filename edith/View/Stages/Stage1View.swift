@@ -268,19 +268,26 @@ struct Stage1View: View {
                     // DIALOG CONFIRMING DRAG N DROP END
                     if(isConfirming){
                         ZStack{
-                            Rectangle()
-                                .fill(Color.black)
-                                .frame(width: reader.size.width, height: reader.size.height)
-                                .opacity(0.6)
+                            ZStack{
+                                Rectangle()
+                                    .fill(Color.black)
+                                    .frame(maxWidth: .infinity)
+                                    .opacity(0.6)
+                            }
+                            .position(x: reader.size.width*0.5,
+                                      y: reader.size.height*0.5)
                             
                             ZStack{
                                 RoundedRectangle(cornerRadius: 24)
                                     .fill(Color.white)
-                                    .frame(width: reader.size.width*0.5, height: reader.size.height*0.6)
+                                    .frame(width: reader.size.width*0.5,
+                                           height: reader.size.height*0.6)
                                 
                                 RoundedRectangle(cornerRadius: 24)
                                     .stroke(Color.orangeFox70, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
-                                    .frame(width: reader.size.width*0.5, height: reader.size.height*0.6)
+                                    .frame(width: reader.size.width*0.5,
+                                           height: reader.size.height*0.6)
+                                
                                 VStack(spacing: 0){
                                     Image("edithBertanya")
                                         .resizable()
@@ -292,31 +299,35 @@ struct Stage1View: View {
                                         .font(.custom(Font.balooBold, size: CGFloat(32)))
                                 }
                                 
+                            }
+                            .position(x: reader.size.width*0.5, y: reader.size.height*0.5)
+                            
+                            ZStack{
                                 Button{
                                     isConfirming = false
                                     isDiscussing = true
                                     currentPrompt = stageViewModel.listPromptStage1[1]
                                 }label:{
                                     Text("Sudah")
-                                        .font(.custom(Font.balooBold, size: 50))
+                                        .font(.custom(Font.balooBold, size: 32))
                                         .foregroundColor(.white)
                                 }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                                    .frame(width: reader.size.width/6, height: reader.size.height/10)
+                                    .frame(width: reader.size.width/6,
+                                           height: reader.size.height/10)
                                     .position(x: reader.size.width*0.5 + reader.size.width*0.1,
-                                              y: reader.size.height*0.3 + reader.size.height*0.5)
+                                              y: reader.size.height*0.5 + reader.size.height*0.3)
                                 
                                 Button{
                                     isConfirming = false
                                 }label:{
                                     Text("Belum")
-                                        .font(.custom(Font.balooBold, size: 50))
+                                        .font(.custom(Font.balooBold, size: 32))
                                         .foregroundColor(.white)
                                 }.buttonStyle(ThreeD(foregroundColor: .orangeFox50, shadowColor: .orangeFox50))
                                     .frame(width: reader.size.width/6, height: reader.size.height/10)
                                     .position(x: reader.size.width*0.5 - reader.size.width*0.1,
                                               y: reader.size.height*0.3 + reader.size.height*0.5)
                             }
-                            .position(x: reader.size.width*0.5, y: reader.size.height*0.5)
                         }
                     }
                     

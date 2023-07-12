@@ -169,7 +169,7 @@ struct Module2View: View {
                                                 .frame(width: reader.size.width*0.1)
                                         }
                                     }.frame(width: reader.size.width*0.2)
-                                        .disabled(isCorrect)
+                                        .disabled(isCorrect||isWrong)
                                 }
                                 .offset(x: reader.size.width*(0.025), y: (reader.size.height*0.25))
                             }

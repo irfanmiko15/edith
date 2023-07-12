@@ -91,6 +91,15 @@ struct Stage2View: View {
                     // OBJECT COMPARED
                     Group{
                         Group{
+                            
+                            ZStack{
+                                Image("basketBoard")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                            .frame(width: reader.size.width*0.175)
+                            .position(x: reader.size.width*0.75, y: reader.size.height*0.575)
+                            
                             ZStack{
                                 Image(currentObjectCompared[1].image)
                                     .resizable()
@@ -113,6 +122,15 @@ struct Stage2View: View {
                         }
                         
                         Group{
+                            
+                            ZStack{
+                                Image("basketBoard")
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                            .frame(width: reader.size.width*0.175)
+                            .position(x: reader.size.width*0.25, y: reader.size.height*0.575)
+                            
                             ZStack{
                                 Image(currentObjectCompared[0].image)
                                     .resizable()

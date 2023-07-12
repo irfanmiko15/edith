@@ -11,9 +11,9 @@ struct ContentView: View {
     @StateObject var userModel: UserViewModel
     
     var body: some View {
-        ZStack{
-            OnboardingView(userModel: UserViewModel())
-        }.onAppear{
+        OnboardingView(userModel: UserViewModel())
+        
+        .task{
             userModel.load()
         }
         
