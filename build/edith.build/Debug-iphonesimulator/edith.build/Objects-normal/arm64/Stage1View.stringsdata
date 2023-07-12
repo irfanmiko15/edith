@@ -1,0 +1,36 @@
+{
+  "source": "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/Stages/Stage1View.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": ""
+      },
+      {
+        "comment": "",
+        "key": "Apakah kalian sudah selesai\nmemindahkan semua kebutuhan?"
+      },
+      {
+        "comment": "",
+        "key": "Sudah"
+      },
+      {
+        "comment": "",
+        "key": "Belum"
+      },
+      {
+        "comment": "",
+        "key": "AKHIRI DISKUSI"
+      },
+      {
+        "comment": "",
+        "key": "Tarik barang untuk memindahkan\nbenda ke zona kalian."
+      },
+      {
+        "comment": "",
+        "key": "OK!"
+      }
+    ]
+  },
+  "version": 1
+}

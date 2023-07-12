@@ -76,7 +76,7 @@ struct MainStory1:View{
                         Button{
 
                             index=2
-                            SoundControl().playButtonSFX()
+                            
                         } label:{Text("Next")
                                 .font(.custom(Font.balooBold, size: 50))
                                 .foregroundColor(.white)

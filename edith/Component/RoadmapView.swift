@@ -145,6 +145,8 @@ struct RoadmapView: View {
                     NavigationLink(destination: Module1View(modulViewModel: ModulViewModel())){
                         
                         Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.07)
+                        
+                        
                     }
                     .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                     .buttonStyle(StageButton(

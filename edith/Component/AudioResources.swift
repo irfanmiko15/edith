@@ -27,6 +27,19 @@ class Sounds{
         }
     }
     
+    static func stopSounds(soundFile: String){
+        if let path = Bundle.main.path(forResource: soundFile, ofType: nil){
+            do{
+                audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.stop()
+            
+            }catch{
+                print("Error")
+            }
+        }
+    }
+    
 }
 
 class SoundControl{
@@ -62,7 +75,7 @@ class SoundControl{
         Sounds.playSounds(soundfile: "EdithTalk.m4a")
     }
     func playMapSong(){
-        let url = Bundle.main.url(forResource: "WholesomeShuffleBgm", withExtension: "m4a")
+        let url = Bundle.main.url(forResource: "SunnyValley", withExtension: "mp3")
                         
                         guard url != nil else {
                             return
@@ -86,4 +99,21 @@ class SoundControl{
     func playNextButtonSFX(){
         Sounds.playSounds(soundfile: "NextButtonSfx.m4a")
     }
+    func playModulBGM(){
+        let url = Bundle.main.url(forResource: "WholesomeShuffleBgm", withExtension: "m4a")
+                        
+                        guard url != nil else {
+                            return
+                        }
+                        
+                        do {
+                            audioPlayer = try AVAudioPlayer(contentsOf: url!)
+                            audioPlayer?.play()
+                            audioPlayer?.numberOfLoops = -1
+                            audioPlayer.volume = 0.8
+                        } catch {
+                            print("\(error)")
+                        }
+    }
+    
 }

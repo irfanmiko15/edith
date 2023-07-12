@@ -16,7 +16,7 @@ struct StageButton: ButtonStyle {
             
             //shadowColor
             Circle()
-               .fill(shadowColor).offset(y : offset)
+                .fill(shadowColor).offset(y : offset)
             
             //foregroundColor
             Circle()
@@ -25,10 +25,14 @@ struct StageButton: ButtonStyle {
             
             configuration.label.offset(y : configuration.isPressed ? offset : 0)
         }.compositingGroup()
+            .onChange(of: configuration.isPressed) {_ in
+                SoundControl().playButtonSFX()
+            }
     }
 }
-struct StageButtonDisable: ButtonStyle {
 
+struct StageButtonDisable: ButtonStyle {
+    
     func makeBody(configuration: Configuration) -> some View {
         ZStack{
             let offset=CGFloat(8)

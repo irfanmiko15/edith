@@ -1,0 +1,6 @@
+Target dependency graph (3 targets)
+edith in edith, no dependencies
+edithTests in edith, depends on:
+edith in edith (explicit)
+edithUITests in edith, depends on:
+edith in edith (explicit)
