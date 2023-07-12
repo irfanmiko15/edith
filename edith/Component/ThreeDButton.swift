@@ -21,7 +21,9 @@ struct ThreeD: ButtonStyle {
             RoundedRectangle(cornerRadius: 20).foregroundColor(foregroundColor).offset(y : configuration.isPressed ? offset : 0)
             
             configuration.label.offset(y : configuration.isPressed ? offset : 0)
-        }.compositingGroup()
+        }.compositingGroup() .onChange(of: configuration.isPressed) {_ in 
+            SoundControl().playButtonSFX()
+        }
         
     }
 }
@@ -52,6 +54,6 @@ struct ThreeDButton_Previews: PreviewProvider {
         }
         .foregroundColor(Color.white)
         .frame(width:100,height: 50)
-        .buttonStyle(ThreeDDisabled())
+        .buttonStyle(ThreeD(foregroundColor: Color.orangeFox50, shadowColor: Color.orangeFox70))
     }
 }

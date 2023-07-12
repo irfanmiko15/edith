@@ -85,7 +85,6 @@ struct Module1View: View {
                     
                     // CLOSE BUTTON
                     Button{
-                        modulViewModel.saveProgress(modulName: "Modul 1")
                         presentationMode.wrappedValue.dismiss()
                     }label: {
                         Image(systemName: "xmark")

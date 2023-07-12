@@ -52,7 +52,7 @@ struct OnboardingView: View {
                                
                             }
                             else{
-                                NavigationLink(destination: WorldMapView(userModel: UserViewModel()).navigationBarBackButtonHidden(true)){
+                                NavigationLink(destination: WorldMapView(userModel: UserViewModel(), stageViewModel: StageViewModel()).navigationBarBackButtonHidden(true)){
                                     Text("PLAY").font(.custom(Font.balooBold, size: 40)).foregroundColor(.white)
                                 }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
                                     .frame(width: reader.size.width*0.25, height: reader.size.height*0.1)

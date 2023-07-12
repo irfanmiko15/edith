@@ -9,6 +9,7 @@ import SwiftUI
 import CoreMotion
 
 struct Stage2View: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var userModel: UserViewModel
     
     @State var stage: StageModel
@@ -31,7 +32,7 @@ struct Stage2View: View {
     @State var isPlay = true
     @State var isRight = true
     @State var statusSelectedObject = ""
-    @State var isDone = true
+    @State var isDone = false
     
     var body: some View {
         NavigationStack{
@@ -173,7 +174,20 @@ struct Stage2View: View {
                         .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
                     }
                     
-                    // STATUS CORRECT AND WRONG
+                    // CLOSE BUTTON
+                    Button{
+                        presentationMode.wrappedValue.dismiss()
+                    }label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: reader.size.width*0.025, height: reader.size.width*0.025)
+                            .font(Font.title.weight(.black))
+                    }.frame(width: reader.size.width*0.065, height: reader.size.width*0.65)
+                        .position(CGPoint(x: reader.size.width-(45)-reader.size.width*0.025, y: 45+(reader.size.width*0.025)))
+                        .buttonStyle(CloseButton())
+                    
+                    // IS DONE
                     if(isDone){
                         ZStack{
                             Rectangle()
@@ -184,11 +198,18 @@ struct Stage2View: View {
                             ZStack{
                                 RoundedRectangle(cornerRadius: 24)
                                     .fill(Color.white)
-                                    .frame(width: reader.size.width*0.5, height: reader.size.height*0.6)
+                                    .frame(width: reader.size.width*0.5,
+                                           height: reader.size.height*0.6)
+                                    .position(x: reader.size.width*0.5,
+                                              y: reader.size.height*0.5)
                                 
                                 RoundedRectangle(cornerRadius: 24)
                                     .stroke(Color.orangeFox70, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
-                                    .frame(width: reader.size.width*0.5, height: reader.size.height*0.6)
+                                    .frame(width: reader.size.width*0.5,
+                                           height: reader.size.height*0.6)
+                                    .position(x: reader.size.width*0.5,
+                                              y: reader.size.height*0.5)
+                                
                                 VStack(spacing: 0){
                                     Image("edithBahagia")
                                         .resizable()
@@ -199,6 +220,22 @@ struct Stage2View: View {
                                         .multilineTextAlignment(.center)
                                         .font(.custom(Font.balooBold, size: CGFloat(32)))
                                 }
+                                .position(x: reader.size.width*0.5,
+                                          y: reader.size.height*0.5)
+                                
+                                Button{
+                                    presentationMode.wrappedValue.dismiss()
+                                    stageViewModel.saveProgress(stageName: "Stage 2")
+                                }label:{
+                                    Text("SELESAI")
+                                        .font(.custom(Font.balooBold, size: 36))
+                                        .foregroundColor(.white)
+                                }.buttonStyle(ThreeD(foregroundColor: .orangeSomething,
+                                                     shadowColor: .orangeFox50))
+                                    .frame(width: reader.size.width*0.25,
+                                           height: reader.size.height*0.1)
+                                    .position(x: reader.size.width*0.5,
+                                              y: (reader.size.height*0.5) + (reader.size.height*0.3))
                             }
                             .position(x: reader.size.width*0.5, y: reader.size.height*0.5)
                         }

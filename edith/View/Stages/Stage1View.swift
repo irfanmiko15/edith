@@ -36,7 +36,7 @@ struct Stage1View: View {
                             .blur(radius: 16)
                         Rectangle()
                             .fill(Color.black)
-                            .frame(width: .infinity)
+                            .frame(maxWidth: .infinity)
                             .opacity(0.2)
                     }
                     
@@ -111,44 +111,48 @@ struct Stage1View: View {
                                     .shadow(radius: 5)
                                     .gesture(DragGesture()
                                         .onChanged { value in
-                                            draggedObject.image = image.image
-                                            draggedObject.x = value.location.x
-                                            draggedObject.y = value.location.y
-                                            isDragging = true
+                                            if(!isTutorial){
+                                                draggedObject.image = image.image
+                                                draggedObject.x = value.location.x
+                                                draggedObject.y = value.location.y
+                                                isDragging = true
+                                            }
                                         }
                                         .onEnded { value in
-                                            let pos = [-0.5, 0.5]
-                                            if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 4){
-                                                
-                                                let x = reader.size.width*0.25 +  reader.size.width*(pos[stage.resultParent.count%2])*0.15
-                                                let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultParent.count - 1) < 1 ? 0 : 1])*0.17
-                                                
-                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
-                                                if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
-                                                    stage.resultParent.append(newObject)
-                                                    if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
-                                                        isConfirming = true
+                                            if(!isTutorial){
+                                                let pos = [-0.5, 0.5]
+                                                if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 4){
+                                                    
+                                                    let x = reader.size.width*0.25 +  reader.size.width*(pos[stage.resultParent.count%2])*0.15
+                                                    let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultParent.count - 1) < 1 ? 0 : 1])*0.17
+                                                    
+                                                    let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                    if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
+                                                        stage.resultParent.append(newObject)
+                                                        if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
+                                                            isConfirming = true
+                                                        }
+                                                        //                                                print(stage.resultParent)
                                                     }
-                                                    //                                                print(stage.resultParent)
-                                                }
-                                                
-                                            } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 4){
-                                                
-                                                let x = reader.size.width*0.7 +  reader.size.width*(pos[stage.resultChild.count%2])*0.15
-                                                let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultChild.count - 1) < 1 ? 0 : 1])*0.17
-                                                
-                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
-                                                if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
-                                                    stage.resultChild.append(newObject)
-                                                    if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
-                                                        isConfirming = true
+                                                    
+                                                } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 4){
+                                                    
+                                                    let x = reader.size.width*0.7 +  reader.size.width*(pos[stage.resultChild.count%2])*0.15
+                                                    let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultChild.count - 1) < 1 ? 0 : 1])*0.17
+                                                    
+                                                    let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                    if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
+                                                        stage.resultChild.append(newObject)
+                                                        if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
+                                                            isConfirming = true
+                                                        }
+                                                        //                                                print(stage.resultChild)
+                                                        //                                                stageViewModel.saveProgress(stageName: "Stage 1")
                                                     }
-                                                    //                                                print(stage.resultChild)
-                                                    //                                                stageViewModel.saveProgress(stageName: "Stage 1")
+                                                    
                                                 }
-                                                
+                                                isDragging = false
                                             }
-                                            isDragging = false
                                             
                                         }
                                     )
@@ -333,27 +337,85 @@ struct Stage1View: View {
                     
                     // TUTORIAL
                     if(isTutorial){
-                        Image("pointer")
-                            .position(pointerPosition)
-                            .onAppear(){
-                                let x1 = reader.size.width*0.26
-                                let y1 = reader.size.height*0.4
-                                pointerPosition = CGPoint(x: x1, y: y1)
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.black.opacity(0.75))
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 32)
+                                    .fill(Color.blueTang95)
+                                    .frame(width: reader.size.width*0.42)
                                 
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                    
-                                    let x2 = reader.size.width*0.25
-                                    let y2 = reader.size.height*0.75
-                                    
-                                    withAnimation(.easeInOut(duration: 2.0).repeatForever()){
-                                        pointerPosition = CGPoint(x: x2, y: y2)
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 8.0) {
-                                            
-                                            isTutorial = false
-                                        }
-                                    }
-                                }
+                                RoundedRectangle(cornerRadius: 32)
+                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                    .frame(width: reader.size.width*0.42)
+                                
+                                CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.white, strokeWidth: 16)
+                                    .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                    .offset(x: -reader.size.width*0.4*0.5, y: reader.size.height*0.45*0.4)
+                                
+                                CounterObject(counter: stage.resultParent.count, maxCount: 4, color: Color.blueTang70, width: reader.size.width*0.06, height: reader.size.height*0.05, fontSize: 32, cornerRadius: reader.size.height*0.015)
+                                    .offset(x: -reader.size.width*0.3*0.5, y: reader.size.height*0.45*0.5)
+                                
                             }
+                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
+                            .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
+                            .offset(x: reader.size.width*0.025, y: -reader.size.height*0.025)
+                            
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 32)
+                                    .fill(Color.cardinal95)
+                                    .frame(width: reader.size.width*0.42)
+                                
+                                RoundedRectangle(cornerRadius: 32)
+                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                    .frame(width: reader.size.width*0.42)
+                                
+                                CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.white, strokeWidth: 16)
+                                    .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                    .offset(x: reader.size.width*0.4*0.5, y: reader.size.height*0.45*0.4)
+                                
+                                CounterObject(counter: stage.resultChild.count, maxCount: 4, color: Color.cardinal70, width: reader.size.width*0.06, height: reader.size.height*0.05, fontSize: 32, cornerRadius: reader.size.height*0.015)
+                                    .offset(x: reader.size.width*0.3*0.5, y: reader.size.height*0.45*0.5)
+                                
+                            }
+                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
+                            .position(x: reader.size.width*0.75, y: reader.size.height*0.75)
+                            .offset(x: -reader.size.width*0.025, y: -reader.size.height*0.025)
+                            
+                            
+                            Circle()
+                                .frame(width:
+                                        reader.size.width*0.5*0.3, height:
+                                        reader.size.width*0.5*0.3)
+                                .blendMode(.destinationOut)
+                                .overlay(Circle().stroke(.white, lineWidth: 3))
+                                .position(x: reader.size.width*0.23 + CGFloat(reader.size.width*0.095),
+                                          y: reader.size.height*0.23)
+                            
+                            VStack(alignment: .leading, spacing: reader.size.height*0.025){
+                                Text("Tarik barang untuk memindahkan\nbenda ke zona kalian.")
+                                    .frame(width: reader.size.width)
+                                    .multilineTextAlignment(.center)
+                                    .font(.custom(Font.balooBold, size: CGFloat(36)))
+                                    .foregroundColor(Color.white)
+                                    .frame(width: reader.size.width/6)
+                                
+                                Button{
+                                    withAnimation(.spring()){
+                                        isTutorial = false
+                                    }
+                                }label:{
+                                    Text("OK!")
+                                        .font(.custom(Font.balooBold, size: 36))
+                                        .foregroundColor(.white)
+                                }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                                    .frame(height: reader.size.height/10)
+                            }
+                            .frame(width: reader.size.width/6, alignment: .leading)
+                            .position(x: reader.size.width*0.65, y: reader.size.height*0.23)
+                        }
+                        .compositingGroup()
                     }
                     
                 }

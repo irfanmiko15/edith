@@ -53,7 +53,7 @@ class SoundControl{
         Sounds.playSounds(soundfile: "BrokenEdith.m4a")
     }
     func playButtonSFX(){
-        Sounds.playSounds(soundfile: "ButtonSfx.m4a")
+        Sounds.playSounds(soundfile: "ButtonSfxShort.mp3")
     }
     func playEdithPowerUp(){
         Sounds.playSounds(soundfile: "EdithPowerUp.m4a")

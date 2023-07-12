@@ -76,8 +76,7 @@ struct MainStory1:View{
                         Button{
 
                             index=2
-                            
-                        
+                            SoundControl().playButtonSFX()
                         } label:{Text("Next")
                                 .font(.custom(Font.balooBold, size: 50))
                                 .foregroundColor(.white)
@@ -98,7 +97,7 @@ struct MainStory1:View{
                     }
                     
                     SoundControl()
-//                      .playMainStoryAudio()
+                      .playMainStoryAudio()
                 }
             }.ignoresSafeArea().onDisappear{
                 SoundControl()
@@ -472,7 +471,7 @@ struct MainStory6:View{
                             .offset(y:reader.size.height*0.3)
 
                         
-                        NavigationLink(destination: WorldMapView(userModel: UserViewModel())
+                        NavigationLink(destination: WorldMapView(userModel: UserViewModel(), stageViewModel: StageViewModel())
                             .onAppear() {
                                 self.isfinished=true
 
