@@ -59,7 +59,7 @@ struct Module2View: View {
                                 .position(x: reader.size.width*3/5*(0.5),
                                           y: reader.size.height*0.5 - (reader.size.height*0.125))
                                 
-                                if isExplaining && !isWrong || isCorrect{
+                                if isExplaining && (!isWrong || isCorrect){
                                     Button{
                                         if indexPrompt < modulViewModel.listPromptModul2.count-1 {
                                             
@@ -129,6 +129,7 @@ struct Module2View: View {
                                                 .frame(width: reader.size.width*0.1)
                                         }
                                     }.frame(width: reader.size.width*0.2)
+                                        .disabled(isCorrect)
                                     
                                     
                                     Button{
