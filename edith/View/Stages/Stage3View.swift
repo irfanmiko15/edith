@@ -173,27 +173,33 @@ struct Stage3View: View {
                                 .shadow(radius: 3)
                                 .gesture(DragGesture()
                                     .onChanged { value in
-                                        draggedObject.image = child.image
-                                        draggedObject.x = value.location.x
-                                        draggedObject.y = value.location.y
-                                        isDragging = true
+                                        if(!isDiscussing){
+                                            draggedObject.image = child.image
+                                            draggedObject.x = value.location.x
+                                            draggedObject.y = value.location.y
+                                            isDragging = true
+                                            
+                                        }
                                     }
                                     .onEnded { value in
-                                        withAnimation(.spring()){
-                                            if(!(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2)){
-                                                
-                                                if(stage.resultChild.contains(where: {$0.image == draggedObject.image})){
-                                                    let index = stage.resultChild.firstIndex(where: {$0.image == draggedObject.image})
-                                                    if((stage.resultChild.count-1) > index ?? 3){
-                                                        for i in (((index ?? 0)+1)...(stage.resultChild.count-1)).reversed() {
-                                                            stage.resultChild[i].x = stage.resultChild[i-1].x
-                                                            stage.resultChild[i].y = stage.resultChild[i-1].y
+                                        if(!isDiscussing){
+                                            withAnimation(.spring()){
+                                                if(!(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2)){
+                                                    
+                                                    if(stage.resultChild.contains(where: {$0.image == draggedObject.image})){
+                                                        let index = stage.resultChild.firstIndex(where: {$0.image == draggedObject.image})
+                                                        if((stage.resultChild.count-1) > index ?? 3){
+                                                            for i in (((index ?? 0)+1)...(stage.resultChild.count-1)).reversed() {
+                                                                stage.resultChild[i].x = stage.resultChild[i-1].x
+                                                                stage.resultChild[i].y = stage.resultChild[i-1].y
+                                                            }
                                                         }
+                                                        stage.resultChild.remove(at: index ?? 0)
                                                     }
-                                                    stage.resultChild.remove(at: index ?? 0)
                                                 }
+                                                isDragging = false
                                             }
-                                            isDragging = false
+                                            
                                         }
                                         
                                     }
@@ -210,27 +216,31 @@ struct Stage3View: View {
                                 .shadow(radius: 3)
                                 .gesture(DragGesture()
                                     .onChanged { value in
-                                        draggedObject.image = parent.image
-                                        draggedObject.x = value.location.x
-                                        draggedObject.y = value.location.y
-                                        isDragging = true
+                                        if(!isDiscussing){
+                                            draggedObject.image = parent.image
+                                            draggedObject.x = value.location.x
+                                            draggedObject.y = value.location.y
+                                            isDragging = true
+                                        }
                                     }
                                     .onEnded { value in
-                                        withAnimation(.spring()){
-                                            if(!(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2)){
-                                                
-                                                if(stage.resultParent.contains(where: {$0.image == draggedObject.image})){
-                                                    let index = stage.resultParent.firstIndex(where: {$0.image == draggedObject.image})
-                                                    if((stage.resultParent.count-1) > index ?? 3){
-                                                        for i in (((index ?? 0)+1)...(stage.resultParent.count-1)).reversed() {
-                                                            stage.resultParent[i].x = stage.resultParent[i-1].x
-                                                            stage.resultParent[i].y = stage.resultParent[i-1].y
+                                        if(!isDiscussing){
+                                            withAnimation(.spring()){
+                                                if(!(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2)){
+                                                    
+                                                    if(stage.resultParent.contains(where: {$0.image == draggedObject.image})){
+                                                        let index = stage.resultParent.firstIndex(where: {$0.image == draggedObject.image})
+                                                        if((stage.resultParent.count-1) > index ?? 3){
+                                                            for i in (((index ?? 0)+1)...(stage.resultParent.count-1)).reversed() {
+                                                                stage.resultParent[i].x = stage.resultParent[i-1].x
+                                                                stage.resultParent[i].y = stage.resultParent[i-1].y
+                                                            }
                                                         }
+                                                        stage.resultParent.remove(at: index ?? 0)
                                                     }
-                                                    stage.resultParent.remove(at: index ?? 0)
                                                 }
+                                                isDragging = false
                                             }
-                                            isDragging = false
                                         }
                                         
                                     }

@@ -29,10 +29,11 @@ struct Stage2View: View {
     @State var currentObjectCompared: [InteractiveImageModel] = [InteractiveImageModel(image: "stageBag", x: CGFloat(0), y: CGFloat(0)), InteractiveImageModel(image: "stageBag", x: CGFloat(0), y: CGFloat(0))]
     @State var currentPrompt: String = "Saat lapar,\nmana yang lebih dibutuhkan?"
     
-    @State var isPlay = true
+    @State var isPlay = false
     @State var isRight = true
     @State var statusSelectedObject = ""
     @State var isDone = false
+    @State var isTutorial = true
     
     var body: some View {
         NavigationStack{
@@ -46,7 +47,7 @@ struct Stage2View: View {
                             .scaledToFill()
                             .blur(radius: 16)
                         Rectangle()
-                            .fill(Color.black)
+                            .fill(Color.white)
                             .frame(maxWidth: .infinity)
                             .opacity(0.2)
                     }
@@ -147,12 +148,14 @@ struct Stage2View: View {
                             .rotationEffect(.degrees(boardBallOrientation))
                             .position(x: reader.size.width*0.5, y: reader.size.height*0.5)
                         
-                        Image("ball")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
-                            .rotationEffect(.degrees(ballOrientation))
-                            .position(x: ballPositionX, y: ballPositionY)
+                        if(!isTutorial){
+                            Image("ball")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                .rotationEffect(.degrees(ballOrientation))
+                                .position(x: ballPositionX, y: ballPositionY)
+                        }
                         
                     }
                     
@@ -241,6 +244,79 @@ struct Stage2View: View {
                         }
                     }
                     
+                    // TUTORIAL
+                    if(isTutorial){
+                        ZStack{
+                            Rectangle()
+                                .fill(Color.black)
+                                .frame(maxWidth: .infinity)
+                                .opacity(0.6)
+                            
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 24)
+                                    .fill(Color.white)
+                                    .frame(width: reader.size.width*0.5,
+                                           height: reader.size.height*0.6)
+                                    .position(x: reader.size.width*0.5,
+                                              y: reader.size.height*0.5)
+                                
+                                RoundedRectangle(cornerRadius: 24)
+                                    .stroke(Color.orangeFox70, style: StrokeStyle(lineWidth: 16, lineCap: .round, lineJoin: .round))
+                                    .frame(width: reader.size.width*0.5,
+                                           height: reader.size.height*0.6)
+                                    .position(x: reader.size.width*0.5,
+                                              y: reader.size.height*0.5)
+                                
+                                ZStack {
+                                    ZStack{
+                                        // BALL
+                                        ZStack{
+                                            Image("ballBoard")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: (reader.size.height*0.04)*(374/39))
+                                                .rotationEffect(.degrees(boardBallOrientation))
+                                                .position(x: reader.size.width*0.5, y: reader.size.height*0.5)
+                                            
+                                            Image("ball")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                                .rotationEffect(.degrees(ballOrientation))
+                                                .position(x: ballPositionX, y: ballPositionY)
+                                            
+                                        }
+                                    }
+                                    .frame(height: reader.size.height*0.5)
+                                    .offset(y: -reader.size.height*0.175)
+                                    
+                                    Text("Gerakkan Device-mu ke Kiri dan\nke Kanan untuk menjawab.")
+                                        .frame(width: reader.size.width*0.5, height: reader.size.height*0.15)
+                                        .multilineTextAlignment(.center)
+                                        .font(.custom(Font.balooBold, size: CGFloat(32)))
+                                        .offset(y: reader.size.height*0.175)
+                                }
+                                .position(x: reader.size.width*0.5,
+                                          y: reader.size.height*0.5)
+                                
+                                Button{
+                                    isTutorial = false
+                                    isPlay = true
+                                }label:{
+                                    Text("OK!")
+                                        .font(.custom(Font.balooBold, size: 36))
+                                        .foregroundColor(.white)
+                                }.buttonStyle(ThreeD(foregroundColor: .orangeSomething,
+                                                     shadowColor: .orangeFox50))
+                                    .frame(width: reader.size.width*0.25,
+                                           height: reader.size.height*0.1)
+                                    .position(x: reader.size.width*0.5,
+                                              y: (reader.size.height*0.5) + (reader.size.height*0.3))
+                            }
+                            .position(x: reader.size.width*0.5, y: reader.size.height*0.5)
+                        }
+                    }
+                    
                 }
                 
                 // LOGIC
@@ -277,11 +353,23 @@ struct Stage2View: View {
                         motionZ = manager.accelerometerData?.acceleration.z ?? 0.0
                         
                         if(isPlay && !isDone){
+                            
                             withAnimation(.spring()){
                                 if(motionZ < 0.5 && motionZ > -0.5){
                                     if(motionY > 0.1 || motionY < -0.1){
                                         ballPositionX = ballPositionX - motionY*90
                                         ballOrientation = ballOrientation - motionY*90
+                                        
+                                    }
+                                } else if((motionZ > 0.5 && motionZ < 0.8) || (motionZ < -0.5 && motionZ > -0.8)){
+                                    if(motionY > 0.05 || motionY < -0.05){
+                                        ballPositionX = ballPositionX - motionY*180
+                                        ballOrientation = ballOrientation - motionY*180
+                                    }
+                                } else {
+                                    if(motionY < 0.05 || motionY > -0.05){
+                                        ballPositionX = ballPositionX - motionY*225
+                                        ballOrientation = ballOrientation - motionY*225
                                         
                                     }
                                 }
@@ -332,6 +420,57 @@ struct Stage2View: View {
                                 ballPositionX = reader.size.width*0.5
                                 ballPositionY = (reader.size.height*0.5)-(reader.size.width*0.05+reader.size.height*0.02)
                             }
+                        }
+                        
+                        
+                        if(isTutorial){
+                            withAnimation(.spring()){
+                                
+                                if(motionZ < 0.5 && motionZ > -0.5){
+                                    if(motionY > 0.1 || motionY < -0.1){
+                                        ballPositionX = ballPositionX - motionY*90
+                                        
+                                    }
+                                } else if((motionZ > 0.5 && motionZ < 0.8) || (motionZ < -0.5 && motionZ > -0.8)){
+                                    if(motionY > 0.05 || motionY < -0.05){
+                                        ballPositionX = ballPositionX - motionY*180
+                                    }
+                                } else {
+                                    if(motionY < 0.05 || motionY > -0.05){
+                                        ballPositionX = ballPositionX - motionY*225
+                                        
+                                    }
+                                }
+
+
+                                ballPositionY = (reader.size.height*0.5)-(reader.size.width*0.05+reader.size.height*0.02)
+
+                                if(ballPositionX > (reader.size.width*0.5) + ((reader.size.height*0.04)*(374/39)/2)){
+                                    ballPositionX = (reader.size.width*0.5) + ((reader.size.height*0.04)*(374/39)/2)
+                                    ballOrientation = ballOrientation
+
+                                } else if(ballPositionX < (reader.size.width*0.5) - ((reader.size.height*0.04)*(374/39)/2)){
+                                    ballPositionX = (reader.size.width*0.5) - ((reader.size.height*0.04)*(374/39)/2)
+                                    ballOrientation = ballOrientation
+                                } else {
+                                    if(motionZ < 0.5 && motionZ > -0.5){
+                                        if(motionY > 0.1 || motionY < -0.1){
+                                            ballOrientation = ballOrientation - motionY*90
+                                            
+                                        }
+                                    } else if((motionZ > 0.5 && motionZ < 0.8) || (motionZ < -0.5 && motionZ > -0.8)){
+                                        if(motionY > 0.05 || motionY < -0.05){
+                                            ballOrientation = ballOrientation - motionY*180
+                                        }
+                                    } else {
+                                        if(motionY < 0.05 || motionY > -0.05){
+                                            ballOrientation = ballOrientation - motionY*225
+                                            
+                                        }
+                                    }
+                                }
+                            }
+                            
                         }
                         
                     }
