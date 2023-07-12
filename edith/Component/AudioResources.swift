@@ -77,4 +77,13 @@ class SoundControl{
                             print("\(error)")
                         }
     }
+    func playCorrectSFX(){
+        Sounds.playSounds(soundfile: "CorrectSfx.m4a")
+    }
+    func playWrongSFX(){
+        Sounds.playSounds(soundfile: "WrongSfx.m4a")
+    }
+    func playNextButtonSFX(){
+        Sounds.playSounds(soundfile: "NextButtonSfx.m4a")
+    }
 }

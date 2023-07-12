@@ -22,6 +22,7 @@ struct ThreeD: ButtonStyle {
             
             configuration.label.offset(y : configuration.isPressed ? offset : 0)
         }.compositingGroup()
+        
     }
 }
 struct ThreeDDisabled: ButtonStyle {
@@ -37,6 +38,7 @@ struct ThreeDDisabled: ButtonStyle {
             RoundedRectangle(cornerRadius: 20).foregroundColor(Color.neutral40).offset(y :  0)
             
             configuration.label.offset(y  : 0)
+            
         }.compositingGroup()
     }
 }

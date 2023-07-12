@@ -74,7 +74,10 @@ struct MainStory1:View{
                             .frame(width: .infinity,height: 200).padding(.horizontal,40).overlay(Text(text).font(.custom(Font.balooRegular, size: 35)).padding(.horizontal,reader.size.width*0.06))
                             .offset(y:reader.size.height*0.3)
                         Button{
+
                             index=2
+                            
+                        
                         } label:{Text("Next")
                                 .font(.custom(Font.balooBold, size: 50))
                                 .foregroundColor(.white)
@@ -97,7 +100,10 @@ struct MainStory1:View{
                     SoundControl()
 //                      .playMainStoryAudio()
                 }
-            }.ignoresSafeArea()
+            }.ignoresSafeArea().onDisappear{
+                SoundControl()
+                    .playButtonSFX()
+            }
         }
     }
 }
@@ -144,6 +150,9 @@ struct MainStory2:View{
                             .offset(y:reader.size.height*0.3)
                         Button{
                             index=3
+                            SoundControl()
+                                .playButtonSFX()
+                            
                         } label:{Text("Next")
                                 .font(.custom(Font.balooBold, size: 50))
                                 .foregroundColor(.white)

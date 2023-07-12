@@ -46,17 +46,17 @@ struct EdithFigure: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: width*0.3)
-                        .offset(x: width*0.3, y: -width*0.125)
+                        .offset(x: width*0.27, y: -width*0.125)
                     
                     Image("edithBody")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: width*0.65)
+                        .frame(width: width*0.60)
                     
                     Circle()
-                        .stroke(RadialGradient(colors: [Color("orangeSomething"), Color("orangeSomething"), Color.white, Color.white, Color.clear], center: .center, startRadius: 0, endRadius: 40), lineWidth: 10)
+                        .stroke(RadialGradient(colors: [Color.white, Color.white, Color.white, Color.white, Color.clear], center: .center, startRadius: 0, endRadius: 45), lineWidth: 10)
                         .frame(width: width*0.25)
-                        .offset(x:width*0.01, y:-width*0.145)
+                        .offset(x:width*0.01, y:-width*0.135)
                         .opacity(opacityCircle)
                     
                 }.offset(y:bodyOffset)
