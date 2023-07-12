@@ -1,0 +1,30 @@
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/CloudView.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CloudView.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CloudView.d"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CloudView.dia"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CloudView.o"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/MapStageButton.swift":
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapStageButton.dia"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapStageButton.o"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapStageButton.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapStageButton.d"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/CityMap/Map1View.swift":
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.d"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.o"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.swiftdeps"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/Map1View.dia"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/MapButton.swift":
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapButton.o"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapButton.dia"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapButton.d"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/MapButton.swiftdeps"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Model/StageModel.swift":
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageModel.o"
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageModel.swiftdeps"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageModel.d"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/StageModel.dia"
+"/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/Component/CircleAvatar.swift":
+  swift-dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CircleAvatar.swiftdeps"
+  object: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CircleAvatar.o"
+  diagnostics: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CircleAvatar.dia"
+  dependencies: "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/build/edith.build/Debug-iphonesimulator/edith.build/Objects-normal/arm64/CircleAvatar.d"

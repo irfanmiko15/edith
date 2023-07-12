@@ -21,8 +21,9 @@ struct ThreeD: ButtonStyle {
             RoundedRectangle(cornerRadius: 20).foregroundColor(foregroundColor).offset(y : configuration.isPressed ? offset : 0)
             
             configuration.label.offset(y : configuration.isPressed ? offset : 0)
-        }.compositingGroup() .onChange(of: configuration.isPressed) {_ in 
-            SoundControl().playButtonSFX()
+        }.compositingGroup()
+            .onChange(of: configuration.isPressed) {_ in 
+            SoundControl().playNextButtonSFX()
         }
         
     }

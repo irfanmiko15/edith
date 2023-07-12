@@ -29,13 +29,6 @@ struct Map1View: View {
                         image: .constant(String("cloud")),
                         moveOffsetLeft:.constant(CGFloat(-50)), moveOffsetRight: .constant(CGFloat(50))
                     )
-                }.offset(x:-350,y:-250)
-                HStack{
-                    CloudView(
-                        
-                        image: .constant(String("cloud")),
-                        moveOffsetLeft:.constant(CGFloat(-50)), moveOffsetRight: .constant(CGFloat(50))
-                    )
                 }.offset(x:-150,y:-350)
                 HStack{
                     CloudView(
