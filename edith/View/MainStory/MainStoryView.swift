@@ -463,7 +463,7 @@ struct MainStory6:View{
                             .offset(y:reader.size.height*0.3)
 
                         
-                        NavigationLink(destination: WorldMapView(userModel: UserViewModel())
+                        NavigationLink(destination: WorldMapView(userModel: UserViewModel(), stageViewModel: StageViewModel())
                             .onAppear() {
                                 self.isfinished=true
 

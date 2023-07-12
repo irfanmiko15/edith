@@ -143,7 +143,8 @@ struct RoadmapView: View {
                 ZStack{
                     //modul1
                     NavigationLink(destination: Module1View(modulViewModel: ModulViewModel())){
-                        Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                        
+                        Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.07)
                     }
                     .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                     .buttonStyle(StageButton(
@@ -179,7 +180,8 @@ struct RoadmapView: View {
                     if(modulViewModel.checkProgress(modulName: "Stage 1")){
                         
                         NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
-                            Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                            
+                            Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.07)
                         }
                         .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                         .buttonStyle(StageButton(foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40))
@@ -189,7 +191,8 @@ struct RoadmapView: View {
                         Button{
                             
                         }label:{
-                            Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                            
+                            Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.07)
                         }
                         .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                         .buttonStyle(StageButtonDisable())
@@ -224,7 +227,8 @@ struct RoadmapView: View {
                     if(modulViewModel.checkProgress(modulName: "Stage 2")){
                         
                         NavigationLink(destination: Module3View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 3", prompt: [], edithImage: [], listImage: []))){
-                            Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                            
+                            Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.07)
                         }
                         .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                         .buttonStyle(StageButton(foregroundColor: Color.greenGrass50, shadowColor: Color.greenGrass40))
@@ -236,7 +240,8 @@ struct RoadmapView: View {
                         Button{
                             
                         }label:{
-                            Image( "book-open").resizable().scaledToFit().frame(width: geo.size.width*0.08)
+                            
+                            Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.07)
                         }
                         .frame(width:geo.size.width*0.14,height: geo.size.width*0.14)
                         .buttonStyle(StageButtonDisable())

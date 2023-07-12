@@ -40,18 +40,18 @@ struct EdithFigure: View {
                         .scaledToFit()
                         .frame(width: width*0.3)
                         .rotationEffect(edithArm[pose] == "wavingArm" ? .degrees(90) : .degrees(0))
-                        .offset(x: edithArm[pose] == "wavingArm" ? -width*0.5 : -width*0.3, y: edithArm[pose] == "wavingArm" ? -width*0.4 : -width*0.125)
+                        .offset(x: edithArm[pose] == "wavingArm" ? -width*0.5 : -width*0.275, y: edithArm[pose] == "wavingArm" ? -width*0.35 : -width*0.1)
                     
                     Image("edithRightHand")
                         .resizable()
                         .scaledToFit()
                         .frame(width: width*0.3)
-                        .offset(x: width*0.3, y: -width*0.125)
+                        .offset(x: width*0.275, y: -width*0.1)
                     
                     Image("edithBody")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: width*0.65)
+                        .frame(width: width*0.58)
                     
                     Circle()
                         .stroke(RadialGradient(colors: [Color("orangeSomething"), Color("orangeSomething"), Color.white, Color.white, Color.clear], center: .center, startRadius: 0, endRadius: 40), lineWidth: 10)
@@ -59,8 +59,10 @@ struct EdithFigure: View {
                         .offset(x:width*0.01, y:-width*0.145)
                         .opacity(opacityCircle)
                     
-                }.offset(y:bodyOffset)
-                    .shadow(color: .white, radius: width*0.04)
+                }
+                .frame(width: width*0.9)
+                .offset(y:bodyOffset)
+                .shadow(color: .white, radius: width*0.04)
                 
                 ZStack{
                     Image("edithQuestionMark")
@@ -84,7 +86,7 @@ struct EdithFigure: View {
                 .frame(width: width)
                 .rotationEffect(pose == "confuse" ? .degrees(10) : .degrees(0))
                 .offset(y:headOffset)
-                .offset(y: -width*0.85)
+                .offset(y: -width*0.825)
                 .offset(x: pose == "confuse" ? width*0.05 : 0)
                 
                 

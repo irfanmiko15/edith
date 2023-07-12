@@ -25,7 +25,9 @@
 		272897432A4A9201005B1A36 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897422A4A9201005B1A36 /* MapButton.swift */; };
 		272897452A4A944C005B1A36 /* MapStageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272897442A4A944C005B1A36 /* MapStageButton.swift */; };
 		27355B592A4BD964006C495A /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27355B582A4BD964006C495A /* ContainerView.swift */; };
+		273F65F22A5E3B52007198C9 /* ButtonSfxShort.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 273F65F12A5E3B52007198C9 /* ButtonSfxShort.mp3 */; };
 		277375842A5B98E600DA4260 /* EdithFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277375832A5B98E600DA4260 /* EdithFigure.swift */; };
+		278DDD152A5D53F9000F4AFC /* MapStagePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DDD142A5D53F9000F4AFC /* MapStagePointer.swift */; };
 		27A6FD002A564681008096AF /* Stage3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6FCFF2A564681008096AF /* Stage3View.swift */; };
 		27A6FD022A564C83008096AF /* CircleWithNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6FD012A564C83008096AF /* CircleWithNumber.swift */; };
 		27B59A102A4E5C3500C13D14 /* Stage1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */; };
@@ -111,7 +113,9 @@
 		272897422A4A9201005B1A36 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
 		272897442A4A944C005B1A36 /* MapStageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStageButton.swift; sourceTree = "<group>"; };
 		27355B582A4BD964006C495A /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		273F65F12A5E3B52007198C9 /* ButtonSfxShort.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ButtonSfxShort.mp3; sourceTree = "<group>"; };
 		277375832A5B98E600DA4260 /* EdithFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdithFigure.swift; sourceTree = "<group>"; };
+		278DDD142A5D53F9000F4AFC /* MapStagePointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStagePointer.swift; sourceTree = "<group>"; };
 		27A6FCFF2A564681008096AF /* Stage3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage3View.swift; sourceTree = "<group>"; };
 		27A6FD012A564C83008096AF /* CircleWithNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleWithNumber.swift; sourceTree = "<group>"; };
 		27B59A0F2A4E5C3500C13D14 /* Stage1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stage1View.swift; sourceTree = "<group>"; };
@@ -193,6 +197,7 @@
 		0B37756A2A5BB3790059E96B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				273F65F12A5E3B52007198C9 /* ButtonSfxShort.mp3 */,
 				0B3775732A5BB38A0059E96B /* BrokenEdith.m4a */,
 				0B37756B2A5BB3890059E96B /* ButtonSfx.m4a */,
 				0B37756F2A5BB38A0059E96B /* CorrectSfx.m4a */,
@@ -359,6 +364,7 @@
 				27A6FD012A564C83008096AF /* CircleWithNumber.swift */,
 				EE25AED12A56540F001F5B45 /* CloseButton.swift */,
 				277375832A5B98E600DA4260 /* EdithFigure.swift */,
+				278DDD142A5D53F9000F4AFC /* MapStagePointer.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -526,6 +532,7 @@
 				0B37757F2A5BB38A0059E96B /* EdithPowerUp.m4a in Resources */,
 				EEA1FA832A43F5CB0041270B /* Baloo2-SemiBold.ttf in Resources */,
 				EEA1FA872A43F5CB0041270B /* Baloo2-Bold.ttf in Resources */,
+				273F65F22A5E3B52007198C9 /* ButtonSfxShort.mp3 in Resources */,
 				EEA1FA842A43F5CB0041270B /* Baloo2-Medium.ttf in Resources */,
 				EEA1FA1E2A42AB320041270B /* Assets.xcassets in Resources */,
 				EEA1FA852A43F5CB0041270B /* Baloo2-ExtraBold.ttf in Resources */,
@@ -601,6 +608,7 @@
 				27A6FD022A564C83008096AF /* CircleWithNumber.swift in Sources */,
 				0BB9FA0C2A54077400DB30CC /* Module3View.swift in Sources */,
 				0B7A7F4F2A52C63B00DDA88B /* Module2View.swift in Sources */,
+				278DDD152A5D53F9000F4AFC /* MapStagePointer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

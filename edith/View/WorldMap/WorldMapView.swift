@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WorldMapView: View {
     @StateObject var userModel: UserViewModel
+    @StateObject var stageViewModel: StageViewModel
     var body: some View {
         NavigationStack{
             GeometryReader { reader in
@@ -50,11 +51,20 @@ struct WorldMapView: View {
                     
                     // ICON
                     Group{
-                        MapButton(iconName: "mapsIcon1", size: CGFloat(reader.size.width/4), position: CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/12), y: CGFloat(reader.size.height/3-reader.size.height/12)))
+                        MapButton(iconName: "mapsIcon1Active",
+                                  size: CGFloat(reader.size.width/4),
+                                  position: CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/12),
+                                                    y: CGFloat(reader.size.height/3-reader.size.height/12)))
                         
-                        MapButton(iconName: "mapsIcon2", size: CGFloat(reader.size.width/4), position: CGPoint(x: CGFloat(reader.size.width*3/4-reader.size.width/12), y: CGFloat(reader.size.height*1/3+reader.size.height/12)))
+                        MapButton(iconName: stageViewModel.checkProgress(stageName: "Challenge 1") ? "mapsIcon2Active" : "mapsIcon2Inactive",
+                                  size: CGFloat(reader.size.width/4),
+                                  position: CGPoint(x: CGFloat(reader.size.width*3/4-reader.size.width/16),
+                                                    y: CGFloat(reader.size.height*1/3+reader.size.height/8)))
                         
-                        MapButton(iconName: "mapsIcon3", size: CGFloat(reader.size.width/4), position: CGPoint(x: CGFloat(reader.size.width/4-reader.size.width/12), y: CGFloat(reader.size.height-reader.size.height*1/4)))
+                        MapButton(iconName: stageViewModel.checkProgress(stageName: "Challenge 2") ? "mapsIcon3Active" : "mapsIcon3Inactive",
+                                  size: CGFloat(reader.size.width/4),
+                                  position: CGPoint(x: CGFloat(reader.size.width/4-reader.size.width/12),
+                                                    y: CGFloat(reader.size.height-reader.size.height*1/4)))
                     }
                     
                     // CLICKABLE POINT
@@ -65,8 +75,8 @@ struct WorldMapView: View {
                                 
                             }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/6), y: CGFloat(reader.size.height/3+reader.size.height/14+25)))
-                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, textStage: "Hutan"))
+                            .position(CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/6), y: CGFloat(reader.size.height/3)-(reader.size.height*0.065)))
+                            .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, isCurrent: true))
                         
                         NavigationLink(destination:
                                         Map1View(userModel: UserViewModel())
@@ -76,7 +86,7 @@ struct WorldMapView: View {
                             .frame(width: 60,height: 40)
                             .position(CGPoint(x: CGFloat(reader.size.width*3/4-reader.size.width/6), y: CGFloat(reader.size.height*2/3-(reader.size.height/10))))
                             .disabled(true)
-                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
+                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, isCurrent: false))
                         
                         
                         NavigationLink(destination:
@@ -87,7 +97,7 @@ struct WorldMapView: View {
                             .frame(width: 60,height: 40)
                             .position(CGPoint(x: CGFloat(reader.size.width*0.3), y: CGFloat(reader.size.height*0.84)))
                             .disabled(true)
-                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, textStage: "Desa"))
+                            .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, isCurrent: false))
                     }
                 }
                 .ignoresSafeArea()
@@ -103,7 +113,7 @@ struct WorldMapView: View {
 
 struct WorldMapView_Previews: PreviewProvider {
     static var previews: some View {
-        WorldMapView(userModel: UserViewModel())
+        WorldMapView(userModel: UserViewModel(), stageViewModel: StageViewModel())
             .previewInterfaceOrientation(.landscapeRight)
     }
 }
