@@ -238,7 +238,7 @@ struct MainStory3:View{
                 
             }.onAppear{
                 userModel.load()
-                fullText=" \(userModel.dataUser.name)pun memasukkan koin itu ke dalam Edith."
+                fullText=" \(userModel.dataUser.name) pun memasukkan koin itu ke dalam Edith."
                 if isfinished==false{
                     typeWriter()
                 }
