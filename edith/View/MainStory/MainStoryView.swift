@@ -75,6 +75,7 @@ struct MainStory1:View{
                             .offset(y:reader.size.height*0.3)
                         Button{
                             index=2
+                            SoundControl().playButtonSFX()
                         } label:{Text("Next")
                                 .font(.custom(Font.balooBold, size: 50))
                                 .foregroundColor(.white)
@@ -95,7 +96,7 @@ struct MainStory1:View{
                     }
                     
                     SoundControl()
-//                      .playMainStoryAudio()
+                      .playMainStoryAudio()
                 }
             }.ignoresSafeArea()
         }
