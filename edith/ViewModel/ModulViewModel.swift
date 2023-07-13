@@ -29,7 +29,7 @@ class ModulViewModel:ObservableObject{
                                                  "Sejauh ini kita sudah mengenal makanan, pakaian dan air sebagai kebutuhan.",
                                                  "Namun ternyata, kebutuhan bisa lebih dari itu saja.",
                                                  "Namun ternyata, kebutuhan bisa lebih dari itu saja.",
-                                                 "Payung, buku, sepatu dan uang juga bisa menjadi kebutuhan tergantung situasi.",
+                                                 "Payung, buku, sepatu, dan laptop juga bisa menjadi kebutuhan tergantung situasi.",
                                                  "Besok akan ada ujian, mana yang lebih kamu butuhkan?",
                                                  " bisa jelaskan mengapa kita tidak terlalu butuh air saat akan ada ujian.",
                                                  "Benar! Buku akan membantu kita untuk belajar untuk ujian.",
@@ -40,8 +40,9 @@ class ModulViewModel:ObservableObject{
     
     @Published var listPromptModul3: [String] = ["Ada waktunya kita membutuhkan banyak hal sekaligus.","Kita bisa membutuhkan baju dan celana sekaligus.","Atau pensil dan buku sekaligus.","Kira-kira apa lagi yang kita butuhkan secara bersamaan?", "Aku yakin kalian sudah siap untuk latihan berikutnya!"]
     
-    @Published var listImageModul2: [String] = ["stageApple","stageWater","stageTee","stageVeggie"]
-    @Published var imageCorrect: [String] = ["stageApple","stageTee"]
+    @Published var listImageModul2: [String] = ["stageApple", "stageWater", "stageTee", "stageVeggie", "stageBook", "stageCar", "stageFloat", "stageUmbrella"]
+    @Published var listImageExplainerModul2: [String] = ["stageWater", "stageApple", "stageTee", "stageVeggie", "stageBook", "stageUmbrella", "stageShoe", "stageLaptop"]
+    @Published var imageCorrect: [String] = ["stageApple","stageTee", "stageBook", "stageUmbrella"]
     
     @Published var listEdithPoseModul1 = ["wavingArm", "normal", "sad", "wavingArm", "normal", "wavingArm", "wavingArm", "happy" ]
     @Published var listEdithPoseModul2 = ["wavingArm", "confuse", "sad", "happy", "confuse", "sad", "happy", "wavingArm", "wavingArm", "wavingArm", "wavingArm", "confuse", "sad", "happy", "confuse", "sad", "happy", "wavingArm" ]

@@ -15,11 +15,19 @@ struct Module2View: View {
     
     @State var indexPrompt:Int = 0
     @State var indexImage:Int = 0
+    @State var indexImageExplainer:Int = 0
     @State var isExplaining: Bool = true
+    @State var isPromptOnly: Bool = false
     @State var isWrong: Bool = false
     @State var isCorrect: Bool = false
     
-    @State var currentObjectCompared = [InteractiveImageModel(image: "stageApple", x: CGFloat(0), y: CGFloat(0)), InteractiveImageModel(image: "stageWater", x: CGFloat(0), y: CGFloat(0))]
+    @State var currentObjectCompared = [InteractiveImageModel(image: "stageApple", x: CGFloat(0), y: CGFloat(0)),
+                                        InteractiveImageModel(image: "stageWater", x: CGFloat(0), y: CGFloat(0))]
+    
+    @State var objectExplainer1: [InteractiveImageModel] = []
+    @State var objectExplainer2: [InteractiveImageModel] = []
+    
+    @State var isExplainingStage: Int = 0
     
     var body: some View {
         NavigationStack{
@@ -59,20 +67,30 @@ struct Module2View: View {
                                 .position(x: reader.size.width*3/5*(0.5),
                                           y: reader.size.height*0.5 - (reader.size.height*0.125))
                                 
-                                if isExplaining && (!isWrong || isCorrect){
+                                if (isExplaining && (!isWrong || isCorrect)) || isPromptOnly {
                                     Button{
                                         if indexPrompt < modulViewModel.listPromptModul2.count-1 {
-                                            
-                                            if (indexPrompt > 2){
-                                                indexImage += 2
-                                                currentObjectCompared = [modul.listImage[indexImage], modul.listImage[indexImage+1]]
+                                            if(indexPrompt < 6 || (indexPrompt > 9 && indexPrompt < modulViewModel.listPromptModul2.count - 2)){
+                                                if (indexPrompt > 2){
+                                                    indexImage += 2
+                                                    currentObjectCompared = [modul.listImage[indexImage], modul.listImage[indexImage+1]]
+                                                }
+                                                isPromptOnly = false
+                                            } else {
+                                                isPromptOnly = true
                                             }
                                             
                                             isExplaining = false
                                             isWrong = false
                                             isCorrect = false
-                                            
                                             indexPrompt += 1
+                                            if (indexPrompt > 6 && indexPrompt < 11){
+                                                withAnimation(.easeInOut){
+                                                    if(indexPrompt == 9){
+                                                        indexImageExplainer += 1
+                                                    }
+                                                }
+                                            }
                                             
                                         } else{
                                             modulViewModel.saveProgress(modulName: "Modul 2")
@@ -91,14 +109,14 @@ struct Module2View: View {
                             .frame(width: reader.size.width*3/5)
                             
                             // QUIZ
-                            if (indexPrompt > 0){
+                            if ((indexPrompt > 0 && indexPrompt < 7) || (indexPrompt > 10 && indexPrompt < modulViewModel.listPromptModul2.count-1)){
                                 HStack(spacing: reader.size.width*0.05){
                                     Button{
                                         if modulViewModel.imageCorrect.contains(where: {
                                             $0 == currentObjectCompared[0].image
                                         }){
                                             if(indexPrompt < modulViewModel.listPromptModul2.count - 1){
-                                                if(isWrong){
+                                                if(isWrong || isPromptOnly){
                                                     indexPrompt += 1
                                                 }
                                                 else {
@@ -129,7 +147,9 @@ struct Module2View: View {
                                                 .frame(width: reader.size.width*0.1)
                                         }
                                     }.frame(width: reader.size.width*0.2)
-                                        .disabled(isCorrect)
+                                        .disabled(modulViewModel.imageCorrect.contains(where: {
+                                            $0 == currentObjectCompared[0].image
+                                        }) ? isCorrect : isWrong || isCorrect)
                                     
                                     
                                     Button{
@@ -137,7 +157,7 @@ struct Module2View: View {
                                             $0 == currentObjectCompared[1].image
                                         }){
                                             if(indexPrompt < modulViewModel.listPromptModul2.count - 1){
-                                                if(isWrong){
+                                                if(isWrong || isPromptOnly){
                                                     indexPrompt += 1
                                                 }
                                                 else {
@@ -170,30 +190,81 @@ struct Module2View: View {
                                                 .frame(width: reader.size.width*0.1)
                                         }
                                     }.frame(width: reader.size.width*0.2)
-                                        .disabled(isCorrect||isWrong)
+                                        .disabled(modulViewModel.imageCorrect.contains(where: {
+                                            $0 == currentObjectCompared[1].image
+                                        }) ? isCorrect : isWrong || isCorrect)
                                 }
                                 .offset(x: reader.size.width*(0.025), y: (reader.size.height*0.25))
                             }
                             
+                            // IMAGE EXPLAINER
+                            if (indexPrompt > 6 && indexPrompt < 11){
+                                
+                                ForEach(objectExplainer1) { image in
+                                    Image(image.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: indexImageExplainer == 0 ? reader.size.width*0.1 : 0)
+                                        .position(x: image.x, y: image.y)
+                                }
+                                
+                                ForEach(objectExplainer2) { image in
+                                    Image(image.image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: indexImageExplainer == 1 ? reader.size.width*0.1 : 0)
+                                        .position(x: image.x, y: image.y)
+                                }
+                            }
+                            
                             // LABEL AND EXPLAINING
                             if (isExplaining && indexPrompt > 1) {
-                                if isCorrect {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .onAppear()
-                                        .symbolRenderingMode(.palette)
-                                        .foregroundStyle(.white,.green)
-                                        .font(.system(size: 100))
-                                        .bold()
-                                        .offset(x: -reader.size.width*(0.025), y: (reader.size.height*0.35))
-                                    
+                                Group{
+                                    if modulViewModel.imageCorrect.contains(where: {
+                                        $0 == currentObjectCompared[0].image
+                                    }) && isCorrect {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .onAppear()
+                                            .symbolRenderingMode(.palette)
+                                            .foregroundStyle(.white,.green)
+                                            .font(.system(size: 100))
+                                            .bold()
+                                            .offset(x: -reader.size.width*(0.025), y: (reader.size.height*0.35))
+                                        
+                                    } else if modulViewModel.imageCorrect.contains(where: {
+                                        $0 == currentObjectCompared[1].image
+                                    }) && isWrong{
+                                        Image(systemName: "multiply.circle.fill")
+                                            .symbolRenderingMode(.palette)
+                                            .foregroundStyle(.white,.red)
+                                            .font(.system(size: 100))
+                                            .bold()
+                                            .offset(x: -reader.size.width*(0.025), y: (reader.size.height*0.35))
+                                    }
                                 }
-                                if isWrong{
-                                    Image(systemName: "multiply.circle.fill")
-                                        .symbolRenderingMode(.palette)
-                                        .foregroundStyle(.white,.red)
-                                        .font(.system(size: 100))
-                                        .bold()
-                                        .offset(x: reader.size.width*(0.225), y: (reader.size.height*0.35))
+                                
+                                Group{
+                                    if modulViewModel.imageCorrect.contains(where: {
+                                        $0 == currentObjectCompared[1].image
+                                    }) && isCorrect {
+                                        Image(systemName: "checkmark.circle.fill")
+                                            .onAppear()
+                                            .symbolRenderingMode(.palette)
+                                            .foregroundStyle(.white,.green)
+                                            .font(.system(size: 100))
+                                            .bold()
+                                            .offset(x: reader.size.width*(0.225), y: (reader.size.height*0.35))
+                                        
+                                    } else if modulViewModel.imageCorrect.contains(where: {
+                                        $0 == currentObjectCompared[0].image
+                                    }) && isWrong{
+                                        Image(systemName: "multiply.circle.fill")
+                                            .symbolRenderingMode(.palette)
+                                            .foregroundStyle(.white,.red)
+                                            .font(.system(size: 100))
+                                            .bold()
+                                            .offset(x: reader.size.width*(0.225), y: (reader.size.height*0.35))
+                                    }
                                 }
                             }
                         }
@@ -231,6 +302,27 @@ struct Module2View: View {
                             x = reader.size.width*0.8
                         }
                         modul.listImage.append(InteractiveImageModel(image: image, x: x, y: y))
+                    }
+                    
+                    
+                    for (index, image) in modulViewModel.listImageExplainerModul2.enumerated(){
+                        if(index < 4){
+                            let x = reader.size.width*0.37 + reader.size.width*0.1*(CGFloat(Int(index)))
+                            var y = reader.size.height*0.72
+                            if index%2 != 0{
+                                y += reader.size.height*0.1
+                            }
+                            objectExplainer1.append(InteractiveImageModel(image: image, x: x, y: y))
+                        } else {
+                            let index2 = index-4
+                            let x = reader.size.width*0.37 + reader.size.width*0.1*(CGFloat(Int(index2)))
+                            var y = reader.size.height*0.72
+                            if index2%2 != 0{
+                                y += reader.size.height*0.1
+                            }
+                            objectExplainer2.append(InteractiveImageModel(image: image, x: x, y: y))
+                            
+                        }
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
