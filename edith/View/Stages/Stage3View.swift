@@ -299,11 +299,12 @@ struct Stage3View: View {
                                                height: reader.size.height*0.6)
                                     
                                     VStack(spacing: 0){
+                                        
                                         Image("edithBertanya")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(height: reader.size.height*0.35)
-                                        Text("Apakah kalian sudah selesai\nmemindahkan semua kebutuhan?")
+                                        Text("Apakah kalian sudah yakin atau ingin\nmengganti urutan benda-bendanya?")
                                             .frame(width: reader.size.width*0.5, height: reader.size.height*0.15)
                                             .multilineTextAlignment(.center)
                                             .font(.custom(Font.balooBold, size: CGFloat(32)))
@@ -318,10 +319,10 @@ struct Stage3View: View {
                                         isDiscussing = true
                                         currentPrompt = stageViewModel.listPromptStage1[1]
                                     }label:{
-                                        Text("Sudah")
+                                        Text("Yakin")
                                             .font(.custom(Font.balooBold, size: 32))
                                             .foregroundColor(.white)
-                                    }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                                    }.buttonStyle(ThreeD(foregroundColor: .orangeFox70, shadowColor: .orangeFox50))
                                         .frame(width: reader.size.width/6,
                                                height: reader.size.height/10)
                                         .position(x: reader.size.width*0.5 + reader.size.width*0.1,
@@ -330,10 +331,10 @@ struct Stage3View: View {
                                     Button{
                                         isConfirming = false
                                     }label:{
-                                        Text("Belum")
+                                        Text("Ganti")
                                             .font(.custom(Font.balooBold, size: 32))
                                             .foregroundColor(.white)
-                                    }.buttonStyle(ThreeD(foregroundColor: .orangeFox50, shadowColor: .orangeFox50))
+                                    }.buttonStyle(ThreeD(foregroundColor: .orangeDeer60, shadowColor: .orangeDeer40))
                                         .frame(width: reader.size.width/6, height: reader.size.height/10)
                                         .position(x: reader.size.width*0.5 - reader.size.width*0.1,
                                                   y: reader.size.height*0.3 + reader.size.height*0.5)

@@ -281,11 +281,12 @@ struct Stage1View: View {
                                            height: reader.size.height*0.6)
                                 
                                 VStack(spacing: 0){
+                                    
                                     Image("edithBertanya")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(height: reader.size.height*0.35)
-                                    Text("Apakah kalian sudah selesai\nmemindahkan semua kebutuhan?")
+                                    Text("Apakah kalian sudah yakin atau ingin\nmengganti urutan benda-bendanya?")
                                         .frame(width: reader.size.width*0.5, height: reader.size.height*0.15)
                                         .multilineTextAlignment(.center)
                                         .font(.custom(Font.balooBold, size: CGFloat(32)))
@@ -300,10 +301,10 @@ struct Stage1View: View {
                                     isDiscussing = true
                                     currentPrompt = stageViewModel.listPromptStage1[1]
                                 }label:{
-                                    Text("Sudah")
+                                    Text("Yakin")
                                         .font(.custom(Font.balooBold, size: 32))
                                         .foregroundColor(.white)
-                                }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
+                                }.buttonStyle(ThreeD(foregroundColor: .orangeFox70, shadowColor: .orangeFox50))
                                     .frame(width: reader.size.width/6,
                                            height: reader.size.height/10)
                                     .position(x: reader.size.width*0.5 + reader.size.width*0.1,
@@ -312,10 +313,10 @@ struct Stage1View: View {
                                 Button{
                                     isConfirming = false
                                 }label:{
-                                    Text("Belum")
+                                    Text("Ganti")
                                         .font(.custom(Font.balooBold, size: 32))
                                         .foregroundColor(.white)
-                                }.buttonStyle(ThreeD(foregroundColor: .orangeFox50, shadowColor: .orangeFox50))
+                                }.buttonStyle(ThreeD(foregroundColor: .orangeDeer60, shadowColor: .orangeDeer40))
                                     .frame(width: reader.size.width/6, height: reader.size.height/10)
                                     .position(x: reader.size.width*0.5 - reader.size.width*0.1,
                                               y: reader.size.height*0.3 + reader.size.height*0.5)
@@ -357,7 +358,7 @@ struct Stage1View: View {
                                                   y: reader.size.height*0.23)
                                     
                                     VStack(alignment: .leading, spacing: reader.size.height*0.025){
-                                        Text("Tarik barang untuk memindahkan\nbenda ke zona kalian.")
+                                        Text("Ambil barang disamping\ndengan cara tahan dan gerakkan.")
                                             .frame(width: reader.size.width)
                                             .multilineTextAlignment(.center)
                                             .font(.custom(Font.balooBold, size: CGFloat(36)))
@@ -420,7 +421,7 @@ struct Stage1View: View {
                                     
                                     
                                     VStack(alignment: .leading, spacing: reader.size.height*0.025){
-                                        Text("Tarik barang untuk memindahkan\nbenda ke zona kalian.")
+                                        Text("Letakkan di zona\nyang kalian miliki.")
                                             .frame(width: reader.size.width)
                                             .multilineTextAlignment(.center)
                                             .font(.custom(Font.balooBold, size: CGFloat(36)))
@@ -442,7 +443,7 @@ struct Stage1View: View {
                                 .position(CGPoint(x: (reader.size.width*0.23 + reader.size.width*0.1),
                                                   y: (reader.size.height*0.23)))
                                 .shadow(radius: 5)
-                                .opacity(currentTutorialIndex == 1 ? 0 : 1)
+                                .opacity(currentTutorialIndex == 0 ? 1 : 0)
                                 .gesture(DragGesture()
                                     .onChanged { value in
                                         draggedObject.image = "stageWater"
@@ -483,8 +484,6 @@ struct Stage1View: View {
                                                 if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
                                                     isConfirming = true
                                                 }
-                                                //                                                print(stage.resultChild)
-                                                //                                                stageViewModel.saveProgress(stageName: "Stage 1")
                                             }
                                             isTutorial = false
                                             

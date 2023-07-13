@@ -43,7 +43,7 @@ struct Module2View: View {
                         
                         // EDITH
                         ZStack{
-                            EdithFigure(pose: modulViewModel.listEdithPoseModul1[indexPrompt],
+                            EdithFigure(pose: modulViewModel.listEdithPoseModul2[indexPrompt],
                                         width: (reader.size.width/3)-(reader.size.width*0.05))
                         }
                         .position(x: ((reader.size.width*2/5)*0.5)+reader.size.width*0.05,
@@ -222,7 +222,7 @@ struct Module2View: View {
                 .task{
                     modul = ModulModel(modulName: "Modul 1", prompt: modulViewModel.listPromptModul2, edithImage: [], listImage: [])
                     
-                    for (index, image) in modulViewModel.imageLeftRight.enumerated(){
+                    for (index, image) in modulViewModel.listImageModul2.enumerated(){
                         var x = CGFloat(0)
                         let y = reader.size.height*0.5
                         if index%2 == 0{

@@ -95,4 +95,12 @@ extension Color{
     static var orangeSomething:Color{
         return Color("orangeSomething")
     }
+    
+    static var orangeDeer60:Color{
+        return Color("OrangeDeer60")
+    }
+    
+    static var orangeDeer40:Color{
+        return Color("OrangeDeer40")
+    }
 }
