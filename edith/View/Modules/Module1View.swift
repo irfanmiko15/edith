@@ -85,6 +85,8 @@ struct Module1View: View {
                     
                     // CLOSE BUTTON
                     Button{
+                        SoundControl()
+                            .playMapSong()
                         presentationMode.wrappedValue.dismiss()
                     }label: {
                         Image(systemName: "map")
@@ -101,6 +103,11 @@ struct Module1View: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("")
                 .navigationBarHidden(true)
+                .onAppear{
+                    SoundControl()
+                        .playModulBGM()
+                    
+                }
             }
             .ignoresSafeArea(.all)
         }

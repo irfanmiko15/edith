@@ -10,6 +10,29 @@ import SwiftUI
 struct WorldMapView: View {
     @StateObject var userModel: UserViewModel
     @StateObject var stageViewModel: StageViewModel
+    @State private var timer = Timer.publish(
+            every: 1,       // Second
+            tolerance: 0.5, // Gives tolerance so that SwiftUI makes optimization
+            on: .main,      // Main Thread
+            in: .common     // Common Loop
+        ).autoconnect()
+    func stopTimer() {
+        isTimerRunning=false
+            self.timer.upstream.connect().cancel()
+        }
+        
+    func startTimer() {
+        isTimerRunning=true
+            self.timer = Timer.publish(
+                every: 1,       // Second
+                tolerance: 0.5, // Gives tolerance so that SwiftUI makes optimization
+                on: .main,      // Main Thread
+                in: .common     // Common Loop
+            ).autoconnect()
+    }
+    @State var isTimerRunning = false
+    @State var moveBaloon = false
+    @State var offsetImage: CGSize = .zero
     var body: some View {
         NavigationStack{
             GeometryReader { reader in
@@ -98,11 +121,33 @@ struct WorldMapView: View {
                             .position(CGPoint(x: CGFloat(reader.size.width*0.3), y: CGFloat(reader.size.height*0.84)))
                             .disabled(true)
                             .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, isCurrent: false))
+                        
+                            
+                            Image("gasBaloon").resizable().scaledToFit().frame(height: 120).offset(offsetImage)
+                                .animation(Animation.linear(duration: 10).repeatForever(autoreverses: false)).onReceive(timer) { (_) in
+                                    if self.isTimerRunning {
+                                        let widthBound = UIScreen.main.bounds.width
+                                        let heightBound = UIScreen.main.bounds.height
+                                        let randomOffset = CGSize(
+                                            width: CGFloat.random(in: -widthBound...widthBound),
+                                            height: CGFloat.random(in: -heightBound...heightBound)
+                                        )
+                                        withAnimation {
+                                            self.offsetImage = randomOffset
+                                        }
+                                    }
+                                }
+                        
                     }
                 }
                 .ignoresSafeArea()
             }.onAppear{
                 userModel.load()
+                startTimer()
+                
+            }.onDisappear{
+                isTimerRunning=false
+                stopTimer()
             }
         }.onAppear{
             SoundControl()

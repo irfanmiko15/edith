@@ -1,0 +1,36 @@
+{
+  "source": "/Users/evelynmacpro/Desktop/ADA@UC 2023/MC2/edith/edith/View/Challenge/Challenge1View.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": ""
+      },
+      {
+        "comment": "",
+        "key": "Berikutnya"
+      },
+      {
+        "comment": "",
+        "key": "Ambil 5 foto barang yang merupakan kebutuhan"
+      },
+      {
+        "comment": "",
+        "key": "Ambil 5 foto barang yang merupakan keinginan"
+      },
+      {
+        "comment": "",
+        "key": "?"
+      },
+      {
+        "comment": "",
+        "key": "Pastikan foto yang diambil sudah jelas \nya sebelum lanjut!"
+      },
+      {
+        "comment": "",
+        "key": "Next"
+      }
+    ]
+  },
+  "version": 1
+}
