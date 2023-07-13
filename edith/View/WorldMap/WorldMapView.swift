@@ -32,7 +32,8 @@ struct WorldMapView: View {
     }
     @State var isTimerRunning = false
     @State var moveBaloon = false
-    @State var offsetImage: CGSize = .zero
+    @State var offsetBaloon: CGSize = .zero
+    @State var isAnimateShip = false
     var body: some View {
         NavigationStack{
             GeometryReader { reader in
@@ -123,7 +124,7 @@ struct WorldMapView: View {
                             .buttonStyle(MapStageButton(color: Color.neutral80, isActive: false, isCurrent: false))
                         
                             
-                            Image("gasBaloon").resizable().scaledToFit().frame(height: 120).offset(offsetImage)
+                            Image("gasBaloon").resizable().scaledToFit().frame(height: 120).offset(offsetBaloon)
                                 .animation(Animation.linear(duration: 10).repeatForever(autoreverses: false)).onReceive(timer) { (_) in
                                     if self.isTimerRunning {
                                         let widthBound = UIScreen.main.bounds.width
@@ -133,15 +134,18 @@ struct WorldMapView: View {
                                             height: CGFloat.random(in: -heightBound...heightBound)
                                         )
                                         withAnimation {
-                                            self.offsetImage = randomOffset
+                                            self.offsetBaloon = randomOffset
                                         }
                                     }
                                 }
+                        Image("ship").resizable().scaledToFit().frame(height: 120).offset(x:isAnimateShip ? reader.size.width*0.5 : reader.size.width*0.35,y:reader.size.height*0.3).animation(Animation.linear(duration: 5).repeatForever(autoreverses: true))
+                          
                         
                     }
                 }
                 .ignoresSafeArea()
             }.onAppear{
+                isAnimateShip=true
                 userModel.load()
                 startTimer()
                 

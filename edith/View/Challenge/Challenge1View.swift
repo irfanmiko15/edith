@@ -11,23 +11,27 @@ struct Challenge1View: View {
     @State var yOffset: CGFloat = -20
     @State var index:Int = 0
     var body: some View {
-        NavigationStack{
-            ZStack{
-                if(index<=3 || index==5 || index>6){
-                    PromptView(challengeViewModel: challengeViewModel, index: $index).ignoresSafeArea()
-
+       
+            NavigationStack{
+                ZStack{
+                    if(index<3 || index==4 || index>6){
+                        PromptView(challengeViewModel: challengeViewModel,index: $index).ignoresSafeArea()
+                        
+                    }
+                    else if(index==3 || index == 5){
+                        TakeImageView(index:$index,challengeViewModel: challengeViewModel).onDisappear{
+                            challengeViewModel.stopCamera()
+                        }
+                    }
+                    else{
+                        ResultView(challengeViewModel: challengeViewModel, index: $index).ignoresSafeArea()
+                    }
+                    
                 }
-                else if(index==4){
-                    TakeImageView(index:$index,challengeViewModel: challengeViewModel)
-                }
-                else{
-                    ResultView(challengeViewModel: challengeViewModel, index: $index).ignoresSafeArea()
-                }
-                
-            }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
+            
         }
     }
 }
@@ -124,6 +128,7 @@ struct ResultView:View{
 struct PromptView: View {
     @ObservedObject var challengeViewModel=ChallengeViewModel()
     @Environment(\.presentationMode) var presentationMode
+ 
     @State var yOffset: CGFloat = -20
     @Binding var index:Int
     var body: some View {
@@ -210,7 +215,16 @@ struct PromptView: View {
                                 self.presentationMode.wrappedValue.dismiss()
                             }
                             else{
-                                index+=1
+                                if(index==4){
+                                   
+                                    index+=1
+                                   
+                                    challengeViewModel.indexChallenge=1
+                                }
+                                else{
+                                    
+                                    index+=1
+                                }
                             }
                             
                         }label:{
@@ -377,7 +391,7 @@ struct TakeImageView: View {
                         }
                         Button{
                             if(challengeViewModel.indexChallenge==0){
-                                challengeViewModel.indexChallenge=1
+                                index+=1
                                 challengeViewModel.isImageFilled=false
                             }
                             else{
