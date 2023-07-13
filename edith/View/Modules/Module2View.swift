@@ -206,7 +206,7 @@ struct Module2View: View {
                     Button{
                         presentationMode.wrappedValue.dismiss()
                     }label: {
-                        Image(systemName: "xmark")
+                        Image(systemName: "map")
                             .resizable()
                             .foregroundColor(.white)
                             .font(Font.title.weight(.black))

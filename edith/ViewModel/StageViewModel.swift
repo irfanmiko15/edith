@@ -17,7 +17,7 @@ class StageViewModel:ObservableObject{
     
     @Published var listPromptStage1 = ["Pindahkan 4 benda yang menurut kalian merupakan\nkebutuhan ke zona kalian masing - masing.", "Sekarang coba bandingkan barang yang telah kalian ambil dan diskusikan:\n1. Mengapa kalian memilih barang-barang tersebut?\n2. Apakah barang-barang itu benar-benar kebutuhan?"]
     @Published var listPromptStage2 = ["Saat lapar,\napa yang lebih dibutuhkan?", "Saat kedinginan,\napa yang lebih dibutuhkan?", "Saat mengerjakan tes,\napa yang lebih dibutuhkan?", "Saat tersesat di supermarket,\napa yang lebih dibutuhkan?", "Saat berenang,\napa yang lebih dibutuhkan?", "Saat pergi ke sekolah,\napa yang lebih dibutuhkan?", "Saat terluka,\napa yang lebih dibutuhkan?"]
-    @Published var listPromptStage3 = ["Saat bangun pagi untuk ke sekolah,\napa yang kamu butuhkan lebih dahulu?", "Sekarang coba bandingkan barang yang telah kalian urutkan dan diskusikan:\n1. Mengapa kalian memilih barang-barang tersebut?\n2. Mengapa kalian urutkan seperti itu?\n 3. Apakah kalian berdua setuju dengan urutan yang dibuat\nmasing-masing?"]
+    @Published var listPromptStage3 = ["Saat ingin pergi ke sekolah, \napa saja 3 benda yang akan kamu butuhkan?", "Sekarang coba diskusikan, mengapa kamu membutuhkan 3 benda tersebut untuk ke sekolah?"]
     
     let userDefaults = UserDefaults.standard
     var progress: [String] = []

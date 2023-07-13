@@ -16,7 +16,7 @@ struct WorldMapView: View {
                 ZStack {
                     // BACKGROUND
                     ZStack{
-                        Image("maps")
+                        Image("mapBackground")
                             .resizable()
                             .scaledToFill()
                     }
@@ -75,7 +75,7 @@ struct WorldMapView: View {
                                 
                             }.foregroundColor(.white)
                             .frame(width: 60,height: 40)
-                            .position(CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/6), y: CGFloat(reader.size.height/3)-(reader.size.height*0.065)))
+                            .position(CGPoint(x: CGFloat(reader.size.width/4+reader.size.width/6), y: CGFloat(reader.size.height*0.4)))
                             .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, isCurrent: true))
                         
                         NavigationLink(destination:

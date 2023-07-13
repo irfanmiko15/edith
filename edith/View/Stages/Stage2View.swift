@@ -199,7 +199,7 @@ struct Stage2View: View {
                     Button{
                         presentationMode.wrappedValue.dismiss()
                     }label: {
-                        Image(systemName: "xmark")
+                        Image(systemName: "map")
                             .resizable()
                             .foregroundColor(.white)
                             .frame(width: reader.size.width*0.025, height: reader.size.width*0.025)
