@@ -149,9 +149,6 @@ struct WorldMapView: View {
                 isTimerRunning=false
                 stopTimer()
             }
-        }.onAppear{
-            SoundControl()
-                .playMapSong()
         }
     }
 }
