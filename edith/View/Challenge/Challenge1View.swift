@@ -14,14 +14,14 @@ struct Challenge1View: View {
         NavigationStack{
             ZStack{
                 if(index<=3 || index==5 || index>6){
-                    PromptView(challengeViewModel: challengeViewModel, index: $index)
+                    PromptView(challengeViewModel: challengeViewModel, index: $index).ignoresSafeArea()
                     
                 }
                 else if(index==4){
                     TakeImageView(index:$index,challengeViewModel: challengeViewModel)
                 }
                 else{
-                    ResultView(challengeViewModel: challengeViewModel, index: $index)
+                    ResultView(challengeViewModel: challengeViewModel, index: $index).ignoresSafeArea()
                 }
                 
             }
@@ -167,7 +167,17 @@ struct PromptView: View {
                     )
                 }.offset(x:0,y:-180)
                 Rectangle().fill(Color.white.opacity(0.6)).frame(maxWidth: .infinity,maxHeight: .infinity)
-                
+                if(index>0 && index<4){
+                    Button{
+                        index-=1
+                    }label:{
+                        Image(systemName: "chevron.left").font(.system(size:50).bold())
+                            .frame(width:60,height: 60)
+                            .foregroundColor(Color.orangeFox50)
+                    }.frame(width:reader.size.width*0.08)
+                    .position(x:reader.size.width*0.08,y:reader.size.height*0.87)
+                        .buttonStyle(BackThreeD())
+                }
                 HStack{
                     Image(challengeViewModel.listPrompt[index].edithImage).resizable().scaledToFit().frame(height: reader.size.height*0.7).shadow(color:.white,radius: 10).offset(y:yOffset)
                         .task{
@@ -367,8 +377,8 @@ struct TakeImageView: View {
 
 
 
-//struct Challenge1View_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Challenge1View(challengeViewModel: ChallengeViewModel())
-//    }
-//}
+struct Challenge1View_Previews: PreviewProvider {
+    static var previews: some View {
+        Challenge1View(challengeViewModel: ChallengeViewModel())
+    }
+}
