@@ -19,7 +19,16 @@ class ChallengeViewModel : NSObject,ObservableObject,AVCapturePhotoCaptureDelega
     @Published var picDataNeed:[UIImage] = [UIImage(),UIImage(),UIImage()]
     @Published var picDataWant:[UIImage] = [UIImage(),UIImage(),UIImage()]
     @Published var isImageFilled:Bool=false
-    @Published var listPrompt:[ChallengeModel]=[ChallengeModel(prompt: "Keren! Sekarang kalian sudah paham tentang kebutuhan dan keinginan", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),ChallengeModel(prompt: "Sebagai penutup, aku punya tantangan yang seru untuk kalian!", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),ChallengeModel(prompt: "Ambil masing-masing 5 foto barang yang merupakan kebutuhan dan keinginan", edithImage: "edithMenyapa", buttonText: "NEXT", listImage: []),ChallengeModel(prompt: "Setelah itu, kita akan mendiskusikan gambar-gambar yang sudah kalian ambil", edithImage: "edithMenyapa", buttonText: "OK", listImage: []),ChallengeModel(prompt: "", edithImage: "", buttonText: "", listImage: []),ChallengeModel(prompt: "Ayo kita diskusikan gambar-gambar yang sudah kalian ambil bersama!", edithImage: "edithMenyapa", buttonText: "Ayo", listImage: []),ChallengeModel(prompt: "", edithImage: "", buttonText: "", listImage: []),ChallengeModel(prompt: "Luar biasa! Kalian sudah berhasil memahami kebutuhan dan keinginan", edithImage: "edithMenyapa", buttonText: "Ayo", listImage: []),ChallengeModel(prompt: "Ini baru permulaan, petualangan kita selanjutnya akan jauh lebih menyenangkan!", edithImage: "edithMenyapa", buttonText: "Selesai", listImage: [])]
+    @Published var listPrompt:[ChallengeModel]=[
+        ChallengeModel(prompt: "Keren! Sekarang kalian sudah paham tentang kebutuhan dan keinginan", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),
+        ChallengeModel(prompt: "Sebagai penutup, aku punya tantangan yang seru untuk kalian!", edithImage: "edithBahagia", buttonText: "NEXT", listImage: []),
+        ChallengeModel(prompt: "Foto 3 barang yang kalian milki karena kebutuhan.", edithImage: "edithMenyapa", buttonText: "NEXT", listImage: []),
+        ChallengeModel(prompt: "", edithImage: "", buttonText: "", listImage: []),
+        ChallengeModel(prompt: "Foto 3 barang yang kalian milki karena keinginan.", edithImage: "edithMenyapa", buttonText: "NEXT", listImage: []),
+        ChallengeModel(prompt: "", edithImage: "", buttonText: "", listImage: []),
+        ChallengeModel(prompt: "", edithImage: "", buttonText: "", listImage: []),
+        ChallengeModel(prompt: "Luar biasa! Kalian sudah berhasil memahami kebutuhan dan keinginan", edithImage: "edithMenyapa", buttonText: "Ayo", listImage: []),
+        ChallengeModel(prompt: "Ini baru permulaan, petualangan kita selanjutnya akan jauh lebih menyenangkan!", edithImage: "edithMenyapa", buttonText: "Selesai", listImage: [])]
     func check(){
         switch AVCaptureDevice.authorizationStatus(for: .video){
         case .authorized:

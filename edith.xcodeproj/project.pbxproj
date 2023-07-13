@@ -75,6 +75,7 @@
 		EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CF82A49394100470917 /* ChooseAvatarView.swift */; };
 		EECF3CFF2A4A805000470917 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3CFE2A4A805000470917 /* BackButton.swift */; };
 		EECF3D1F2A4BFD5800470917 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECF3D1E2A4BFD5800470917 /* UserViewModel.swift */; };
+		EEDA5D312A5FABA400504EB2 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDA5D302A5FABA400504EB2 /* LoadingIndicator.swift */; };
 		EEE690DE2A44816500B7394C /* RoadmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE690DD2A44816500B7394C /* RoadmapView.swift */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +169,7 @@
 		EECF3CF82A49394100470917 /* ChooseAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAvatarView.swift; sourceTree = "<group>"; };
 		EECF3CFE2A4A805000470917 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		EECF3D1E2A4BFD5800470917 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		EEDA5D302A5FABA400504EB2 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		EEE690DD2A44816500B7394C /* RoadmapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -368,6 +370,7 @@
 				EE25AED12A56540F001F5B45 /* CloseButton.swift */,
 				277375832A5B98E600DA4260 /* EdithFigure.swift */,
 				278DDD142A5D53F9000F4AFC /* MapStagePointer.swift */,
+				EEDA5D302A5FABA400504EB2 /* LoadingIndicator.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				EE25AED42A57BA9D001F5B45 /* ChallengeModel.swift in Sources */,
 				EE25AED22A56540F001F5B45 /* CloseButton.swift in Sources */,
 				27B59A162A4E7EDF00C13D14 /* Stage2View.swift in Sources */,
+				EEDA5D312A5FABA400504EB2 /* LoadingIndicator.swift in Sources */,
 				EEB981CA2A5458550089A429 /* Challenge1View.swift in Sources */,
 				EEB981C32A541E980089A429 /* MainStoryView.swift in Sources */,
 				EECF3CF92A49394100470917 /* ChooseAvatarView.swift in Sources */,
