@@ -107,19 +107,22 @@ struct Stage3View: View {
                         
                         // OBJECT
                         if(!isDiscussing){
-                            ForEach(stage.listImage) { image in
-                                Image(image.image)
+                            ForEach(stage.listImage.indices, id: \.self) { index in
+                                Image(stage.listImage[index].image)
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: reader.size.width*0.5*0.2)
-                                    .position(CGPoint(x: image.x, y: image.y))
+                                    .position(CGPoint(x: stage.listImage[index].x, y: stage.listImage[index].y))
                                     .shadow(radius: 5)
+                                    .opacity(stage.listImage[index].imageCount == 0 ? 0.5 : 1)
                                     .gesture(DragGesture()
                                         .onChanged { value in
-                                            draggedObject.image = image.image
+                                            draggedObject.image = stage.listImage[index].image
                                             draggedObject.x = value.location.x
                                             draggedObject.y = value.location.y
-                                            isDragging = true
+                                            if(stage.listImage[index].imageCount ?? 99 > 0){
+                                                isDragging = true
+                                            }
                                         }
                                         .onEnded { value in
                                             if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 3){
@@ -129,10 +132,12 @@ struct Stage3View: View {
                                                 
                                                 let y = reader.size.height*0.75
                                                 
-                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
                                                 if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
+                                                    
+                                                    let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
                                                     stage.resultParent.append(newObject)
                                                     
+                                                    stage.listImage[index].imageCount! -= 1
                                                     if(stage.resultChild.count == 3 && stage.resultParent.count == 3){
                                                         isConfirming = true
                                                     }
@@ -147,9 +152,10 @@ struct Stage3View: View {
                                                 
                                                 let y = reader.size.height*0.75
                                                 
-                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
                                                 if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
+                                                    let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
                                                     stage.resultChild.append(newObject)
+                                                    stage.listImage[index].imageCount! -= 1
                                                     if(stage.resultChild.count == 3 && stage.resultParent.count == 3){
                                                         isConfirming = true
                                                     }
@@ -260,7 +266,7 @@ struct Stage3View: View {
                         Button{
                             presentationMode.wrappedValue.dismiss()
                         }label: {
-                            Image(systemName: "xmark")
+                            Image(systemName: "map")
                                 .resizable()
                                 .foregroundColor(.white)
                                 .frame(width: reader.size.width*0.025, height: reader.size.width*0.025)
@@ -364,7 +370,7 @@ struct Stage3View: View {
                     for (index, image) in stageViewModel.listImagesStage3.enumerated() {
                         let x = reader.size.width*0.5 + ((CGFloat(Int(index)))-2)*reader.size.width*0.12
                         let y = reader.size.height*0.35
-                        stage.listImage.append(InteractiveImageModel(image: image, isCorrect: false, x: CGFloat(x), y: y))
+                        stage.listImage.append(InteractiveImageModel(image: image, imageCount: 2, isCorrect: false, x: CGFloat(x), y: y))
                     }
                     currentPrompt = stageViewModel.listPromptStage3[0]
                 }

@@ -18,16 +18,8 @@ struct MapStageButton: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         VStack{
-            VStack{
-                if(isCurrent){
-                    
-                    Image("pinPointMap")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: width*0.45, height: width)
-                        .offset(y: pointerOffset)
-                    
-                }
+            ZStack{
+                
                 
                 ZStack{
                     if(isActive){
@@ -46,7 +38,30 @@ struct MapStageButton: ButtonStyle {
                         .background(Circle().foregroundColor(color))
                         .background(Circle().foregroundColor(color)).offset(y : isActive ? (configuration.isPressed ? offset : 0): 0)
                 }
-                .frame(width: 60, height: 40)
+                .frame(width: width*0.25, height: width/6)
+                
+                
+                if(isCurrent){
+                    
+                    Image("pinPointMap")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: width*0.45, height: width)
+                        .offset(y: -width*0.5)
+                        .offset(y: pointerOffset)
+                    
+                }
+                
+                if(!isActive){
+                    
+                    Image("padlock")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: width*0.25, height: width/6)
+                        .offset(y: -width*0.05)
+                }
+                
+                
                 
                 
             }
@@ -70,6 +85,6 @@ struct MapStageButton_Previews: PreviewProvider {
         }
         .foregroundColor(.white)
         .frame(width: 50,height: 50)
-        .buttonStyle(MapStageButton(color: Color.orangeFox50, isActive: true, isCurrent: true))
+        .buttonStyle(MapStageButton(color: Color.orangeFox70, isActive: true, isCurrent: true))
     }
 }

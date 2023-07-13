@@ -31,25 +31,19 @@ struct Module3View: View {
                             .opacity(0.2)
                     }
                     
-                    Button{
-    
-                        if indexPrompt < modulViewModel.listPromptModul3.count-1 {
-                            indexPrompt += 1
-    
-    
-                        }
-    
-                        else{
-    
-                        }
-    
-                    }label:{
-                        Image(systemName: "chevron.left").font(.system(size:50).bold())
-                            .frame(width:60,height: 60)
-                            .foregroundColor(Color.orangeFox50)
-                    }.frame(width:100)
-                        .offset(x: -555,y: 400)
-                    .buttonStyle(BackThreeD())
+                    if(indexPrompt > 0){
+                        Button{
+                            if indexPrompt < modulViewModel.listPromptModul1.count {
+                                indexPrompt -= 1
+                            }
+                        }label:{
+                            Image(systemName: "chevron.left").font(.system(size:50).bold())
+                                .frame(width:60,height: 60)
+                                .foregroundColor(Color.orangeFox50)
+                        }.frame(width:100)
+                            .offset(x: -555,y: 400)
+                            .buttonStyle(BackThreeD())
+                    }
     
                     
                     
@@ -74,10 +68,10 @@ struct Module3View: View {
                                     indexPrompt += 1
                                 } else{
                                     modulViewModel.saveProgress(modulName: "Modul 3")
-                                    presentationMode.wrappedValue.dismiss()
+                                    self.presentationMode.wrappedValue.dismiss()
                                 }
-                            }label:{
-                                Text("OK!")
+                            } label: {
+                                Text(indexPrompt == modulViewModel.listPromptModul3.count-1 ? "Selesai" : "Next")
                                     .font(.custom(Font.balooBold, size: 50))
                                     .foregroundColor(.white)
                             }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
@@ -96,7 +90,7 @@ struct Module3View: View {
                     Button{
                         presentationMode.wrappedValue.dismiss()
                     }label: {
-                        Image(systemName: "xmark")
+                        Image(systemName: "map")
                             .resizable()
                             .foregroundColor(.white)
                             .font(Font.title.weight(.black))

@@ -17,16 +17,15 @@ class ModulViewModel:ObservableObject{
     @Published var listHead: [String] = ["edithHeadStill", "edithHeadQuestion", "edithHeadSad", "edithHeadHappy", "edithHeadQuestion", "edithHeadSad", "edithHeadHappy"]
     @Published var listArm: [String] = ["edithWavingArms", "edithStillArms","edithStillArms","edithWavingArms", "edithStillArms", "edithWavingArms","edithWavingArms","edithWavingArms"]
     
-    
-    @State var listPromptModul1: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.","Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup.", "Keinginan adalah hal-hal yang diharapkan untuk dimiliki.","Boneka, sepeda dan mainan baru adalah  contoh keinginan.","Tanpa keinginan, kita masih bisa bertahan hidup.","Sekarang, kita akan coba membedakan keinginan dan kebutuhan.","Apakah kalian siap?"]
+    @State var listPromptModul1: [String] = ["Kebutuhan adalah semua hal yang diperlukan untuk hidup.","Makanan, air, pakaian dan tempat tinggal adalah kebutuhan.", "Tanpa kebutuhan, kita tidak bisa bertahan hidup.", "Keinginan adalah hal-hal yang diharapkan untuk dimiliki.","Boneka, sepeda dan mainan baru adalah  contoh keinginan.","Tanpa keinginan, kita masih bisa bertahan hidup.","Setelah ini, kita akan coba membedakan keinginan dan kebutuhan.","Bersiaplah untuk berlatih di petualangan selanjutnya!"]
     @Published var listPromptModul2: [String] = ["Kebutuhan bisa berubah menurut situasi kita.","Saat kita lapar, apa yang lebih kita butuhkan?","Air membantu kita saat haus. Coba pilih lainnya.","Benar! Makan apel dapat membuat kita tidak lapar.","Saat kita kedinginan, apa yang lebih kita butuhkan?","Sayur tidak bisa membuat kita hangat. Coba pilih lainnya.","Benar! Pakaian bisa membuat kita lebih hangat."]
-    @Published var listPromptModul3: [String] = ["Ada waktunya kita membutuhkan banyak hal sekaligus.","Kita bisa membutuhkan baju dan celana sekaligus.","Atau pensil dan buku sekaligus.","Kira-kira apa lagi yang kita butuhkan secara bersamaan?","Saat kita butuh 2 hal yang sama pentingnya,","kita belum tentu bisa mendapatkan 2 hal itu sekaligus.","Maka, kita harus bisa menentukan mana yang lebih penting.","Hal yang penting itu disebut prioritas.","Yuk, kita lihat kemampuan kita dalam prioritas."]
+    @Published var listPromptModul3: [String] = ["Ada waktunya kita membutuhkan banyak hal sekaligus.","Kita bisa membutuhkan baju dan celana sekaligus.","Atau pensil dan buku sekaligus.","Kira-kira apa lagi yang kita butuhkan secara bersamaan?", "Aku yakin kalian sudah siap untuk latihan berikutnya!"]
     
     @Published var imageLeftRight: [String] = ["stageApple","stageWater","stageTee","stageVeggie"]
     @Published var imageCorrect: [String] = ["stageApple","stageTee"]
     
     @Published var listEdithPoseModul1 = ["wavingArm", "normal", "sad", "wavingArm", "normal", "wavingArm", "wavingArm", "happy" ]
-    @Published var listEdithPoseModul3 = ["normal", "wavingArm", "wavingArm", "confuse", "wavingArm", "wavingArm", "wavingArm", "wavingArm", "happy" ]
+    @Published var listEdithPoseModul3 = ["normal", "wavingArm", "wavingArm", "confuse", "happy"]
     
     
     let userDefaults = UserDefaults.standard
