@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Map1View: View {
-    @ObservedObject var userModel: UserViewModel
+    @StateObject var userModel: UserViewModel
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         GeometryReader { reader in

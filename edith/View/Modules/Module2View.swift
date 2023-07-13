@@ -10,7 +10,8 @@ import SwiftUI
 struct Module2View: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var modulViewModel: ModulViewModel
+    @StateObject var modulViewModel: ModulViewModel
+    @ObservedObject var userViewModel:UserViewModel
     @State var modul: ModulModel
     
     @State var indexPrompt:Int = 0
@@ -291,6 +292,7 @@ struct Module2View: View {
                 
                 // LOGIC
                 .task{
+                   
                     modul = ModulModel(modulName: "Modul 1", prompt: modulViewModel.listPromptModul2, edithImage: [], listImage: [])
                     
                     for (index, image) in modulViewModel.listImageModul2.enumerated(){
@@ -324,6 +326,11 @@ struct Module2View: View {
                             
                         }
                     }
+                }.onAppear{
+                    userViewModel.load()
+                    print()
+                    modulViewModel.listPromptModul2[12]="\(userViewModel.dataUser.parent.name) bisa jelaskan mengapa kita tidak terlalu butuh air saat akan ada ujian."
+                    modulViewModel.listPromptModul2[15]="\(userViewModel.dataUser.parent.name) bisa jelaskan mengapa kita tidak terlalu butuh air saat akan ada ujian."
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("")
@@ -337,7 +344,7 @@ struct Module2View: View {
 
 struct Module2View_Previews: PreviewProvider {
     static var previews: some View {
-        Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))
+        Module2View( modulViewModel: ModulViewModel(),userViewModel: UserViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))
             .previewInterfaceOrientation(.landscapeRight)
     }
 }

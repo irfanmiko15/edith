@@ -181,7 +181,7 @@ struct RoadmapView: View {
                     //modul 2
                     if(modulViewModel.checkProgress(modulName: "Stage 1")){
                         
-                        NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
+                        NavigationLink(destination: Module2View(modulViewModel: ModulViewModel(),userViewModel:UserViewModel(), modul: ModulModel(modulName: "Modul 2", prompt: [], edithImage: [], listImage: []))){
                             
                             Image("book-open").resizable().scaledToFit().frame(width: geo.size.width*0.07)
                         }

@@ -31,10 +31,10 @@ class ModulViewModel:ObservableObject{
                                                  "Namun ternyata, kebutuhan bisa lebih dari itu saja.",
                                                  "Payung, buku, sepatu, dan laptop juga bisa menjadi kebutuhan tergantung situasi.",
                                                  "Besok akan ada ujian, mana yang lebih kamu butuhkan?",
-                                                 " bisa jelaskan mengapa kita tidak terlalu butuh air saat akan ada ujian.",
+                                                 " bisa jelaskan mengapa kita tidak terlalu butuh air saat akan ada ujian.",//12
                                                  "Benar! Buku akan membantu kita untuk belajar untuk ujian.",
                                                  "Jika sedang hujan, mana yang lebih dibutuhkan?",
-                                                 " bisa jelaskan mengapa kita tidak terlalu butuh sayur saat hujan.",
+                                                 " bisa jelaskan mengapa kita tidak terlalu butuh sayur saat hujan.",//15
                                                  "Benar! Payung akan membuat kita tidak kehujanan.",
                                                  "Yay! Ayo kita lanjutkan ke petualangan selanjutnya."]
     
