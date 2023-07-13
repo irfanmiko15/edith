@@ -23,6 +23,8 @@ struct Stage1View: View {
     @State var currentPrompt = ""
     @State var pointerPosition = CGPoint(x: 0, y: 0)
     
+    @State var currentTutorialIndex = 0
+    
     var body: some View {
         NavigationStack{
             GeometryReader { reader in
@@ -99,7 +101,6 @@ struct Stage1View: View {
                     
                     // OBJECTS
                     Group{
-                        
                         if(!isDiscussing){
                             ForEach(stage.listImage.indices, id: \.self) { index in
                                 Image(stage.listImage[index].image)
@@ -108,54 +109,51 @@ struct Stage1View: View {
                                     .frame(width: reader.size.width*0.5*0.2)
                                     .position(CGPoint(x: stage.listImage[index].x, y: stage.listImage[index].y))
                                     .shadow(radius: 5)
-                                    .opacity(stage.listImage[index].imageCount == 0 ? 0.5 : 1)
+                                    .opacity(stage.listImage[index].imageCount == 0 ? 0.2 : 1)
                                     .gesture(DragGesture()
                                         .onChanged { value in
-                                            if(!isTutorial){
-                                                draggedObject.image = stage.listImage[index].image
-                                                draggedObject.x = value.location.x
-                                                draggedObject.y = value.location.y
-                                                if(stage.listImage[index].imageCount ?? 99 > 0){
-                                                    isDragging = true
-                                                }
+                                            draggedObject.image = stage.listImage[index].image
+                                            draggedObject.x = value.location.x
+                                            draggedObject.y = value.location.y
+                                            if(stage.listImage[index].imageCount ?? 99 > 0){
+                                                isDragging = true
                                             }
                                         }
                                         .onEnded { value in
-                                            if(!isTutorial){
-                                                let pos = [-0.5, 0.5]
-                                                if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 4){
-                                                    
-                                                    let x = reader.size.width*0.25 +  reader.size.width*(pos[stage.resultParent.count%2])*0.15
-                                                    let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultParent.count - 1) < 1 ? 0 : 1])*0.17
-                                                    
-                                                    if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
-                                                        let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
-                                                        stage.resultParent.append(newObject)
-                                                        stage.listImage[index].imageCount! -= 1
-                                                        if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
-                                                            isConfirming = true
-                                                        }
+                                            let pos = [-0.5, 0.5]
+                                            if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 4){
+                                                
+                                                let x = reader.size.width*0.25 +  reader.size.width*(pos[stage.resultParent.count%2])*0.15
+                                                let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultParent.count - 1) < 1 ? 0 : 1])*0.17
+                                                
+                                                if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
+                                                    let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                    stage.resultParent.append(newObject)
+                                                    stage.listImage[index].imageCount! -= 1
+                                                    if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
+                                                        isConfirming = true
                                                     }
-                                                    
-                                                } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 4){
-                                                    
-                                                    let x = reader.size.width*0.7 +  reader.size.width*(pos[stage.resultChild.count%2])*0.15
-                                                    let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultChild.count - 1) < 1 ? 0 : 1])*0.17
-                                                    
-                                                    if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
-                                                        let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
-                                                        stage.resultChild.append(newObject)
-                                                        stage.listImage[index].imageCount! -= 1
-                                                        if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
-                                                            isConfirming = true
-                                                        }
-                                                        //                                                print(stage.resultChild)
-                                                        //                                                stageViewModel.saveProgress(stageName: "Stage 1")
-                                                    }
-                                                    
                                                 }
-                                                isDragging = false
+                                                
+                                            } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 4){
+                                                
+                                                let x = reader.size.width*0.7 +  reader.size.width*(pos[stage.resultChild.count%2])*0.15
+                                                let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultChild.count - 1) < 1 ? 0 : 1])*0.17
+                                                
+                                                if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
+                                                    let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                    stage.resultChild.append(newObject)
+                                                    stage.listImage[index].imageCount! -= 1
+                                                    if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
+                                                        isConfirming = true
+                                                    }
+                                                    //                                                print(stage.resultChild)
+                                                    //                                                stageViewModel.saveProgress(stageName: "Stage 1")
+                                                }
+                                                
                                             }
+                                            isDragging = false
+                                            
                                             
                                         }
                                     )
@@ -244,15 +242,6 @@ struct Stage1View: View {
                                     }
                                 )
                         }
-                    }
-                    
-                    // DRAGGABLE OBJECT
-                    if (isDragging) {
-                        Image(draggedObject.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: reader.size.width*0.12)
-                            .position(CGPoint(x: draggedObject.x, y: draggedObject.y))
                     }
                     
                     // CLOSE BUTTON
@@ -351,118 +340,171 @@ struct Stage1View: View {
                     
                     // TUTORIAL
                     if(isTutorial){
-                        ZStack {
-                            Rectangle()
-                                .foregroundColor(.black.opacity(0.75))
-                            
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 32)
-                                    .fill(Color.blueTang95)
-                                    .frame(width: reader.size.width*0.42)
-                                
-                                RoundedRectangle(cornerRadius: 32)
-                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                                    .frame(width: reader.size.width*0.42)
-                                
-                                CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.white, strokeWidth: 16)
-                                    .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
-                                    .offset(x: -reader.size.width*0.4*0.5, y: reader.size.height*0.45*0.4)
-                                
-                                CounterObject(counter: stage.resultParent.count, maxCount: 4, color: Color.blueTang70, width: reader.size.width*0.06, height: reader.size.height*0.05, fontSize: 32, cornerRadius: reader.size.height*0.015)
-                                    .offset(x: -reader.size.width*0.3*0.5, y: reader.size.height*0.45*0.5)
-                                
-                            }
-                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
-                            .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
-                            .offset(x: reader.size.width*0.025, y: -reader.size.height*0.025)
-                            
-                            
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 32)
-                                    .fill(Color.cardinal95)
-                                    .frame(width: reader.size.width*0.42)
-                                
-                                RoundedRectangle(cornerRadius: 32)
-                                    .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                                    .frame(width: reader.size.width*0.42)
-                                
-                                CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.white, strokeWidth: 16)
-                                    .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
-                                    .offset(x: reader.size.width*0.4*0.5, y: reader.size.height*0.45*0.4)
-                                
-                                CounterObject(counter: stage.resultChild.count, maxCount: 4, color: Color.cardinal70, width: reader.size.width*0.06, height: reader.size.height*0.05, fontSize: 32, cornerRadius: reader.size.height*0.015)
-                                    .offset(x: reader.size.width*0.3*0.5, y: reader.size.height*0.45*0.5)
-                                
-                            }
-                            .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
-                            .position(x: reader.size.width*0.75, y: reader.size.height*0.75)
-                            .offset(x: -reader.size.width*0.025, y: -reader.size.height*0.025)
-                            
-                            
-                            Circle()
-                                .frame(width:
-                                        reader.size.width*0.5*0.3, height:
-                                        reader.size.width*0.5*0.3)
-                                .blendMode(.destinationOut)
-                                .overlay(Circle().stroke(.white, lineWidth: 3))
-                                .position(x: reader.size.width*0.23 + CGFloat(reader.size.width*0.095),
-                                          y: reader.size.height*0.23)
-                            
-                            VStack(alignment: .leading, spacing: reader.size.height*0.025){
-                                Text("Tarik barang untuk memindahkan\nbenda ke zona kalian.")
-                                    .frame(width: reader.size.width)
-                                    .multilineTextAlignment(.center)
-                                    .font(.custom(Font.balooBold, size: CGFloat(36)))
-                                    .foregroundColor(Color.white)
-                                    .frame(width: reader.size.width/6)
-                                
-                                Button{
-                                    withAnimation(.spring()){
-                                        isTutorial = false
+                        ZStack{
+                            if(currentTutorialIndex == 0){
+                                ZStack {
+                                    Rectangle()
+                                        .foregroundColor(.black.opacity(0.75))
+                                    
+                                    
+                                    Circle()
+                                        .frame(width:
+                                                reader.size.width*0.5*0.3, height:
+                                                reader.size.width*0.5*0.3)
+                                        .blendMode(.destinationOut)
+                                        .overlay(Circle().stroke(.white, lineWidth: 3))
+                                        .position(x: reader.size.width*0.23 + CGFloat(reader.size.width*0.095),
+                                                  y: reader.size.height*0.23)
+                                    
+                                    VStack(alignment: .leading, spacing: reader.size.height*0.025){
+                                        Text("Tarik barang untuk memindahkan\nbenda ke zona kalian.")
+                                            .frame(width: reader.size.width)
+                                            .multilineTextAlignment(.center)
+                                            .font(.custom(Font.balooBold, size: CGFloat(36)))
+                                            .foregroundColor(Color.white)
+                                            .frame(width: reader.size.width/6)
+                                        
                                     }
-                                }label:{
-                                    Text("OK!")
-                                        .font(.custom(Font.balooBold, size: 36))
-                                        .foregroundColor(.white)
-                                }.buttonStyle(ThreeD(foregroundColor: .orangeSomething, shadowColor: .orangeFox50))
-                                    .frame(height: reader.size.height*0.075)
+                                    .frame(width: reader.size.width*0.1, alignment: .leading)
+                                    .position(x: reader.size.width*0.65, y: reader.size.height*0.23)
+                                    
+                                }
+                                .compositingGroup()
+                            } else if(currentTutorialIndex == 1){
+                                ZStack {
+                                    Rectangle()
+                                        .foregroundColor(.black.opacity(0.75))
+                                    
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 32)
+                                            .fill(Color.blueTang95)
+                                            .frame(width: reader.size.width*0.42)
+                                        
+                                        RoundedRectangle(cornerRadius: 32)
+                                            .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                            .frame(width: reader.size.width*0.42)
+                                        
+                                        CircleAvatar(imageName:userModel.dataUser.parent.image, color: Color.white, strokeWidth: 16)
+                                            .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                            .offset(x: -reader.size.width*0.4*0.5, y: reader.size.height*0.45*0.4)
+                                        
+                                        CounterObject(counter: stage.resultParent.count, maxCount: 4, color: Color.blueTang70, width: reader.size.width*0.06, height: reader.size.height*0.05, fontSize: 32, cornerRadius: reader.size.height*0.015)
+                                            .offset(x: -reader.size.width*0.3*0.5, y: reader.size.height*0.45*0.5)
+                                        
+                                    }
+                                    .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
+                                    .position(x: reader.size.width*0.25, y: reader.size.height*0.75)
+                                    .offset(x: reader.size.width*0.025, y: -reader.size.height*0.025)
+                                    
+                                    
+                                    ZStack{
+                                        RoundedRectangle(cornerRadius: 32)
+                                            .fill(Color.cardinal95)
+                                            .frame(width: reader.size.width*0.42)
+                                        
+                                        RoundedRectangle(cornerRadius: 32)
+                                            .stroke(Color.white, style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
+                                            .frame(width: reader.size.width*0.42)
+                                        
+                                        CircleAvatar(imageName:userModel.dataUser.child.cropImage, color: Color.white, strokeWidth: 16)
+                                            .frame(width: reader.size.width*0.1, height: reader.size.width*0.1)
+                                            .offset(x: reader.size.width*0.4*0.5, y: reader.size.height*0.45*0.4)
+                                        
+                                        CounterObject(counter: stage.resultChild.count, maxCount: 4, color: Color.cardinal70, width: reader.size.width*0.06, height: reader.size.height*0.05, fontSize: 32, cornerRadius: reader.size.height*0.015)
+                                            .offset(x: reader.size.width*0.3*0.5, y: reader.size.height*0.45*0.5)
+                                        
+                                    }
+                                    .frame(width: reader.size.width*0.4, height: reader.size.height*0.45)
+                                    .position(x: reader.size.width*0.75, y: reader.size.height*0.75)
+                                    .offset(x: -reader.size.width*0.025, y: -reader.size.height*0.025)
+                                    
+                                    
+                                    VStack(alignment: .leading, spacing: reader.size.height*0.025){
+                                        Text("Tarik barang untuk memindahkan\nbenda ke zona kalian.")
+                                            .frame(width: reader.size.width)
+                                            .multilineTextAlignment(.center)
+                                            .font(.custom(Font.balooBold, size: CGFloat(36)))
+                                            .foregroundColor(Color.white)
+                                            .frame(width: reader.size.width/6)
+                                        
+                                    }
+                                    .frame(width: reader.size.width*0.1, alignment: .leading)
+                                    .position(x: reader.size.width*0.65, y: reader.size.height*0.23)
+                                    
+                                }
+                                .compositingGroup()
                             }
-                            .frame(width: reader.size.width*0.1, alignment: .leading)
-                            .position(x: reader.size.width*0.65, y: reader.size.height*0.23)
-                            Group{
-                                Path { path in
-                                    path.move(to: CGPoint(x: reader.size.width*0.23,
-                                                          y: reader.size.height*0.23))
-                                    path.addCurve(to: CGPoint(x: reader.size.width*0.25,
-                                                              y: reader.size.height*0.47),
-                                                  control1: CGPoint(x: reader.size.width*0.15,
-                                                                    y: reader.size.height*0.3),
-                                                  control2: CGPoint(x: reader.size.width*0.2,
-                                                                    y: reader.size.height*0.4))
-                                }
-                                .stroke(Color.white,
-                                        style: StrokeStyle(lineWidth: 8,
-                                                           lineCap: .round,
-                                                           lineJoin: .round,
-                                                           dash: [36]))
-                                
-                                Path { path in
-                                    path.move(to: CGPoint(x: reader.size.width*0.23 + (reader.size.width*0.25*0.35),
-                                                          y: reader.size.height*0.35))
-                                    path.addCurve(to: CGPoint(x: reader.size.width*0.73,
-                                                              y: reader.size.height*0.47),
-                                                  control1: CGPoint(x: reader.size.width*0.4,
-                                                                    y: reader.size.height*0.5),
-                                                  control2: CGPoint(x: reader.size.width*0.5,
-                                                                    y: reader.size.height*0.35))
-                                }
-                                .stroke(Color.white,
-                                        style: StrokeStyle(lineWidth: 8,
-                                                           lineCap: .round,
-                                                           lineJoin: .round,
-                                                           dash: [36]))}
+                            
+                            Image("stageWater")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: reader.size.width*0.5*0.2)
+                                .position(CGPoint(x: (reader.size.width*0.23 + reader.size.width*0.1),
+                                                  y: (reader.size.height*0.23)))
+                                .shadow(radius: 5)
+                                .opacity(currentTutorialIndex == 1 ? 0 : 1)
+                                .gesture(DragGesture()
+                                    .onChanged { value in
+                                        draggedObject.image = "stageWater"
+                                        draggedObject.x = value.location.x
+                                        draggedObject.y = value.location.y
+                                        isDragging = true
+                                        if(isDragging){
+                                            currentTutorialIndex = 1
+                                            isDragging = true
+                                        }
+                                    }
+                                    .onEnded { value in
+                                        let pos = [-0.5, 0.5]
+                                        if(value.location.x < reader.size.width/2 && value.location.x > 0 && value.location.y > reader.size.height/2 && stage.resultParent.count < 4){
+                                            
+                                            let x = reader.size.width*0.25 +  reader.size.width*(pos[stage.resultParent.count%2])*0.15
+                                            let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultParent.count - 1) < 1 ? 0 : 1])*0.17
+                                            
+                                            if(!stage.resultParent.contains(where: {$0.image == draggedObject.image})){
+                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                stage.resultParent.append(newObject)
+                                                stage.listImage[1].imageCount! -= 1
+                                                if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
+                                                    isConfirming = true
+                                                }
+                                            }
+                                            isTutorial = false
+                                            
+                                        } else if(value.location.x > reader.size.width/2 && value.location.x < reader.size.width && value.location.y > reader.size.height/2 && stage.resultChild.count < 4){
+                                            
+                                            let x = reader.size.width*0.7 +  reader.size.width*(pos[stage.resultChild.count%2])*0.15
+                                            let y = reader.size.height*0.75 - reader.size.height*0.025 +  reader.size.height*(pos[(stage.resultChild.count - 1) < 1 ? 0 : 1])*0.17
+                                            
+                                            if(!stage.resultChild.contains(where: {$0.image == draggedObject.image})){
+                                                let newObject = InteractiveImageModel(image: draggedObject.image, isCorrect: false, x: x, y: y)
+                                                stage.resultChild.append(newObject)
+                                                stage.listImage[1].imageCount! -= 1
+                                                if(stage.resultChild.count == 4 && stage.resultParent.count == 4){
+                                                    isConfirming = true
+                                                }
+                                                //                                                print(stage.resultChild)
+                                                //                                                stageViewModel.saveProgress(stageName: "Stage 1")
+                                            }
+                                            isTutorial = false
+                                            
+                                        } else {
+                                            currentTutorialIndex = 0
+                                        }
+                                        isDragging = false
+                                    }
+                                )
                         }
-                        .compositingGroup()
+                        
+                    }
+                    
+                    // DRAGGABLE OBJECT
+                    if (isDragging) {
+                        Image(draggedObject.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: reader.size.width*0.12)
+                            .position(CGPoint(x: draggedObject.x, y: draggedObject.y))
                     }
                     
                 }
