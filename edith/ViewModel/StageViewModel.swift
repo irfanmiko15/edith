@@ -15,7 +15,7 @@ class StageViewModel:ObservableObject{
     @Published var listRightImagesStage2 = ["stageApple", "stageTee", "stagePencil", "stagePhone", "stageFloat", "stageBag", "stageBandAid"]
     @Published var listImagesStage3 = ["stageBag", "stageMilk", "stageTeddyBear", "stageLaptop", "stageBook"]
     
-    @Published var listPromptStage1 = ["Pindahkan 4 benda yang menurut kalian merupakan\nkebutuhan ke zona kalian masing - masing.", "Sekarang coba bandingkan barang yang telah kalian ambil dan diskusikan:\n1. Mengapa kalian memilih barang-barang tersebut?\n2. Apakah barang-barang itu benar-benar kebutuhan?"]
+    @Published var listPromptStage1 = ["Pindahkan 4 benda yang menurut kalian merupakan\nkebutuhan ke zona kalian masing - masing.", "Sekarang coba diskusikan, mengapa benda-benda ini adalah kebutuhan kalian?"]
     @Published var listPromptStage2 = ["Saat lapar,\napa yang lebih dibutuhkan?", "Saat kedinginan,\napa yang lebih dibutuhkan?", "Saat mengerjakan tes,\napa yang lebih dibutuhkan?", "Saat ingin menghubungi teman,\napa yang lebih dibutuhkan?", "Saat berenang,\napa yang lebih dibutuhkan?", "Saat pergi ke sekolah,\napa yang lebih dibutuhkan?", "Saat terluka,\napa yang lebih dibutuhkan?"]
     @Published var listPromptStage3 = ["Saat ingin pergi ke sekolah, \napa saja 3 benda yang akan kamu butuhkan?", "Sekarang coba diskusikan, mengapa kamu membutuhkan 3 benda tersebut untuk ke sekolah?"]
     
