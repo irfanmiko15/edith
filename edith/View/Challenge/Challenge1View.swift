@@ -15,7 +15,7 @@ struct Challenge1View: View {
             ZStack{
                 if(index<=3 || index==5 || index>6){
                     PromptView(challengeViewModel: challengeViewModel, index: $index).ignoresSafeArea()
-                    
+
                 }
                 else if(index==4){
                     TakeImageView(index:$index,challengeViewModel: challengeViewModel)
@@ -33,6 +33,7 @@ struct Challenge1View: View {
 }
 struct ResultView:View{
     @ObservedObject var challengeViewModel=ChallengeViewModel()
+    @Environment(\.presentationMode) var presentationMode
     @State var indexImage:Int = 0
     @Binding var index:Int
     var body: some View{
@@ -121,8 +122,8 @@ struct ResultView:View{
     }
 }
 struct PromptView: View {
-    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var challengeViewModel=ChallengeViewModel()
+    @Environment(\.presentationMode) var presentationMode
     @State var yOffset: CGFloat = -20
     @Binding var index:Int
     var body: some View {
@@ -167,6 +168,20 @@ struct PromptView: View {
                     )
                 }.offset(x:0,y:-180)
                 Rectangle().fill(Color.white.opacity(0.6)).frame(maxWidth: .infinity,maxHeight: .infinity)
+                Button{
+                    SoundControl()
+                        .playMapSong()
+                    presentationMode.wrappedValue.dismiss()
+                }label: {
+                    Image(systemName: "map")
+                        .resizable()
+                        .foregroundColor(.white)
+                        .font(Font.title.weight(.black))
+                        .frame(width: 30,height: 30)
+                }.frame(width: reader.size.height*0.1, height: 90)
+                    .position(CGPoint(x: reader.size.width-(45)-reader.size.width*0.025,
+                                      y: 45+(reader.size.width*0.025)))
+                    .buttonStyle(CloseButton())
                 if(index>0 && index<4){
                     Button{
                         index-=1
@@ -216,6 +231,7 @@ struct PromptView: View {
 }
 
 struct TakeImageView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var index:Int
     @ObservedObject var challengeViewModel:ChallengeViewModel
     var body: some View {
@@ -223,17 +239,25 @@ struct TakeImageView: View {
             ZStack{
                 
                 CameraPreview(camera: challengeViewModel).ignoresSafeArea(.all,edges: .all)
-                //          Color.gray.ignoresSafeArea(.all,edges: .all)
+//                          Color.gray.ignoresSafeArea(.all,edges: .all)
                 VStack{
                     HStack(alignment: .center,spacing: 0){
                         RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
                             .background(RoundedRectangle(cornerRadius: 8).fill(.white))
                             .frame(width: reader.size.width*0.6,height: 100).padding(.horizontal,40).overlay(Text(challengeViewModel.indexChallenge == 0 ?"Ambil 5 foto barang yang merupakan kebutuhan" : "Ambil 5 foto barang yang merupakan keinginan").font(.custom(Font.balooRegular, size: 30)))
                         Button{
-                            
+                            SoundControl()
+                                .playMapSong()
+                            presentationMode.wrappedValue.dismiss()
                         }label: {
-                            Image(systemName: "xmark").resizable().foregroundColor(.white).frame(width: 30,height: 30)
-                        }.frame(width:90,height: 90).buttonStyle(CloseButton())
+                            Image(systemName: "map")
+                                .resizable()
+                                .foregroundColor(.white)
+                                .font(Font.title.weight(.black))
+                                .frame(width: 30,height: 30)
+                        }.frame(width: reader.size.height*0.1, height: 90)
+                            
+                            .buttonStyle(CloseButton())
                     }.padding(.top,30).padding(.horizontal,80)
                     Spacer()
                     if(challengeViewModel.indexChallenge==0){
