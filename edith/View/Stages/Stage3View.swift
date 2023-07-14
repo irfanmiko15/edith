@@ -201,6 +201,7 @@ struct Stage3View: View {
                                                             }
                                                         }
                                                         stage.resultChild.remove(at: index ?? 0)
+                                                        stage.listImage[index ?? 0].imageCount! += 1
                                                     }
                                                 }
                                                 isDragging = false
@@ -243,6 +244,7 @@ struct Stage3View: View {
                                                             }
                                                         }
                                                         stage.resultParent.remove(at: index ?? 0)
+                                                        stage.listImage[index ?? 0].imageCount! += 1
                                                     }
                                                 }
                                                 isDragging = false

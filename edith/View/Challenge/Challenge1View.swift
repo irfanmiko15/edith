@@ -258,7 +258,7 @@ struct TakeImageView: View {
                     HStack(alignment: .center,spacing: 0){
                         RoundedRectangle(cornerRadius: 8).strokeBorder(Color.orangeSomething, lineWidth: 10)
                             .background(RoundedRectangle(cornerRadius: 8).fill(.white))
-                            .frame(width: reader.size.width*0.6,height: 100).padding(.horizontal,40).overlay(Text(challengeViewModel.indexChallenge == 0 ?"Ambil 5 foto barang yang merupakan kebutuhan" : "Ambil 5 foto barang yang merupakan keinginan").font(.custom(Font.balooRegular, size: 30)))
+                            .frame(width: reader.size.width*0.6,height: 100).padding(.horizontal,40).overlay(Text(challengeViewModel.indexChallenge == 0 ?"Ambil 3 foto barang yang kamu miliki yang merupakan kebutuhan" : "Ambil 3 foto barang yang kamu miliki yang merupakan keinginan").font(.custom(Font.balooRegular, size: 30)))
                         Button{
                             SoundControl()
                                 .playMapSong()
