@@ -329,8 +329,8 @@ struct Module2View: View {
                 }.onAppear{
                     userViewModel.load()
                     print()
-                    modulViewModel.listPromptModul2[12]="\(userViewModel.dataUser.parent.name) bisa jelaskan mengapa kita tidak terlalu butuh air saat akan ada ujian."
-                    modulViewModel.listPromptModul2[15]="\(userViewModel.dataUser.parent.name) bisa jelaskan mengapa kita tidak terlalu butuh air saat akan ada ujian."
+                    modulViewModel.listPromptModul2[12]="\(userViewModel.dataUser.parent.name) bisa jelaskan mengapa kita tidak terlalu butuh mainan saat akan ada ujian."
+                    modulViewModel.listPromptModul2[15]="\(userViewModel.dataUser.parent.name) bisa jelaskan mengapa kita tidak terlalu butuh pelampung saat akan ada ujian."
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarTitle("")
