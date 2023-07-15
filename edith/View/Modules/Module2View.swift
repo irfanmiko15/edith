@@ -42,7 +42,7 @@ struct Module2View: View {
                             .scaledToFill()
                             .blur(radius: 16)
                         Rectangle()
-                            .fill(Color.black)
+                            .fill(Color.white)
                             .frame(maxWidth: .infinity)
                             .opacity(0.2)
                     }

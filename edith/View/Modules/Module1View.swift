@@ -25,7 +25,7 @@ struct Module1View: View {
                             .scaledToFill()
                             .blur(radius: 16)
                         Rectangle()
-                            .fill(Color.gray)
+                            .fill(Color.white)
                             .frame(width: .infinity)
                             .opacity(0.2)
                     }
